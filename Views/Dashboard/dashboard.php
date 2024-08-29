@@ -21,7 +21,7 @@
             <a href="<?=base_url()?>/instructores" class="linkw">
                 <div class="widget-small icon color-cards-instructores"><i class="icon bi bi-people-fill fs-1"></i>
                     <div class="info">
-                        <h4>Instructores</h4>
+                        <h4 class="txtdashboard-cards" >Instructores</h4>
                         <p><b><?=$data['usuarios']?></b></p>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
             <a href="<?=base_url()?>/competencias" class="linkw">
                 <div class="widget-small color-cards-competencias"><i class="icon bi bi-award-fill fs-1"></i>
                     <div class="info">
-                        <h4 >Competencias</h4>
+                        <h4 class="txtdashboard-cards" >Competencias</h4>
                         <p><b><?=$data['usuarios']?></b></p>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
             <a href="<?=base_url()?>/usuarios" class="linkw">
                 <div class="widget-small color-cards-usuarios"><i class="icon bi bi-person-circle fs-1"></i>
                     <div class="info">
-                        <h4>Usuarios</h4>
+                        <h4 class="txtdashboard-cards" >Usuarios</h4>
                         <p><b><?=$data['usuarios']?></b></p>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                 <div class="widget-small  color-cards-programas">
                     <i class="icon bi bi-calendar-week-fill fs-1"></i>
                     <div class="info">
-                        <h4>Programas</h4>
+                        <h4 class="txtdashboard-cards" >Programas</h4>
                         <p><b><?=$data['programas']?></b></p>
                     </div>
                 </div>
@@ -73,6 +73,24 @@
         </a>
     </div>
     <?php }?>
+     <div class="row">
+       <div class="col-md-6">
+         <div class="tile">
+           <h3 class="tile-title">Horas Completadas - Semanales</h3>
+           <div class="ratio ratio-16x9">
+             <div id="salesChart"></div>
+           </div>
+         </div>
+       </div>
+       <div class="col-md-6">
+         <div class="tile">
+           <h3 class="tile-title">Gestion de Horas - Mensuales </h3>
+           <div class="ratio ratio-16x9">
+             <div id="supportRequestChart"></div>
+           </div>
+         </div>
+       </div>
+     </div>
 
 </main>
 <?php footerAdmin($data);?>
