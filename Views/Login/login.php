@@ -34,7 +34,7 @@
             </div>
 
             <form class="login-form" name="formLogin" id="formLogin" action="../../views/Dashboard/dashboard,php">
-                <h3 class="login-head"><i class="bi bi-person me-2"></i>Iniciar Sesión</h3>
+                <h3 class="login-head"><i class="bi bi-person-fill me-2"></i>Iniciar Sesión</h3>
 
                 <div class="mb-3">
                     <br>
