@@ -207,7 +207,67 @@
   }
 }
 
+.info-sigma{
+  margin: 5px;
+  font-size: 15px;
+}
 
+.linkw, .link-info{
+  text-decoration: none; 
+}
+
+.linkw:hover, .link-info:hover {
+
+  text-decoration: none; 
+}
+
+.color-cards-usuarios{
+  background-color: #D97706;
+  
+}
+.color-cards-programas{
+  background-color: #059669;
+}
+.color-cards-competencias{
+  background-color:#DC2626;
+}
+.color-cards-instructores{
+   background-color: #2563EB;
+
+
+}
+
+
+.color-cards-instructores,
+.color-cards-competencias,
+.color-cards-usuarios,
+.color-cards-programas {
+    position: relative; 
+    overflow: hidden; 
+}
+
+.color-cards-instructores::before,
+.color-cards-competencias::before,
+.color-cards-usuarios::before,
+.color-cards-programas::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.295); 
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+    z-index: 1; 
+}
+
+.color-cards-instructores:hover::before,
+.color-cards-competencias:hover::before,
+.color-cards-usuarios:hover::before,
+.color-cards-programas:hover::before {
+    opacity: 1; 
+}
 
 
 .redondo{
@@ -3397,6 +3457,10 @@ textarea.form-control-lg {
 }
 .logo-dashboard{
   margin-bottom: 5px;
+  margin-top: -5px;
+}
+.bi-house-fill{
+  margin-right: 5px;
 }
 
 
