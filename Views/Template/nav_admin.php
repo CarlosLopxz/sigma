@@ -30,8 +30,12 @@
                             <i class="app-menu__icon bi bi-toggles"></i>
                             Roles</a>
                     </li>
+                    
                     <?php }?>
                 </ul>
+                <li><a class="app-menu__item " href="<?=base_url();?>/usuarios">
+                    <i class="app-menu__icon bi bi-people"></i>
+                    <span class="app-menu__label">Usuarios</span></a></li>
             </li>
             <?php }?>
 

@@ -1,5 +1,5 @@
 <?php
-const BASE_URL = "http://localhost/joseramos";
+const BASE_URL = "http://localhost/anderson";
 
 //Zona horaria
 date_default_timezone_set('America/Bogota');

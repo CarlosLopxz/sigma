@@ -25,7 +25,7 @@ class Dashboard extends Controllers
         $data['programas'] = $this->model->cantProgramas();
 
         if ($_SESSION['userData']['idrol'] == RCOORDINADOR) {
-            $this->views->getView($this, "dashboardCoordinador", $data);
+            $this->views->getView($this, "dashboardCliente", $data);
         } else {
             $this->views->getView($this, "dashboard", $data);
         }

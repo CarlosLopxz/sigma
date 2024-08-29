@@ -7,9 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Sigma">
     <link rel="shortcut icon" href="<?=media();?>/images/favicon.ico">
-
-    <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="<?=media();?>/css/main.css">
+<!-- Main CSS-->
+<link rel="stylesheet" type="text/css" href="/sigma/Assets/css/main.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -36,7 +35,7 @@ https://cdn.jsdelivr.net/npm/bootstrap-sweetalert@1.0.1/dist/sweetalert.min.css
                 </div>
             </div>
 
-            <form class="login-form" name="formLogin" id="formLogin" action="">
+            <form class="login-form" name="formLogin" id="formLogin" action="../../views/Dashboard/dashboard,php">
                 <h3 class="login-head"><i class="bi bi-person me-2"></i>Iniciar Sesión</h3>
 
                 <div class="mb-3">
