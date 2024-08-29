@@ -8,7 +8,7 @@ getModal('modalRoles', $data);
         <div>
             <h1><i class="bi bi-toggles"></i> <?=$data['page_title']?>
                 <?php if ($_SESSION['permisosMod']['w']) {?>
-                <button class="btn btn-warning" type="button" data-bs-toggle="modal" onclick="openModal();">
+                <button class="btn btn-warning bnt-rol" type="button" data-bs-toggle="modal" onclick="openModal();">
                     <i class="bi bi-person-plus"></i>
                     Nuevo Rol</button>
                 <?php }?>

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="TPS La Jagua de Ibirico">
-    <link rel="shortcut icon" href="<?=media();?>/images/favicon.ico">
+    <link rel="shortcut icon" href="<?=media();?>/images/faviicon.png">
     <title><?=$data['page_tag']?></title>
 
     <!-- Main CSS-->
@@ -19,9 +19,7 @@
     <!-- Javascripts-->
     <link rel="stylesheet" href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css">
 
-    <link href="
-https://cdn.jsdelivr.net/npm/bootstrap-sweetalert@1.0.1/dist/sweetalert.min.css
-" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-sweetalert@1.0.1/dist/sweetalert.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="<?=media();?>/js/fullcalendar/lib/main.css">
     <script src="<?=media();?>/js/fullcalendar/jquery-3.6.0.min.js"></script>
