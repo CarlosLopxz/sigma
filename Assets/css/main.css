@@ -207,6 +207,14 @@
   }
 }
 
+.cursor-evento{
+    user-select: none;          
+    pointer-events: none;       
+    -webkit-user-drag: none;    
+    -moz-user-select: none;     
+    -ms-user-select: none;      
+}
+
 .info-sigma{
   margin: 5px;
   font-size: 15px;

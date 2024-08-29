@@ -24,7 +24,7 @@
     </section>
     <section class="login-content">
         <div class="logo">
-          <img src="<?=media();?>/images/logonegro.png" alt="">
+          <img src="<?=media();?>/images/logonegro.png" alt="" class="cursor-evento" >
         </div>
         <div class="login-box">
             <div id="divLoading">
