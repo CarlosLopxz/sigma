@@ -8,14 +8,12 @@
     <meta name="author" content="Sigma">
     <link rel="shortcut icon" href="<?=media();?>/images/favicon.ico">
 <!-- Main CSS-->
-<link rel="stylesheet" type="text/css" href="/sigma/Assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="<?=media();?>/css/main.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-    <link href="
-https://cdn.jsdelivr.net/npm/bootstrap-sweetalert@1.0.1/dist/sweetalert.min.css
-" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-sweetalert@1.0.1/dist/sweetalert.min.css" rel="stylesheet">
 
     <title><?=$data['page_tag'];?></title>
 </head>
