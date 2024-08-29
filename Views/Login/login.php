@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Sigma">
-    <link rel="shortcut icon" href="<?=media();?>/images/favicon.ico">
+    <link rel="shortcut icon" href="<?=media();?>/images/faviicon.png">
 <!-- Main CSS-->
 <link rel="stylesheet" type="text/css" href="<?=media();?>/css/main.css">
     <!-- Font-icon css-->
@@ -24,7 +24,7 @@
     </section>
     <section class="login-content">
         <div class="logo">
-            <h1>SigmaSoft</h1>
+          <img src="<?=media();?>/images/logonegro.png" alt="">
         </div>
         <div class="login-box">
             <div id="divLoading">
@@ -38,20 +38,20 @@
 
                 <div class="mb-3">
                     <br>
-                    <label class="form-label">Identificación</label>
+                    <label class="form-label">Usuario</label>
                     <input id="txtIdentificacion" name="txtIdentificacion" class="form-control" type="number"
-                        placeholder="Identificación" autofocus>
+                        placeholder="Numero de Identificación" autofocus>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Contraseña</label>
                     <input id="txtPassword" name="txtPassword" class="form-control" type="password"
-                        placeholder="Contraseña">
+                        placeholder="Ingrese Contraseña">
                 </div>
 
                 <div id="alertLogin" class="text-center"></div>
 
                 <div class="mb-3 btn-container d-grid">
-                    <button type="submit" class="btn btn-primary btn-block"><i
+                    <button type="submit" id="btn-login"  class="btn btn-primary btn-block"><i
                             class="bi bi-box-arrow-in-right me-2 fs-5"></i> Iniciar
                         Sesión</button>
                 </div>
