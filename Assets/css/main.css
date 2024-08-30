@@ -14006,10 +14006,8 @@ color: #fff;
           flex: 1 1 auto;
 }
 
-.treeview.is-expanded [data-toggle=treeview] {
-  border-left-color: #00695C;
-  background: #0d1214;
-}
+
+
 .treeview.is-expanded .treeview-menu {
   max-height: 100vh;
 }
@@ -14039,13 +14037,24 @@ color: #fff;
   color: #fff;
 }
 .treeview-item.active, .treeview-item:hover, .treeview-item:focus {
-  background: #0d1214;
+  background: #3e863e;
   text-decoration: none;
   color: #fff;
 }
 .treeview-item .icon {
   margin-right: 5px;
 }
+.roles-list{
+  background-color: #1f511f;
+}
+
+
+.btn-custom-margin {
+  margin-right: 10px; 
+  margin-top: 18px;
+  margin-bottom: -10px;
+}
+
 
 .treeview-indicator {
   -webkit-transform-origin: center;

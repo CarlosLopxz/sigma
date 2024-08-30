@@ -28,7 +28,7 @@ headerAdmin($data);
                                 <tr>
                                     <th>ID</th>
                                     <th>Identificación</th>
-                                    <th>nombre</th>  
+                                    <th>Nombre</th>  
                                     <th>Rol</th> 
                                     <th>Estado</th>
                                     <th>Acciones</th>

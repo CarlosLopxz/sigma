@@ -18,14 +18,14 @@
             </li>
 
             <?php if (!empty($_SESSION['permisos'][1]['r'])) {?>
-            <li class="treeview">
+            <li class="treeview" id="color-admin-nav">
                 <a class="app-menu__item" href="#" data-toggle="treeview">
                     <i class="app-menu__icon bi bi-person-gear"></i>
                     <span class="app-menu__label">Administrador</span>
                     <i class="treeview-indicator bi bi-chevron-right"></i></a>
                 <ul class="treeview-menu">
                     <?php if (!empty($_SESSION['permisos'][1]['u'])) {?>
-                    <li>
+                    <li class="roles-list">
                         <a class="treeview-item" href="<?=base_url();?>/roles">
                             <i class="app-menu__icon bi bi-toggles"></i>
                             Roles</a>
