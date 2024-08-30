@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			if(strIdentificacion == "" || strPassword == "")
 			{
 				// swal("Por favor", "Escribe la identificación y la contraseña.", "warning");
-				swal({   title: "Por favor",   text: "Escribe la identificación y la contraseña",   imageUrl: "Assets/images/alert_1.gif" });
+				swal({   title: "Por favor",   text: "Escribe la identificación y la contraseña",   imageUrl: "Assets/images/alerta.gif" });
 				return false;
 			}else{
 				divLoading.style.display = "flex";
