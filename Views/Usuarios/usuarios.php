@@ -5,9 +5,9 @@ headerAdmin($data);
 <main class="app-content">
     <div class="app-title">
         <div>
-            <h1><i class="bi bi-people-fill"></i> <?=$data['page_title']?>
+            <h1><i class="bi bi-people"></i> <?=$data['page_title']?>
                 <?php if ($_SESSION['permisosMod']['w']) {?>
-                <button class="btn btn-warning bnt-rol" type="button" data-bs-toggle="modal" onclick="openModal();">
+                <button class="btn btn-warning" type="button" data-bs-toggle="modal" onclick="openModal();">
                     <i class="bi bi-person-plus"></i>
                     Nuevo Usuario</button>
                 <?php }?>
@@ -28,8 +28,11 @@ headerAdmin($data);
                                 <tr>
                                     <th>ID</th>
                                     <th>Identificación</th>
-                                    <th>Nombre</th>  
-                                    <th>Rol</th> 
+                                    <th>Nombres</th>
+                                    <th>Apellidos</th>
+                                    <th>Telefono</th>
+                                    <th>Correo</th>
+                                    <th>Rol</th>
                                     <th>Estado</th>
                                     <th>Acciones</th>
                                 </tr>
