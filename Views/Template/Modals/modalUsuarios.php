@@ -32,8 +32,32 @@
                             <div class="modal-body">
                                 <label for="txtnombresusuario"">nombres<span class="
                                     required">*</span></label>
-                                <input type="text" class="form-control valid validNumber" id="txtnombresusuario"
-                                    name="txtnombresusuario" required="" maxlength="30"
+                                <input type="text" class="form-control valid validText" id="txtNombresUsuario"
+                                    name="txtNombresUsuario" required="" maxlength="30"
+                                    onkeypress="return controlTag(event);">
+                            </div>
+
+                            <div class="modal-body">
+                                <label for="txtApellidosUsuario"">Apellidos<span class="
+                                    required">*</span></label>
+                                <input type="text" class="form-control valid validText" id="txtApellidosUsuario"
+                                    name="txtApellidosUsuario" required="" maxlength="30"
+                                    onkeypress="return controlTag(event);">
+                            </div>
+
+                            <div class="modal-body">
+                                <label for="txtTelefonoUsuario"">Telefono<span class="
+                                    required">*</span></label>
+                                <input type="text" class="form-control valid validNumber" id="txtTelefonoUsuario"
+                                    name="txtTelefonoUsuario" required="" maxlength="10"
+                                    onkeypress="return controlTag(event);">
+                            </div>
+
+                            <div class="modal-body">
+                                <label for="txtCorreoUsuario"">Correo Electronico<span class="
+                                    required">*</span></label>
+                                <input type="text" class="form-control valid validText" id="txtCorreoUsuario"
+                                    name="txtCorreoUsuario" required="" maxlength="30"
                                     onkeypress="return controlTag(event);">
                             </div>
 

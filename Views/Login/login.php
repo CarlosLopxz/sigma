@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Sigma">
     <link rel="shortcut icon" href="<?=media();?>/images/faviicon.png">
-<!-- Main CSS-->
-<link rel="stylesheet" type="text/css" href="<?=media();?>/css/main.css">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="<?=media();?>/css/main.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
     <title><?=$data['page_tag'];?></title>
-</head>
+    </head>
 
 <body>
     <section class="material-half-bg">
@@ -25,7 +25,7 @@
     </section>
     <section class="login-content">
         <div class="logo">
-          <img src="<?=media();?>/images/logonegro.png" alt="" class="cursor-evento" >
+            <img src="<?=media();?>/images/logonegro.png" alt="" class="cursor-evento">
         </div>
         <div class="login-box">
             <div id="divLoading">
@@ -34,28 +34,30 @@
                 </div>
             </div>
 
-            <form class="login-form" name="formLogin" id="formLogin" action="../../views/Dashboard/dashboard,php">
-                <h3 class="login-head"><i class="bi bi-person-fill me-2"></i>Iniciar Sesión</h3>
+            <form class="login-form" name="formLogin" id="formLogin" action="../../views/Dashboard/dashboard.php">
+                <h3 class="login-head"><i class="bi bi-person-circle me-2"></i>Iniciar Sesión</h3>
 
-                <div class="mb-3">
-                    <br>
-                    <label class="form-label">Usuario</label>
-                    <input id="txtIdentificacion" name="txtIdentificacion" class="form-control" type="number"
-                        placeholder="Numero de Identificación" autofocus>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Contraseña</label>
-                    <input id="txtPassword" name="txtPassword" class="form-control" type="password"
-                        placeholder="Ingrese Contraseña">
-                </div>
-
-                <div id="alertLogin" class="text-center"></div>
-
-                <div class="mb-3 btn-container d-grid">
-                    <button type="submit" id="btn-login"  class="btn btn-primary btn-block"><i
-                            class="bi bi-box-arrow-in-right me-2 fs-5"></i> Iniciar
-                        Sesión</button>
-                </div>
+                <!-- Campo de Identificación con icono -->
+                 <div class='login-page'>
+                     <div class="mb-3 input-icon identificacion">
+                         <br>
+                         <label class="form-label">Usuario</label>
+                         <input id="txtIdentificacion" name="txtIdentificacion" class="form-control" type="number"
+                         placeholder="Número de Identificación" autofocus>
+                        </div>
+                        
+                        <!-- Campo de Contraseña con icono -->
+                        <div class="mb-3 input-icons password">
+                            <label class="form-label">Contraseña</label>
+                            <input id="txtPassword" name="txtPassword" class="form-control" type="password"
+                            placeholder="Ingrese Contraseña">
+                        </div>
+                        <div id="alertLogin" class="text-center"></div>
+                        <div class="mb-3 btn-container d-grid  block-login">
+                            <button type="submit" id="btn-login" class="btn btn-primary btn-block"><i
+                            class="bi bi-box-arrow-in-right me-2 fs-5"></i> Iniciar Sesión</button>
+                        </div>
+                    </div>
             </form>
 
         </div>
@@ -63,7 +65,7 @@
 
     <!-- ORIGINAL -->
     <script>
-    const base_url = "<?=base_url();?>";
+        const base_url = "<?=base_url();?>";
     </script>
 
     <!-- Essential javascripts for application to work-->
@@ -77,19 +79,16 @@
 
     <script src="<?=media();?>/js/main.js"></script>
     <script type="text/javascript">
-    // Login Page Flipbox control
-    $('.login-content [data-toggle="flip"]').click(function() {
-        $('.login-box').toggleClass('flipped');
-        return false;
-    });
+        // Login Page Flipbox control
+        $('.login-content [data-toggle="flip"]').click(function () {
+            $('.login-box').toggleClass('flipped');
+            return false;
+        });
     </script>
 
     <!-- JavaScript-->
     <script src="<?=media();?>/js/plugins/pace.min.js"></script>
-    <script src="
-https://cdn.jsdelivr.net/npm/bootstrap-sweetalert@1.0.1/dist/sweetalert.min.js
-"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-sweetalert@1.0.1/dist/sweetalert.min.js"></script>
     <script src="<?=media();?>/js/<?=$data['page_functions_js'];?>"></script>
 
 </body>

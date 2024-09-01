@@ -15165,3 +15165,68 @@ color: #fff;
 .user .user-settings label {
   color: #666;
 }
+
+/* Login icons */
+
+     .input-icon {
+      position: relative;
+  }
+
+  .input-icon input {
+      padding-left: 40px; 
+      }
+
+  .input-icon::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 71px;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      color: #ccc;
+      opacity: .5;
+  }
+  .input-icon.identificacion::before {
+      background-image: url('../images/id-card.png');
+  }
+
+/* contraseña */
+
+     .input-icons {
+      position: relative;
+  }
+
+  .input-icons input {
+      padding-left: 40px; 
+      }
+
+  .input-icons::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 47px;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      color: #ccc;
+      opacity: .5;
+  }
+  .input-icons.password::before {
+      background-image: url('../images/lock.png');
+  }
+
+
+ .login-page{
+  margin-bottom: 20px;
+  margin-top: -10px;
+ }
+
+.block-login{
+  text-align: center;
+  align-items: center;
+}
