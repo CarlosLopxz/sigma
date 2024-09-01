@@ -1,112 +1,103 @@
-let tableUsuarios; 
+let tableProgramas; 
 let rowTable = "";
 let divLoading = document.querySelector("#divLoading");
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function() {
 
-    tableUsuarios = $('#tableUsuarios').dataTable( {
-        "aProcessing":true,
-        "aServerSide":true,
+    tableProgramas = $('#tableProgramas').dataTable({
+        "aProcessing": true,
+        "aServerSide": true,
         "language": {
             "url": "./es.json"
         },
-        "ajax":{
-            "url": " "+base_url+"/Usuarios/getUsuarios",
-            "dataSrc":""
+        "ajax": {
+            "url": base_url + "/Programas/getProgramas",
+            "dataSrc": ""
         },
-        "columns":[
-            {"data":"ideusuario"}, /// el nombre en la tabla de dahboard 
-            {"data":"identificacion"},
-            {"data":"nombres"},
-            {"data":"nombrerol"},
-            {"data":"status"},
-            {"data":"options"}
-
+        "columns": [
+            {"data": "ideprograma"}, // el nombre en la tabla de dashboard 
+            {"data": "identificacion"},
+            {"data": "nombres"},
+            {"data": "nombrerol"},
+            {"data": "status"},
+            {"data": "options"}
         ],
         'dom': 'lBfrtip',
         'buttons': [
             {
                 "extend": "copyHtml5",
                 "text": "<i class='far fa-copy'></i> Copiar",
-                "titleAttr":"Copiar",
+                "titleAttr": "Copiar",
                 "className": "btn btn-warning btn-custom-margin"
-            },{
+            }, {
                 "extend": "excelHtml5",
                 "text": "<i class='fas fa-file-excel'></i> Excel",
-                "titleAttr":"Exportar a Excel",
+                "titleAttr": "Exportar a Excel",
                 "className": "btn btn-success btn-custom-margin"
-            },{
+            }, {
                 "extend": "pdfHtml5",
                 "text": "<i class='fas fa-file-pdf'></i> PDF",
-                "titleAttr":"Exportar a PDF",
+                "titleAttr": "Exportar a PDF",
                 "className": "btn btn-danger btn-custom-margin"
-            },{
+            }, {
                 "extend": "csvHtml5",
                 "text": "<i class='fas fa-file-csv'></i> CSV",
-                "titleAttr":"Exportar a CSV",
+                "titleAttr": "Exportar a CSV",
                 "className": "btn btn-info btn-custom-margin"
             }
         ],
-        "resonsieve":"true",
+        "resonsieve": "true",
         "bDestroy": true,
         "iDisplayLength": 10,
-        "order":[[0,"desc"]]  
+        "order": [[0, "desc"]]
     });
 
-    
-
-
-
-	if(document.querySelector("#formUsuario")){
-        let formUsuario = document.querySelector("#formUsuario");
-        formUsuario.onsubmit = function(e) {
+    if (document.querySelector("#formPrograma")) {
+        let formPrograma = document.querySelector("#formPrograma");
+        formPrograma.onsubmit = function(e) {
             e.preventDefault();
-            var intIdeUsuario = document.querySelector('#ideUsuario').value;
-            let strIdentificacionUsuario = document.querySelector('#txtIdentificacionUsuario').value;
-            let strtxtnombresusuario = document.querySelector('#txtnombresusuario').value; // estamos agregando una nueva funcion de modals y en js esta leyendo lo que estab en modals 
-            let strRolUsuario = document.querySelector('#txtRolUsuario').value;
+            var intIdePrograma = document.querySelector('#idePrograma').value;
+            let strIdentificacionPrograma = document.querySelector('#txtIdentificacionPrograma').value;
+            let strnombresprograma = document.querySelector('#txtnombresprograma').value;
+            let strRolPrograma = document.querySelector('#txtRolPrograma').value;
             let intStatus = document.querySelector('#listStatus').value;
 
-            if(strIdentificacionUsuario == ''||strtxtnombresusuario == '' || strRolUsuario == '') /// PARA VALIDADR  Y TOCA BUSCAR UN CONTROLER inser 
-            {
-                swal("Atención", "Todos los campos son obligatorios." , "error");
+            if (strIdentificacionPrograma == '' || strnombresprograma == '' || strRolPrograma == '') {
+                swal("Atención", "Todos los campos son obligatorios.", "error");
                 return false;
             }
             let elementsValid = document.getElementsByClassName("valid");
-            for (let i = 0; i < elementsValid.length; i++) { 
-                if(elementsValid[i].classList.contains('is-invalid')) { 
-                    swal("Atención", "Por favor verifique los campos en rojo." , "error");
+            for (let i = 0; i < elementsValid.length; i++) {
+                if (elementsValid[i].classList.contains('is-invalid')) {
+                    swal("Atención", "Por favor verifique los campos en rojo.", "error");
                     return false;
-                } 
-            } 
+                }
+            }
             divLoading.style.display = "flex";
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            let ajaxUrl = base_url+'/Usuarios/setUsuario'; /// LA CONECION PARA INSERTAR AL USUARIO 
-            let formData = new FormData(formUsuario);
-            request.open("POST",ajaxUrl,true);
+            let ajaxUrl = base_url + '/Programas/setPrograma';
+            let formData = new FormData(formPrograma);
+            request.open("POST", ajaxUrl, true);
             request.send(formData);
-            request.onreadystatechange = function(){
-                if(request.readyState == 4 && request.status == 200){
+            request.onreadystatechange = function() {
+                if (request.readyState == 4 && request.status == 200) {
                     let objData = JSON.parse(request.responseText);
-                    if(objData.status)
-                    {
-                        if(rowTable == ""){
-                            tableUsuarios.api().ajax.reload();
-                        }else{
-                            htmlStatus = intStatus == 1 ? 
-                            '<span class="badge text-bg-success">Activo</span>' : 
-                            '<span class="badge text-bg-danger">Inactivo</span>';
-                            // tableUsuarios.api().ajax.reload();
-                           rowTable.cells[1].textContent =  strIdentificacionUsuario;
-                        //    rowTable.cells[2].textContent =  strRolUsuario;
-                           rowTable.cells[2].textContent = document.querySelector("#txtRolUsuario").selectedOptions[0].text;
+                    if (objData.status) {
+                        if (rowTable == "") {
+                            tableProgramas.api().ajax.reload();
+                        } else {
+                            htmlStatus = intStatus == 1 ?
+                                '<span class="badge text-bg-success">Activo</span>' :
+                                '<span class="badge text-bg-danger">Inactivo</span>';
+                            rowTable.cells[1].textContent = strIdentificacionPrograma;
+                            rowTable.cells[2].textContent = document.querySelector("#txtRolPrograma").selectedOptions[0].text;
                             rowTable.cells[3].innerHTML = htmlStatus;
-                           rowTable = "";
+                            rowTable = "";
                         }
-                        $('#modalFormUsuario').modal("hide");
-                        formUsuario.reset();
-                        swal("Usuario", objData.msg ,"success");
-                    }else{
-                        swal("Error", objData.msg , "error");
+                        $('#modalFormPrograma').modal("hide");
+                        formPrograma.reset();
+                        swal("Programa", objData.msg, "success");
+                    } else {
+                        swal("Error", objData.msg, "error");
                     }
                 }
                 divLoading.style.display = "none";
@@ -118,91 +109,87 @@ document.addEventListener('DOMContentLoaded', function(){
 }, false);
 
 window.addEventListener('load', function() {
-    fntRolesUsuario();
+    fntRolesPrograma();
 }, false);
 
-function fntRolesUsuario(){
-if(document.querySelector('#txtRolUsuario')){
-    let ajaxUrl = base_url+'/Roles/getSelectRoles';
-    let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    request.open("GET",ajaxUrl,true);
-    request.send();
-    request.onreadystatechange = function(){
-        if(request.readyState == 4 && request.status == 200){
-            document.querySelector('#txtRolUsuario').innerHTML = request.responseText;
-            // $('#txtRolUsuario').selectpicker('render');
-            $('.txtRolUsuario').selectpicker('refresh');
-        }
-    }
-}
-}
-
-function fntViewInfo(ideusuario){
-    let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    let ajaxUrl = base_url+'/Usuarios/getUsuario/'+ideusuario;
-    request.open("GET",ajaxUrl,true);
-    request.send();
-    request.onreadystatechange = function(){
-        if(request.readyState == 4 && request.status == 200){
-            let objData = JSON.parse(request.responseText);
-            if(objData.status)
-            {
-
-                let estadoUsuario = objData.data.status == 1 ? 
-                '<span class="badge text-bg-success">Activo</span>' : 
-                '<span class="badge text-bg-danger">Inactivo</span>';
-
-                document.querySelector("#celIdeUsuario").innerHTML = objData.data.ideusuario;
-                document.querySelector("#celIdentificacionUsuario").innerHTML = objData.data.identificacion;
-                document.querySelector("#celRolUsuario").innerHTML = objData.data.rolid;
-                document.querySelector("#celEstadoUsuario").innerHTML = estadoUsuario;
-                // document.querySelector("#celNombrePrograma").innerHTML = objData.data.nombreprograma;
-                
-                $('#modalViewUsuario').modal('show');
-            }else{
-                swal("Error", objData.msg , "error");
+function fntRolesPrograma() {
+    if (document.querySelector('#txtRolPrograma')) {
+        let ajaxUrl = base_url + '/Roles/getSelectRoles';
+        let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        request.open("GET", ajaxUrl, true);
+        request.send();
+        request.onreadystatechange = function() {
+            if (request.readyState == 4 && request.status == 200) {
+                document.querySelector('#txtRolPrograma').innerHTML = request.responseText;
+                $('.txtRolPrograma').selectpicker('refresh');
             }
         }
     }
 }
 
-function fntEditInfo(element, ideusuario){
+function fntViewInfo(ideprograma) {
+    let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    let ajaxUrl = base_url + '/Programas/getPrograma/' + ideprograma;
+    request.open("GET", ajaxUrl, true);
+    request.send();
+    request.onreadystatechange = function() {
+        if (request.readyState == 4 && request.status == 200) {
+            let objData = JSON.parse(request.responseText);
+            if (objData.status) {
+
+                let estadoPrograma = objData.data.status == 1 ?
+                    '<span class="badge text-bg-success">Activo</span>' :
+                    '<span class="badge text-bg-danger">Inactivo</span>';
+
+                document.querySelector("#celIdePrograma").innerHTML = objData.data.ideprograma;
+                document.querySelector("#celIdentificacionPrograma").innerHTML = objData.data.identificacion;
+                document.querySelector("#celRolPrograma").innerHTML = objData.data.rolid;
+                document.querySelector("#celEstadoPrograma").innerHTML = estadoPrograma;
+
+                $('#modalViewPrograma').modal('show');
+            } else {
+                swal("Error", objData.msg, "error");
+            }
+        }
+    }
+}
+
+function fntEditInfo(element, ideprograma) {
     rowTable = element.parentNode.parentNode.parentNode;
-    document.querySelector('#titleModal').innerHTML ="Actualizar Usuario";
+    document.querySelector('#titleModal').innerHTML = "Actualizar Programa";
     document.querySelector('.modal-header').classList.replace("headerRegister", "headerUpdate");
     document.querySelector('#btnActionForm').classList.replace("btn-primary", "btn-info");
-    document.querySelector('#btnText').innerHTML ="Actualizar";
+    document.querySelector('#btnText').innerHTML = "Actualizar";
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    let ajaxUrl = base_url+'/Usuarios/getUsuario/'+ideusuario;
-    request.open("GET",ajaxUrl,true);
+    let ajaxUrl = base_url + '/Programas/getPrograma/' + ideprograma;
+    request.open("GET", ajaxUrl, true);
     request.send();
-    request.onreadystatechange = function(){
+    request.onreadystatechange = function() {
 
-        if(request.readyState == 4 && request.status == 200){
+        if (request.readyState == 4 && request.status == 200) {
             let objData = JSON.parse(request.responseText);
-            if(objData.status)
-            {
-                document.querySelector("#ideUsuario").value = objData.data.ideusuario;
-                document.querySelector("#txtIdentificacionUsuario").value = objData.data.identificacion;
-                document.querySelector("#txtRolUsuario").value =objData.data.idrol;
+            if (objData.status) {
+                document.querySelector("#idePrograma").value = objData.data.ideprograma;
+                document.querySelector("#txtIdentificacionPrograma").value = objData.data.identificacion;
+                document.querySelector("#txtRolPrograma").value = objData.data.idrol;
 
                 // ESTADO ACTIVO O INACTIVO
-                if(objData.data.status == 1){
+                if (objData.data.status == 1) {
                     document.querySelector("#listStatus").value = 1;
-                }else{
+                } else {
                     document.querySelector("#listStatus").value = 2;
                 }
-                
+
             }
         }
-        $('#modalFormUsuario').modal('show');
+        $('#modalFormPrograma').modal('show');
     }
 }
 
-function fntDelInfo(ideusuario){
+function fntDelInfo(ideprograma) {
     swal({
-        title: "Eliminar Usuario",
-        text: "¿Realmente quiere eliminar al Usuario?",
+        title: "Eliminar Programa",
+        text: "¿Realmente quiere eliminar el Programa?",
         type: "warning",
         showCancelButton: true,
         confirmButtonText: "Si, eliminar!",
@@ -210,24 +197,22 @@ function fntDelInfo(ideusuario){
         closeOnConfirm: false,
         closeOnCancel: true
     }, function(isConfirm) {
-        
-        if (isConfirm) 
-        {
+
+        if (isConfirm) {
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            let ajaxUrl = base_url+'/Usuarios/delUsuario';
-            let strData = "ideUsuario="+ideusuario;
-            request.open("POST",ajaxUrl,true);
+            let ajaxUrl = base_url + '/Programas/delPrograma';
+            let strData = "idePrograma=" + ideprograma;
+            request.open("POST", ajaxUrl, true);
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             request.send(strData);
-            request.onreadystatechange = function(){
-                if(request.readyState == 4 && request.status == 200){
+            request.onreadystatechange = function() {
+                if (request.readyState == 4 && request.status == 200) {
                     let objData = JSON.parse(request.responseText);
-                    if(objData.status)
-                    {
-                        swal("Eliminar!", objData.msg , "success");
-                        tableUsuarios.api().ajax.reload();
-                    }else{
-                        swal("Atención!", objData.msg , "error");
+                    if (objData.status) {
+                        swal("Eliminar!", objData.msg, "success");
+                        tableProgramas.api().ajax.reload();
+                    } else {
+                        swal("Atención!", objData.msg, "error");
                     }
                 }
             }
@@ -237,19 +222,13 @@ function fntDelInfo(ideusuario){
 
 }
 
-
-function openModal()
-{
+function openModal() {
     rowTable = "";
-    document.querySelector('#ideUsuario').value ="";
+    document.querySelector('#idePrograma').value = "";
     document.querySelector('.modal-header').classList.replace("headerUpdate", "headerRegister");
     document.querySelector('#btnActionForm').classList.replace("btn-info", "btn-primary");
-    document.querySelector('#btnText').innerHTML ="Guardar";
-    document.querySelector('#titleModal').innerHTML = "Nuevo Usuario";
-    document.querySelector("#formUsuario").reset();
-    $('#modalFormUsuario').modal('show');
+    document.querySelector('#btnText').innerHTML = "Guardar";
+    document.querySelector('#titleModal').innerHTML = "Nuevo Programa";
+    document.querySelector("#formPrograma").reset();
+    $('#modalFormPrograma').modal('show');
 }
-
-
-
-
