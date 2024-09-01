@@ -14016,6 +14016,10 @@ color: #fff;
           transform: rotate(90deg);
 }
 
+.margen-usuarios{
+  margin-left: 10px;
+}
+
 .treeview-menu {
   max-height: 0;
   overflow: hidden;

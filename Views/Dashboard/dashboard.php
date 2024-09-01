@@ -19,7 +19,7 @@
         <?php if (!empty($_SESSION['permisos'][2]['d'])) {?>
         <div class="col-md-6 col-lg-3">
             <a href="<?=base_url()?>/instructores" class="linkw">
-                <div class="widget-small icon color-cards-instructores"><i class="icon bi bi-people-fill fs-1"></i>
+                <div class="widget-small icon color-cards-instructores"><i class="icon bi bi-file-earmark-person-fill fs-1"></i>
                     <div class="info">
                         <h4 class="txtdashboard-cards" >Instructores</h4>
                         <p><b><?=$data['usuarios']?></b></p>
@@ -48,7 +48,7 @@
         <?php if (!empty($_SESSION['permisos'][2]['d'])) {?>
         <div class="col-md-6 col-lg-3">
             <a href="<?=base_url()?>/usuarios" class="linkw">
-                <div class="widget-small color-cards-usuarios"><i class="icon bi bi-person-circle fs-1"></i>
+                <div class="widget-small color-cards-usuarios"><i class="icon bi bi-people-fill fs-1"></i>
                     <div class="info">
                         <h4 class="txtdashboard-cards" >Usuarios</h4>
                         <p><b><?=$data['usuarios']?></b></p>
