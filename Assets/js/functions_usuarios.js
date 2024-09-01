@@ -158,10 +158,10 @@ function fntViewInfo(ideusuario){
 
                 document.querySelector("#celIdeUsuario").innerHTML = objData.data.ideusuario;
                 document.querySelector("#celIdentificacionUsuario").innerHTML = objData.data.identificacion;
-                // document.querySelector("#celNombresUsuario").innerHTML = objData.data.nombres;
-                // document.querySelector("#celApellidosUsuario").innerHTML = objData.data.apellidos;
-                // document.querySelector("#celTelefonoUsuario").innerHTML = objData.data.telefono;
-                // document.querySelector("#celCorreoUsuario").innerHTML = objData.data.correo;
+                document.querySelector("#celNombresUsuario").innerHTML = objData.data.nombres;
+                document.querySelector("#celApellidosUsuario").innerHTML = objData.data.apellidos;
+                document.querySelector("#celTelefonoUsuario").innerHTML = objData.data.telefono;
+                document.querySelector("#celCorreoUsuario").innerHTML = objData.data.correo;
                 document.querySelector("#celRolUsuario").innerHTML = objData.data.rolid;
                 document.querySelector("#celEstadoUsuario").innerHTML = estadoUsuario;
                 
