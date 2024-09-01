@@ -33,6 +33,7 @@
                     
                     <?php }?>
                 </ul>
+<<<<<<< Updated upstream
                 
                 <li>
                     <a class="app-menu__item " href="<?=base_url();?>/usuarios">
@@ -44,6 +45,15 @@
                     <i class="app-menu__icon bi bi-calendar-week-fill"></i>
                     <span class="app-menu__label">Programas</span></a>
                 </li>
+=======
+                <li><a class="app-menu__item " href="<?=base_url();?>/usuarios">
+                    <i class="app-menu__icon bi bi-people"></i>
+                    <span class="app-menu__label">Usuarios</span></a></li>
+
+                <li><a class="app-menu__item " href="<?=base_url();?>/usuarios">
+                    <i class="app-menu__icon bi bi-calendar-week-fill"></i>
+                    <span class="app-menu__label">Programas</span></a></li>
+>>>>>>> Stashed changes
             </li>
             <?php }?>
 
