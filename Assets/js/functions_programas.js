@@ -1,6 +1,9 @@
 let tableProgramas; 
 let rowTable = "";
 let divLoading = document.querySelector("#divLoading");
+document.addEventListener('DOMContentLoaded', function(){
+
+
     tableProgramas = $('#tableProgramas').dataTable( {
         "aProcessing": true,
         "aServerSide": true,
@@ -96,9 +99,9 @@ let divLoading = document.querySelector("#divLoading");
                             tableUsuarios.api().ajax.reload();
                             rowTable.cells[1].textContent =  strIdePrograma;
                             rowTable.cells[2].textContent = document.querySelector("#txtRolUsuario").selectedOptions[0].text;
-                             rowTable.cells[3].innerHTML = htmlStatus;
+                            rowTable.cells[3].innerHTML = htmlStatus;
                             rowTable = "";
-                         }
+                        }
                             
                         $('#modalFormPrograma').modal("hide");
                         formPrograma.reset();
@@ -114,9 +117,9 @@ let divLoading = document.querySelector("#divLoading");
     }
 }, false);
 
-// window.addEventListener('load', function() {
-//     fntRolesUsuario();
-// }, false);
+window.addEventListener('load', function() {
+    fntRolesUsuario();
+}, false);
 
 // function fntRolesUsuario() {
 //     if (document.querySelector('#txtRolUsuario')) {
