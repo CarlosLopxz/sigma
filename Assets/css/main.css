@@ -5830,6 +5830,16 @@ color: #fff;
   border-top-width: var(--bs-list-group-border-width);
 }
 
+.margen-btn{
+  margin: 10px;
+  margin-top: 20px;
+  margin-bottom: -10px;
+}
+
+.espaciado{
+  margin-left: 20px;
+}
+
 .list-group-horizontal {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
