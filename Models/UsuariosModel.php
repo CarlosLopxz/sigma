@@ -1,9 +1,12 @@
 <?php
-class UsuariosModel extends Mysql /// aca insertas el nuebo codigo 
+class UsuariosModel extends Mysql
 {
     private $intIdeUsuario;
     private $strIdentificacionUsuario;
-    private $strnombresusuario;
+    private $strNombresUsuario;
+    private $strApellidosUsuario;
+    private $strTelefonoUsuario;
+    private $strCorreoUsuario;
     private $strPassword;
     private $strRolUsuario;
     private $strStatusUsuario;
@@ -13,15 +16,21 @@ class UsuariosModel extends Mysql /// aca insertas el nuebo codigo
         parent::__construct();
     }
 
-    public function insertUsuario(  /// siempre ver el (inser) del nombre del progrma 
+    public function insertUsuario(
         string $identificacion,
         string $nombres,
+        string $apellidos,
+        string $telefono,
+        string $correo,
         string $password,
         string $rol,
         string $status
     ) {
-        $this->strIdentificacionUsuario = $identificacion;  /// tambien se pone lo mismo 
-        $this->strnombresusuario = $nombres;                   
+        $this->strIdentificacionUsuario = $identificacion;
+        $this->strNombresUsuario = $nombres;
+        $this->strApellidosUsuario = $apellidos;
+        $this->strTelefonoUsuario = $telefono;
+        $this->strCorreoUsuario = $correo;
         $this->strPassword = $password;
         $this->strRolUsuario = $rol;
         $this->strStatusUsuario = $status;
@@ -34,12 +43,15 @@ class UsuariosModel extends Mysql /// aca insertas el nuebo codigo
         if (empty($request)) {
 
             // $rs = 1;
-            $query_insert = "INSERT INTO tbl_usuarios(identificacion,nombres,password,rolid,status)    
-            VALUES(?,?,?,?,?)";
-/// se coloca el nombre de la tabla que necesitas y que estas haciendo y se le coloca su respetico (?)
+            $query_insert = "INSERT INTO tbl_usuarios(identificacion,nombres,apellidos,telefono,correo,password,rolid,status)
+            VALUES(?,?,?,?,?,?,?,?)";
+
             $arrData = array(
                 $this->strIdentificacionUsuario,
-                $this->strnombresusuario,
+                $this->strNombresUsuario,
+                $this->strApellidosUsuario,
+                $this->strTelefonoUsuario,
+                $this->strCorreoUsuario,
                 $this->strPassword,
                 $this->strRolUsuario,
                 $this->strStatusUsuario
@@ -60,7 +72,7 @@ class UsuariosModel extends Mysql /// aca insertas el nuebo codigo
         if($_SESSION['idUser'] != 1 ){
             $whereAdmin = " and p.ideusuario != 1 ";
         }
-        $sql = "SELECT u.ideusuario,u.identificacion,u.nombres,u.rolid,u.status,r.idrol,r.nombrerol 
+        $sql = "SELECT u.ideusuario,u.identificacion,u.nombres,u.apellidos,u.telefono,u.correo,u.rolid,u.status,r.idrol,r.nombrerol 
                 FROM tbl_usuarios u 
                 INNER JOIN rol r
                 ON u.rolid = r.idrol ".$whereAdmin;
@@ -71,7 +83,7 @@ class UsuariosModel extends Mysql /// aca insertas el nuebo codigo
 
     public function selectUsuario(int $ideusuario){
         $this->intIdeUsuario = $ideusuario;
-        $sql = "SELECT u.ideusuario,u.identificacion,u.rolid,u.status,r.idrol,r.nombrerol
+        $sql = "SELECT u.ideusuario,u.identificacion,u.nombres,u.apellidos,u.telefono,u.correo,u.rolid,u.status,r.idrol,r.nombrerol
                 FROM tbl_usuarios u
                 INNER JOIN rol r
                 ON u.rolid = r.idrol
@@ -84,16 +96,28 @@ class UsuariosModel extends Mysql /// aca insertas el nuebo codigo
     public function updateUsuario(
         int $ideusuario,
         string $identificacion,
+        string $nombres,
+        string $apellidos,
+        string $telefono,
+        string $correo,
         string $rol,
         string $status
     ) {
 
         $this->intIdeUsuario = $ideusuario;
         $this->strIdentificacionUsuario = $identificacion;
+        $this->strNombresUsuario = $nombres;
+        $this->strApellidosUsuario = $apellidos;
+        $this->strTelefonoUsuario = $telefono;
+        $this->strCorreoUsuario = $correo;
         $this->strRolUsuario = $rol;
         $this->strStatus = $status;
 
         $sql = "SELECT * FROM tbl_usuarios WHERE (identificacion = '{$this->strIdentificacionUsuario}' AND ideusuario != $this->intIdeUsuario)
+        OR (nombres = '{$this->strNombresUsuario}' AND ideusuario != $this->intIdeUsuario)
+        OR (apellidos = '{$this->strApellidosUsuario}' AND ideusuario != $this->intIdeUsuario)
+        OR (telefono = '{$this->strTelefonoUsuario}' AND ideusuario != $this->intIdeUsuario)
+        OR (correo = '{$this->strCorreoUsuario}' AND ideusuario != $this->intIdeUsuario)
         OR (rolid = '{$this->strRolUsuario}' AND ideusuario != $this->intIdeUsuario)";
         $request != $this->select_all($sql);
 
@@ -101,11 +125,15 @@ class UsuariosModel extends Mysql /// aca insertas el nuebo codigo
             // TODO PENDIENTE LA VALIDACIÓN SI EL CODIGO ES IGUAL QUE EL CODIGO DE OTRO USUARIO
             if (($this->strIdentificacionUsuario != "" OR $this->strIdentificacionUsuario !=  $this->strIdentificacionUsuario)) {
 
-                $sql = "UPDATE tbl_usuarios SET identificacion=?, rolid=?, status=?
+                $sql = "UPDATE tbl_usuarios SET identificacion=?, nombres=?, apellidos=?, telefono=?, correo=?, rolid=?, status=?
 						WHERE ideusuario = $this->intIdeUsuario ";
 
                 $arrData = array(
                     $this->strIdentificacionUsuario,
+                    $this->strNombresUsuario,
+                    $this->strApellidosUsuario,
+                    $this->strTelefonoUsuario,
+                    $this->strCorreoUsuario,
                     $this->strRolUsuario,
                     $this->strStatus
                 );

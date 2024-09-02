@@ -35,7 +35,10 @@ class Usuarios extends Controllers
             } else {
                 $intIdeUsuario = intval($_POST['ideUsuario']);
                 $strIdentificacionUsuario = strClean($_POST['txtIdentificacionUsuario']);
-                $strnombresusuario = strClean($_POST['txtnombresusuario']);
+                $strNombresUsuario = strClean($_POST['txtNombresUsuario']);
+                $strApellidossUsuario = strClean($_POST['txtApellidosUsuario']);
+                $strTelefonoUsuario = strClean($_POST['txtTelefonoUsuario']);
+                $strCorreoUsuario = strClean($_POST['txtCorreoUsuario']);
                 $strRolUsuario = intval(strClean($_POST['txtRolUsuario']));
                 $intStatus = intval(strClean($_POST['listStatus']));
 
@@ -47,7 +50,10 @@ class Usuarios extends Controllers
                     if ($_SESSION['permisosMod']['w']) {
                         $request_user = $this->model->insertUsuario(
                             $strIdentificacionUsuario,
-                            $strnombresusuario, /// ya insertamos nombres y nos vamos para models 
+                            $strNombresUsuario,
+                            $strApellidossUsuario,
+                            $strTelefonoUsuario, 
+                            $strCorreoUsuario,
                             $strPassword,
                             $strRolUsuario,
                             $intStatus
@@ -61,6 +67,10 @@ class Usuarios extends Controllers
                         $request_user = $this->model->updateUsuario(
                             $intIdeUsuario,
                             $strIdentificacionUsuario,
+                            $strNombresUsuario,
+                            $strApellidossUsuario,
+                            $strTelefonoUsuario, 
+                            $strCorreoUsuario,
                             $strRolUsuario,
                             $intStatus
                         );

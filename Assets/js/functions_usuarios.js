@@ -14,9 +14,12 @@ document.addEventListener('DOMContentLoaded', function(){
             "dataSrc":""
         },
         "columns":[
-            {"data":"ideusuario"}, /// el nombre en la tabla de dahboard 
+            {"data":"ideusuario"},
             {"data":"identificacion"},
             {"data":"nombres"},
+            {"data":"apellidos"},
+            {"data":"telefono"},
+            {"data":"correo"},
             {"data":"nombrerol"},
             {"data":"status"},
             {"data":"options"}
@@ -28,22 +31,22 @@ document.addEventListener('DOMContentLoaded', function(){
                 "extend": "copyHtml5",
                 "text": "<i class='far fa-copy'></i> Copiar",
                 "titleAttr":"Copiar",
-                "className": "btn btn-warning btn-custom-margin"
+                "className": "btn btn-warning"
             },{
                 "extend": "excelHtml5",
                 "text": "<i class='fas fa-file-excel'></i> Excel",
                 "titleAttr":"Exportar a Excel",
-                "className": "btn btn-success btn-custom-margin"
+                "className": "btn btn-success"
             },{
                 "extend": "pdfHtml5",
                 "text": "<i class='fas fa-file-pdf'></i> PDF",
                 "titleAttr":"Exportar a PDF",
-                "className": "btn btn-danger btn-custom-margin"
+                "className": "btn btn-danger"
             },{
                 "extend": "csvHtml5",
                 "text": "<i class='fas fa-file-csv'></i> CSV",
                 "titleAttr":"Exportar a CSV",
-                "className": "btn btn-info btn-custom-margin"
+                "className": "btn btn-info"
             }
         ],
         "resonsieve":"true",
@@ -51,8 +54,6 @@ document.addEventListener('DOMContentLoaded', function(){
         "iDisplayLength": 10,
         "order":[[0,"desc"]]  
     });
-
-    
 
 
 
@@ -62,11 +63,14 @@ document.addEventListener('DOMContentLoaded', function(){
             e.preventDefault();
             var intIdeUsuario = document.querySelector('#ideUsuario').value;
             let strIdentificacionUsuario = document.querySelector('#txtIdentificacionUsuario').value;
-            let strtxtnombresusuario = document.querySelector('#txtnombresusuario').value; // estamos agregando una nueva funcion de modals y en js esta leyendo lo que estab en modals 
+            let strNombresUsuario = document.querySelector('#txtNombresUsuario').value;
+            let strApellidosUsuario = document.querySelector('#txtApellidosUsuario').value;
+            let strTelefonoUsuario = document.querySelector('#txtTelefonoUsuario').value;
+            let strCorreoUsuario = document.querySelector('#txtCorreoUsuario').value;
             let strRolUsuario = document.querySelector('#txtRolUsuario').value;
             let intStatus = document.querySelector('#listStatus').value;
 
-            if(strIdentificacionUsuario == ''||strtxtnombresusuario == '' || strRolUsuario == '') /// PARA VALIDADR  Y TOCA BUSCAR UN CONTROLER inser 
+            if(strIdentificacionUsuario == '' || strNombresUsuario == '' || strApellidosUsuario == '' || strTelefonoUsuario == '' || strCorreoUsuario == '' || strRolUsuario == '')
             {
                 swal("Atención", "Todos los campos son obligatorios." , "error");
                 return false;
@@ -80,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function(){
             } 
             divLoading.style.display = "flex";
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            let ajaxUrl = base_url+'/Usuarios/setUsuario'; /// LA CONECION PARA INSERTAR AL USUARIO 
+            let ajaxUrl = base_url+'/Usuarios/setUsuario'; 
             let formData = new FormData(formUsuario);
             request.open("POST",ajaxUrl,true);
             request.send(formData);
@@ -95,9 +99,9 @@ document.addEventListener('DOMContentLoaded', function(){
                             htmlStatus = intStatus == 1 ? 
                             '<span class="badge text-bg-success">Activo</span>' : 
                             '<span class="badge text-bg-danger">Inactivo</span>';
-                            // tableUsuarios.api().ajax.reload();
+                            tableUsuarios.api().ajax.reload();
                            rowTable.cells[1].textContent =  strIdentificacionUsuario;
-                        //    rowTable.cells[2].textContent =  strRolUsuario;
+                           //rowTable.cells[2].textContent =  strRolUsuario;
                            rowTable.cells[2].textContent = document.querySelector("#txtRolUsuario").selectedOptions[0].text;
                             rowTable.cells[3].innerHTML = htmlStatus;
                            rowTable = "";
@@ -130,7 +134,7 @@ if(document.querySelector('#txtRolUsuario')){
     request.onreadystatechange = function(){
         if(request.readyState == 4 && request.status == 200){
             document.querySelector('#txtRolUsuario').innerHTML = request.responseText;
-            // $('#txtRolUsuario').selectpicker('render');
+            // $('.txtRolUsuario').selectpicker('render');
             $('.txtRolUsuario').selectpicker('refresh');
         }
     }
@@ -154,9 +158,12 @@ function fntViewInfo(ideusuario){
 
                 document.querySelector("#celIdeUsuario").innerHTML = objData.data.ideusuario;
                 document.querySelector("#celIdentificacionUsuario").innerHTML = objData.data.identificacion;
+                document.querySelector("#celNombresUsuario").innerHTML = objData.data.nombres;
+                document.querySelector("#celApellidosUsuario").innerHTML = objData.data.apellidos;
+                document.querySelector("#celTelefonoUsuario").innerHTML = objData.data.telefono;
+                document.querySelector("#celCorreoUsuario").innerHTML = objData.data.correo;
                 document.querySelector("#celRolUsuario").innerHTML = objData.data.rolid;
                 document.querySelector("#celEstadoUsuario").innerHTML = estadoUsuario;
-                // document.querySelector("#celNombrePrograma").innerHTML = objData.data.nombreprograma;
                 
                 $('#modalViewUsuario').modal('show');
             }else{
@@ -184,6 +191,10 @@ function fntEditInfo(element, ideusuario){
             {
                 document.querySelector("#ideUsuario").value = objData.data.ideusuario;
                 document.querySelector("#txtIdentificacionUsuario").value = objData.data.identificacion;
+                document.querySelector("#txtNombresUsuario").value = objData.data.nombres;
+                document.querySelector("#txtApellidosUsuario").value = objData.data.apellidos;
+                document.querySelector("#txtTelefonoUsuario").value = objData.data.telefono;
+                document.querySelector("#txtCorreoUsuario").value = objData.data.correo;
                 document.querySelector("#txtRolUsuario").value =objData.data.idrol;
 
                 // ESTADO ACTIVO O INACTIVO
