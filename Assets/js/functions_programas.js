@@ -1,11 +1,16 @@
 let tableProgramas; 
 let rowTable = "";
 let divLoading = document.querySelector("#divLoading");
-document.addEventListener('DOMContentLoaded', function() {
-    tableProgramas = $('#tableProgramas').DataTable({
+document.addEventListener('DOMContentLoaded', function(){
+
+    tableProgramas = $('#tableProgramas').dataTable( {
         "aProcessing": true,
         "aServerSide": true,
-        "ajax": {
+        "language": {
+            "url": "./es.json"
+
+        },
+        "ajax":{
             "url": base_url + "/Programas/getProgramas",
             "dataSrc": ""
         },
@@ -18,9 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
             {"data": "status"},
             {"data": "options"}
         ],
-        "language": {
-            "url": "./es.json"
-        },
         'dom': 'lBfrtip',
         'buttons': [
             {
@@ -120,24 +122,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 }, false);
 
-window.addEventListener('load', function() {
-    fntRolesUsuario();
-}, false);
+// window.addEventListener('load', function() {
+//     fntRolesUsuario();
+// }, false);
 
-function fntRolesUsuario() {
-    if (document.querySelector('#txtRolUsuario')) {
-        let ajaxUrl = base_url + '/Roles/getSelectRoles';
-        let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        request.open("GET", ajaxUrl, true);
-        request.send();
-        request.onreadystatechange = function() {
-            if (request.readyState == 4 && request.status == 200) {
-                document.querySelector('#txtRolUsuario').innerHTML = request.responseText;
-                $('.txtRolUsuario').selectpicker('refresh');
-            }
-        }
-    }
-}
+// function fntRolesUsuario() {
+//     if (document.querySelector('#txtRolUsuario')) {
+//         let ajaxUrl = base_url + '/Roles/getSelectRoles';
+//         let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+//         request.open("GET", ajaxUrl, true);
+//         request.send();
+//         request.onreadystatechange = function() {
+//             if (request.readyState == 4 && request.status == 200) {
+//                 document.querySelector('#txtRolUsuario').innerHTML = request.responseText;
+//                 $('.txtRolUsuario').selectpicker('refresh');
+//             }
+//         }
+//     }
+// }
 
 function fntViewInfo(idePrograma) {
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
