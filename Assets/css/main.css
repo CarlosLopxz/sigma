@@ -15230,3 +15230,24 @@ color: #fff;
   text-align: center;
   align-items: center;
 }
+
+
+
+/* Posiciona el texto de derechos reservados en la parte inferior y centro de la pantalla */
+.copyright {
+  position: fixed;
+  bottom: 20px;
+  left: 50%; 
+  transform: translateX(-50%); 
+  font-size: 12px; 
+  padding: 10px 15px; 
+  opacity: .6;
+  z-index: 1000; 
+  font-family: Arial, sans-serif; 
+  text-align: center;
+  pointer-events: none;
+}
+.copyright a {
+  pointer-events:auto;
+  text-decoration: none;
+}
