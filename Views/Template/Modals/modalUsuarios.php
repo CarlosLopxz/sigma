@@ -29,8 +29,9 @@
                                     name="txtIdentificacionUsuario" required="" maxlength="10"
                                     onkeypress="return controlTag(event);">
                             </div>
+
                             <div class="modal-body">
-                                <label for="txtnombresusuario"">nombres<span class="
+                                <label for="txtNombresUsuario"">Nombres<span class="
                                     required">*</span></label>
                                 <input type="text" class="form-control valid validText" id="txtNombresUsuario"
                                     name="txtNombresUsuario" required="" maxlength="30"
@@ -49,7 +50,7 @@
                                 <label for="txtTelefonoUsuario"">Telefono<span class="
                                     required">*</span></label>
                                 <input type="text" class="form-control valid validNumber" id="txtTelefonoUsuario"
-                                    name="txtTelefonoUsuario" required="" maxlength="10"
+                                    name="txtTelefonoUsuario" required="" maxlength="30"
                                     onkeypress="return controlTag(event);">
                             </div>
 
@@ -117,6 +118,22 @@
                                 <tr>
                                     <td>Identificación:</td>
                                     <td id="celIdentificacionUsuario">233104</td>
+                                </tr>
+                                <tr>
+                                    <td>Nombres:</td>
+                                    <td id="celNombresUsuario">233104</td>
+                                </tr>
+                                <tr>
+                                    <td>Apellidos:</td>
+                                    <td id="celApellidosUsuario">233104</td>
+                                </tr>
+                                <tr>
+                                    <td>Telefono:</td>
+                                    <td id="celTelefonoUsuario">233104</td>
+                                </tr>
+                                <tr>
+                                    <td>Correo Electronico:</td>
+                                    <td id="celCorreoUsuario">233104</td>
                                 </tr>
                                 <tr>
                                     <td>Rol:</td>

@@ -12,7 +12,7 @@
         <ul class="app-menu">
             <li>
                 <a class="app-menu__item" href="<?=base_url();?>/dashboard">
-                    <i class="app-menu__icon bi bi-house-fill"></i>
+                    <i class="app-menu__icon bi bi-house"></i>
                     <span class="app-menu__label">Inicio</span>
                 </a>
             </li>
@@ -20,7 +20,7 @@
             <?php if (!empty($_SESSION['permisos'][1]['r'])) {?>
             <li class="treeview" id="color-admin-nav">
                 <a class="app-menu__item" href="#" data-toggle="treeview">
-                    <i class="app-menu__icon bi bi-person-fill-gear"></i>
+                    <i class="app-menu__icon bi bi-person-gear"></i>
                     <span class="app-menu__label">Administrador</span>
                     <i class="treeview-indicator bi bi-chevron-right"></i></a>
                 <ul class="treeview-menu">
@@ -33,18 +33,9 @@
                     
                     <?php }?>
                 </ul>
-                <li>
-                    <a class="app-menu__item " href="<?=base_url();?>/usuarios">
-                    <i class="app-menu__icon bi bi-people-fill"></i>
-                    <span class="app-menu__label" class="margen-usuarios">Usuarios</span></a>
-                </li>
-
-                <li>
-                    <a class="app-menu__item " href="<?=base_url();?>/programas">
-                    <i class="app-menu__icon bi bi-calendar-week-fill"></i>
-                    <span class="app-menu__label" class="margen-usuarios">Programas</span></a>
-                </li>
-
+                <li><a class="app-menu__item " href="<?=base_url();?>/usuarios">
+                    <i class="app-menu__icon bi bi-people"></i>
+                    <span class="app-menu__label">Usuarios</span></a></li>
             </li>
             <?php }?>
 
