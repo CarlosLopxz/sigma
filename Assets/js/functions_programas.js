@@ -2,12 +2,16 @@ let tableProgramas;
 let rowTable = "";
 let divLoading = document.querySelector("#divLoading");
 document.addEventListener('DOMContentLoaded', function() {
+
     tableProgramas = $('#tableProgramas').DataTable({
-        "aProcessing": true,
-        "aServerSide": true,
-        "ajax": {
-            "url": base_url + "/Programas/getProgramas",
-            "dataSrc": ""
+        "aProcessing":true,
+        "aServerSide":true,
+        "language": {
+            "url": "./es.json"
+        },
+        "ajax":{
+            "url": " "+base_url+"/Programas/getProgramas",
+            "dataSrc":""
         },
         "columns": [
             {"data": "ideprograma"},
@@ -18,40 +22,34 @@ document.addEventListener('DOMContentLoaded', function() {
             {"data": "status"},
             {"data": "options"}
         ],
-        "language": {
-            "url": "./es.json"
-        },
         'dom': 'lBfrtip',
         'buttons': [
             {
                 "extend": "copyHtml5",
                 "text": "<i class='far fa-copy'></i> Copiar",
-                "titleAttr": "Copiar",
+                "titleAttr":"Copiar",
                 "className": "btn btn-warning margen-btn"
-            },
-            {
+            },{
                 "extend": "excelHtml5",
                 "text": "<i class='fas fa-file-excel'></i> Excel",
-                "titleAttr": "Exportar a Excel",
+                "titleAttr":"Exportar a Excel",
                 "className": "btn btn-success margen-btn"
-            },
-            {
+            },{
                 "extend": "pdfHtml5",
                 "text": "<i class='fas fa-file-pdf'></i> PDF",
-                "titleAttr": "Exportar a PDF",
+                "titleAttr":"Exportar a PDF",
                 "className": "btn btn-danger margen-btn"
-            },
-            {
+            },{
                 "extend": "csvHtml5",
                 "text": "<i class='fas fa-file-csv'></i> CSV",
-                "titleAttr": "Exportar a CSV",
+                "titleAttr":"Exportar a CSV",
                 "className": "btn btn-info margen-btn"
             }
         ],
-        "responsive": true,
+        "resonsieve":"true",
         "bDestroy": true,
         "iDisplayLength": 10,
-        "order": [[0, "desc"]]
+        "order":[[0,"desc"]]  
     });
 
     if (document.querySelector("#formPrograma")) {
@@ -65,12 +63,12 @@ document.addEventListener('DOMContentLoaded', function() {
             let strHorasPrograma = document.querySelector('#txtHorasPrograma').value;
             let intStatus = document.querySelector('#listStatus').value;
 
-            // Validación básica de campos vacíos
-            if (intCodigoPrograma == '' || strNivelPrograma == '' || strNombrePrograma == '' || strHorasPrograma == '') {
+          
+            if (intCodigoPrograma == '' || strNivelPrograma == '' || strNombrePrograma == '' || strHorasPrograma == '') 
+            {
                 swal("Atención", "Todos los campos son obligatorios.", "error");
                 return false;
             }
-
             let elementsValid = document.getElementsByClassName("valid");
             for (let i = 0; i < elementsValid.length; i++) {
                 if (elementsValid[i].classList.contains('is-invalid')) {
@@ -78,34 +76,30 @@ document.addEventListener('DOMContentLoaded', function() {
                     return false;
                 }
             }
-
-            // Mostrar el indicador de carga
             divLoading.style.display = "flex";
-
-            // Envío de datos vía AJAX
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            let ajaxUrl = base_url + '/Programas/setPrograma'; // Cambiado a la nueva ruta
+            let ajaxUrl = base_url + '/Programas/setPrograma';
             let formData = new FormData(formPrograma);
             request.open("POST", ajaxUrl, true);
             request.send(formData);
             request.onreadystatechange = function() {
                 if (request.readyState == 4 && request.status == 200) {
                     let objData = JSON.parse(request.responseText);
-                    if (objData.status) {
-                        // Si rowTable está vacío, recarga la tabla completa
-                        if (rowTable == "") {
+                    if (objData.status)
+                    {
+                            if (rowTable == "") {
                             tableProgramas.ajax.reload();
-                        } else {
-                            // Actualiza los datos en la fila si es una edición
+                            } else {
                             htmlStatus = intStatus == 1 ? 
                             '<span class="badge text-bg-success">Activo</span>' : 
                             '<span class="badge text-bg-danger">Inactivo</span>';
-                            rowTable.cells[1].textContent = intCodigoPrograma;
-                            rowTable.cells[2].textContent = strNivelPrograma;
-                            rowTable.cells[3].textContent = strNombrePrograma;
-                            rowTable.cells[4].innerHTML = htmlStatus;
+                            tableUsuarios.api().ajax.reload();
+                            rowTable.cells[1].textContent =  strIdePrograma;
+                            rowTable.cells[2].textContent = document.querySelector("#txtRolUsuario").selectedOptions[0].text;
+                             rowTable.cells[3].innerHTML = htmlStatus;
                             rowTable = "";
-                        }
+                         }
+                            
                         $('#modalFormPrograma').modal("hide");
                         formPrograma.reset();
                         swal("Programa", objData.msg, "success");
