@@ -45,6 +45,5 @@ headerAdmin($data);
     </div>
 </main>
 <?php footerAdmin($data);
-getModal('modalFormPrograma', $data);
-getModal('modalViewPrograma', $data);
+getModal('modalProgramas', $data);
 ?>
