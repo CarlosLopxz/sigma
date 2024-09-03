@@ -44,7 +44,7 @@ class Programas extends Controllers
                 $request_programa = "";
                 if ($intIdePrograma == 0) {
                     $option = 1;
-                    $strPassword =  empty($_POST['txtIdeProgramas']) ? hash("SHA256",passGenerator()) : hash("SHA256",$_POST['txtIdeProgramas']);
+                    $strPassword =  empty($_POST['txtCodigoPrograma']) ? hash("SHA256",passGenerator()) : hash("SHA256",$_POST['txtCodigoPrograma']);
                     if ($_SESSION['permisosMod']['w']) {
                         $request_programa = $this->model->insertPrograma(
                             $strCodigoPrograma,
@@ -56,7 +56,7 @@ class Programas extends Controllers
                     }
                 } else {
                     $option = 2;
-                    $strPassword =  empty($_POST['txtIdeProgramas']) ? hash("SHA256",passGenerator()) : hash("SHA256",$_POST['txtIdeProgramas']);
+                    $strPassword =  empty($_POST['txtCodigoPrograma']) ? hash("SHA256",passGenerator()) : hash("SHA256",$_POST['txtCodigoPrograma']);
                     if ($_SESSION['permisosMod']['u']) {
                         $request_programa = $this->model->updatePrograma(
                             $intIdePrograma,

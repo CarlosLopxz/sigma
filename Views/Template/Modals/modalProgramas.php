@@ -23,18 +23,26 @@
                             </div>
 
                             <div class="modal-body">
-                                <label for="txtIdePrograma"">Codigo<span class="
+                                <label for="txtCodigoPrograma"">Codigo<span class="
                                     required">*</span></label>
-                                <input type="text" class="form-control valid validNumber" id="txtIdePrograma"
-                                    name="txtIdePrograma" required="" maxlength="10"
+                                <input type="text" class="form-control valid validNumber" id="txtCodigoPrograma"
+                                    name="txtCodigoPrograma" required="" maxlength="10"
                                     onkeypress="return controlTag(event);">
                             </div>
 
                             <div class="modal-body">
-                                <label for="txtNombresPrograma"">Nombre del Programa<span class="
+                                <label for="txtNivelPrograma"">Nivel<span class="
                                     required">*</span></label>
-                                <input type="text" class="form-control valid validText" id="txtNombresPrograma"
-                                    name="txtNombresPrograma" required="" maxlength="30"
+                                <input type="text" class="form-control valid validNumber" id="txtNivelPrograma"
+                                    name="txtNivelPrograma" required="" maxlength="10"
+                                    onkeypress="return controlTag(event);">
+                            </div>
+
+                            <div class="modal-body">
+                                <label for="txtNombrePrograma"">Nombre del Programa<span class="
+                                    required">*</span></label>
+                                <input type="text" class="form-control valid validText" id="txtNombrePrograma"
+                                    name="txtNombrePrograma" required="" maxlength="30"
                                     onkeypress="return controlTag(event);">
                             </div>
 
