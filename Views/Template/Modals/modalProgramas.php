@@ -93,24 +93,24 @@
                                     <td id="celIdePrograma">233104</td>
                                 </tr>
                                 <tr>
-                                    <td>Identificación:</td>
+                                    <td>Codigo:</td>
                                     <td id="celCodigoPrograma">233104</td>
                                 </tr>
                                 <tr>
-                                    <td>Nombres:</td>
+                                    <td>Nivel:</td>
                                     <td id="celNivelPrograma">233104</td>
                                 </tr>
                                 <tr>
-                                    <td>Apellidos:</td>
+                                    <td>Nombre:</td>
                                     <td id="celNombrePrograma">233104</td>
                                 </tr>
                                 <tr>
-                                    <td>Telefono:</td>
+                                    <td>Horas:</td>
                                     <td id="celHorasPrograma">233104</td>
                                 </tr>
                                 <tr>
-                                    <td>Correo Electronico:</td>
-                                    <td id="celEstadoPrograma">233104</td>
+                                    <td>Estado:</td>
+                                    <td id="celEstadoPrograma">Programación de Software</td>
                                 </tr>
                             </tbody>
                         </table>
