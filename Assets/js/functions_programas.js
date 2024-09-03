@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
         },
         "ajax":{
-            "url": base_url + "/Programas/getProgramas",
-            "dataSrc": ""
+            "url": " "+base_url +"/Programas/getProgramas",
+            "dataSrc":""
 
         },
         "columns": [
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function(){
                             htmlStatus = intStatus == 1 ? 
                             '<span class="badge text-bg-success">Activo</span>' : 
                             '<span class="badge text-bg-danger">Inactivo</span>';
-                            tableUsuarios.api().ajax.reload();
+                            tableProgramas.api().ajax.reload();
                             rowTable.cells[1].textContent =  strIdePrograma;
                             rowTable.cells[2].innerHTML = htmlStatus;
                             rowTable = "";
