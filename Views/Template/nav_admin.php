@@ -39,7 +39,7 @@
 
                 <li>
                     <a class="app-menu__item " href="<?=base_url();?>/programas">
-                    <i class="app-menu__icon bi bi-people-fill"></i>
+                    <i class="app-menu__icon bi bi-calendar-week-fill"></i>
                     <span class="app-menu__label">Programas</span></a>
                 </li>
             </li>

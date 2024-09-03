@@ -23,7 +23,7 @@
                             </div>
 
                             <div class="modal-body">
-                                <label for="txtIdePrograma"">Identificación<span class="
+                                <label for="txtIdePrograma"">Codigo<span class="
                                     required">*</span></label>
                                 <input type="text" class="form-control valid validNumber" id="txtIdePrograma"
                                     name="txtIdePrograma" required="" maxlength="10"
@@ -31,7 +31,7 @@
                             </div>
 
                             <div class="modal-body">
-                                <label for="txtNombresPrograma"">Nombres<span class="
+                                <label for="txtNombresPrograma"">Nombre del Programa<span class="
                                     required">*</span></label>
                                 <input type="text" class="form-control valid validText" id="txtNombresUsuario"
                                     name="txtNombresPrograma" required="" maxlength="30"

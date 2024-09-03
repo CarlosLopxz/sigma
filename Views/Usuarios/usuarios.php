@@ -5,7 +5,7 @@ headerAdmin($data);
 <main class="app-content">
     <div class="app-title">
         <div>
-            <h1><i class="bi bi-people"></i> <?=$data['page_title']?>
+            <h1><i class="bi bi-people-fill"></i> <?=$data['page_title']?>
                 <?php if ($_SESSION['permisosMod']['w']) {?>
                 <button class="btn btn-warning  espaciado" type="button" data-bs-toggle="modal" onclick="openModal();">
                     <i class="bi bi-person-plus"></i>Nuevo Usuario</button>

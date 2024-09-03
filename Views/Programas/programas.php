@@ -5,11 +5,10 @@ headerAdmin($data);
 <main class="app-content">
     <div class="app-title">
         <div>
-            <h1><i class="bi bi-briefcase"></i> <?=$data['page_title']?>
+            <h1><i class="bi bi-calendar-week-fill"></i> <?=$data['page_title']?>
                 <?php if ($_SESSION['permisosMod']['w']) {?>
                 <button class="btn btn-warning espaciado" type="button" data-bs-toggle="modal" onclick="openModal();">
-                    <i class="bi bi-plus"></i> Nuevo Programa
-                </button>
+                    <i class="bi bi-plus"></i> Nuevo Programa</button>
                 <?php }?>
             </h1>
         </div>
