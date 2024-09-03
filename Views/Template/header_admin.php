@@ -38,14 +38,16 @@
 
     <!-- Navbar-->
     <header class="app-header"><a class="app-header__logo logo-dashboard" href="<?=base_url();?>/dashboard"><img src="<?=media();?>/images/logoblanco.png" alt="" width="190"></a>
-        <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
-            aria-label="Hide Sidebar"></a>
+        <!-- Sidebar toggle button-->
+        <a class="app-sidebar__toggle" href="#" data-toggle="sidebar"aria-label="Hide Sidebar"></a>
         <!-- Navbar Menu-->
         <ul class="app-nav">
-
+         
+        <!-- Background black -->
+        <li class="dropdown"><a class="app-nav__item" href="#" data-bs-toggle="dropdown"aria-label="Open Profile Menu"><i class="bi bi-moon fs-4"></i></a>
+        
             <!-- Menu Uusario -->
-            <li class="dropdown"><a class="app-nav__item" href="#" data-bs-toggle="dropdown"
-                    aria-label="Open Profile Menu"><i class="bi bi-person fs-4"></i></a>
+            <li class="dropdown"><a class="app-nav__item" href="#" data-bs-toggle="dropdown"aria-label="Open Profile Menu"><i class="bi bi-person fs-4"></i></a>
                 <ul class="dropdown-menu settings-menu dropdown-menu-right">
                     <li><a class="dropdown-item" href="<?=base_url();?>/dashboard"><i class="bi bi-gear me-2 fs-5"></i>
                             Configuración</a></li>

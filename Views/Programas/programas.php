@@ -23,15 +23,6 @@ headerAdmin($data);
             <div class="tile">
                 <div class="tile-body">
                     <div class="table-responsive">
-<<<<<<< Updated upstream
-                        <table class="table table-hover table-bordered" id="tableProgramas">
-                            <thead>
-                                <tr>
-                                    <th>Ficha</th>
-                                    <th>Nombre</th>  
-                                    <th>Horas</th> 
-                                    <th>Jornada</th>
-=======
                         <table class="table table-hover table-bordered" id="tableUsuarios">
                             <thead>
                                 <tr>
@@ -39,7 +30,6 @@ headerAdmin($data);
                                     <th>Nombre</th>
                                     <th>Horas</th>  
                                     <th>Jornada</th> 
->>>>>>> Stashed changes
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -53,9 +43,5 @@ headerAdmin($data);
     </div>
 </main>
 <?php footerAdmin($data);
-<<<<<<< Updated upstream
 getModal('modalProgramas', $data);
-=======
-getModal('modalUsuarios', $data);
->>>>>>> Stashed changes
 ?>
