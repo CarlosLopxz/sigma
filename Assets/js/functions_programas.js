@@ -159,8 +159,8 @@ function fntEditInfo(element, ideprograma) {
     document.querySelector('#btnActionForm').classList.replace("btn-primary", "btn-info");
     document.querySelector('#btnText').innerHTML = "Actualizar";
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    let ajaxUrl = base_url + '/Programas/getPrograma/' + ideprograma;
-    request.open("GET", ajaxUrl, true);
+    let ajaxUrl = base_url+'/Programas/getPrograma/'+ideprograma;
+    request.open("GET",ajaxUrl,true);
     request.send();
     request.onreadystatechange = function() {
 
@@ -186,7 +186,7 @@ function fntEditInfo(element, ideprograma) {
     }
 }
 
-function fntDelInfo(idePrograma) {
+function fntDelInfo(ideprograma) {
     swal({
         title: "Eliminar Programa",
         text: "¿Realmente quiere eliminar el Programa?",
@@ -202,14 +202,15 @@ function fntDelInfo(idePrograma) {
         {
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
             let ajaxUrl = base_url + '/Programas/delPrograma';
-            let strData = "idePrograma=" + idePrograma;
+            let strData = "idePrograma=" + ideprograma;
             request.open("POST", ajaxUrl, true);
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             request.send(strData);
             request.onreadystatechange = function() {
                 if (request.readyState == 4 && request.status == 200) {
                     let objData = JSON.parse(request.responseText);
-                    if (objData.status) {
+                    if (objData.status) 
+                    {
                         swal("Eliminar!", objData.msg, "success");
                         tableProgramas.ajax.reload();
                     } else {
