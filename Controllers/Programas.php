@@ -102,13 +102,13 @@ class Programas extends Controllers
                 }
 
                 if ($_SESSION['permisosMod']['r']) {
-                    $btnView = '<button class="btn btn-info btn-sm" onClick="fntViewInfo(' . $arrData[$i]['ideprograma'] . ')" title="Ver Usuario"><i class="far fa-eye"></i></button>';
+                    $btnView = '<button class="btn btn-info btn-sm" onClick="fntViewInfo(' . $arrData[$i]['ideprograma'] . ')" title="Ver Programa"><i class="far fa-eye"></i></button>';
                 }
                 if ($_SESSION['permisosMod']['u']) {
-                    $btnEdit = '<button class="btn btn-warning  btn-sm" onClick="fntEditInfo(this,' . $arrData[$i]['ideprograma'] . ')" title="Editar Usuario"><i class="fas fa-pencil-alt"></i></button>';
+                    $btnEdit = '<button class="btn btn-warning  btn-sm" onClick="fntEditInfo(this,' . $arrData[$i]['ideprograma'] . ')" title="Editar Programa"><i class="fas fa-pencil-alt"></i></button>';
                 }
                 if ($_SESSION['permisosMod']['d']) {
-                    $btnDelete = '<button class="btn btn-danger btn-sm btnDelRol" onClick="fntDelInfo(' . $arrData[$i]['ideprograma'] . ')" title="Eliminar Usuario"><i class="bi bi-trash3"></i></button>';
+                    $btnDelete = '<button class="btn btn-danger btn-sm btnDelRol" onClick="fntDelInfo(' . $arrData[$i]['ideprograma'] . ')" title="Eliminar Programa"><i class="bi bi-trash3"></i></button>';
        
                 }
 

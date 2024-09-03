@@ -33,7 +33,7 @@
                             <div class="modal-body">
                                 <label for="txtNombresPrograma"">Nombre del Programa<span class="
                                     required">*</span></label>
-                                <input type="text" class="form-control valid validText" id="txtNombresUsuario"
+                                <input type="text" class="form-control valid validText" id="txtNombresPrograma"
                                     name="txtNombresPrograma" required="" maxlength="30"
                                     onkeypress="return controlTag(event);">
                             </div>
@@ -71,7 +71,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="modalViewUsuario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<div class="modal fade" id="modalViewPrograma" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content ">
