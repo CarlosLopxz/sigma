@@ -14,7 +14,7 @@ class ProgramasModel extends Mysql
         parent::__construct();
     }
 
-    // Insertar un nuevo programa
+   
     public function insertPrograma(
         string $codigoprograma,
         string $nivelprograma,

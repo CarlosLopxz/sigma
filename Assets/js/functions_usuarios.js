@@ -125,6 +125,7 @@ window.addEventListener('load', function() {
     fntRolesUsuario();
 }, false);
 
+
 function fntRolesUsuario(){
 if(document.querySelector('#txtRolUsuario')){
     let ajaxUrl = base_url+'/Roles/getSelectRoles';
@@ -149,8 +150,7 @@ function fntViewInfo(ideusuario){
     request.onreadystatechange = function(){
         if(request.readyState == 4 && request.status == 200){
             let objData = JSON.parse(request.responseText);
-            if(objData.status)
-            {
+            if(objData.status){
 
                 let estadoUsuario = objData.data.status == 1 ? 
                 '<span class="badge text-bg-success">Activo</span>' : 

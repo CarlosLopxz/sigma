@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function(){
         "order":[[0,"desc"]]  
     });
 
+
+
     if (document.querySelector("#formPrograma")) {
         let formPrograma = document.querySelector("#formPrograma");
         formPrograma.onsubmit = function(e) {
@@ -98,8 +100,7 @@ document.addEventListener('DOMContentLoaded', function(){
                             '<span class="badge text-bg-danger">Inactivo</span>';
                             tableUsuarios.api().ajax.reload();
                             rowTable.cells[1].textContent =  strIdePrograma;
-                            rowTable.cells[2].textContent = document.querySelector("#txtRolUsuario").selectedOptions[0].text;
-                            rowTable.cells[3].innerHTML = htmlStatus;
+                            rowTable.cells[2].innerHTML = htmlStatus;
                             rowTable = "";
                         }
                             
@@ -121,30 +122,17 @@ window.addEventListener('load', function() {
     fntRolesUsuario();
 }, false);
 
-// function fntRolesUsuario() {
-//     if (document.querySelector('#txtRolUsuario')) {
-//         let ajaxUrl = base_url + '/Roles/getSelectRoles';
-//         let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-//         request.open("GET", ajaxUrl, true);
-//         request.send();
-//         request.onreadystatechange = function() {
-//             if (request.readyState == 4 && request.status == 200) {
-//                 document.querySelector('#txtRolUsuario').innerHTML = request.responseText;
-//                 $('.txtRolUsuario').selectpicker('refresh');
-//             }
-//         }
-//     }
-// }
 
-function fntViewInfo(idePrograma) {
+function fntViewInfo(ideprograma){
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    let ajaxUrl = base_url + '/Programas/getPrograma/' + idePrograma;
-    request.open("GET", ajaxUrl, true);
+    let ajaxUrl = base_url+'/Programa/getPrograma/'+ideprograma;
+    request.open("GET",ajaxUrl,true);
     request.send();
-    request.onreadystatechange = function() {
-        if (request.readyState == 4 && request.status == 200) {
+    request.onreadystatechange = function(){
+        if(request.readyState == 4 && request.status == 200){
             let objData = JSON.parse(request.responseText);
-            if (objData.status) {
+            if(objData.status){
+
                 let estadoPrograma = objData.data.status == 1 ? 
                 '<span class="badge text-bg-success">Activo</span>' : 
                 '<span class="badge text-bg-danger">Inactivo</span>';
@@ -164,20 +152,22 @@ function fntViewInfo(idePrograma) {
     }
 }
 
-function fntEditInfo(element, idePrograma) {
+function fntEditInfo(element, ideprograma) {
     rowTable = element.parentNode.parentNode.parentNode;
     document.querySelector('#titleModal').innerHTML = "Actualizar Programa";
     document.querySelector('.modal-header').classList.replace("headerRegister", "headerUpdate");
     document.querySelector('#btnActionForm').classList.replace("btn-primary", "btn-info");
     document.querySelector('#btnText').innerHTML = "Actualizar";
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    let ajaxUrl = base_url + '/Programas/getPrograma/' + idePrograma;
+    let ajaxUrl = base_url + '/Programas/getPrograma/' + ideprograma;
     request.open("GET", ajaxUrl, true);
     request.send();
     request.onreadystatechange = function() {
+
         if (request.readyState == 4 && request.status == 200) {
             let objData = JSON.parse(request.responseText);
-            if (objData.status) {
+            if (objData.status)
+            {
                 document.querySelector("#idePrograma").value = objData.data.ideprograma;
                 document.querySelector("#txtCodigoPrograma").value = objData.data.codigoprograma;
                 document.querySelector("#txtNivelPrograma").value = objData.data.nivelprograma;
@@ -185,7 +175,11 @@ function fntEditInfo(element, idePrograma) {
                 document.querySelector("#txtHorasPrograma").value = objData.data.horasprograma;
 
                 // ESTADO ACTIVO O INACTIVO
-                document.querySelector("#listStatus").value = objData.data.status == 1 ? 1 : 2;
+                if(objData.data.status == 1){
+                    document.querySelector("#listStatus").value = 1;
+                }else{
+                    document.querySelector("#listStatus").value = 2;
+                }
             }
         }
         $('#modalFormPrograma').modal('show');
@@ -203,7 +197,9 @@ function fntDelInfo(idePrograma) {
         closeOnConfirm: false,
         closeOnCancel: true
     }, function(isConfirm) {
-        if (isConfirm) {
+
+        if (isConfirm) 
+        {
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
             let ajaxUrl = base_url + '/Programas/delPrograma';
             let strData = "idePrograma=" + idePrograma;
@@ -225,7 +221,8 @@ function fntDelInfo(idePrograma) {
     });
 }
 
-function openModal() {
+function openModal() 
+{
     rowTable = "";
     document.querySelector('#idePrograma').value = "";
     document.querySelector('.modal-header').classList.replace("headerUpdate", "headerRegister");

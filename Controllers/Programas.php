@@ -40,9 +40,11 @@ class Programas extends Controllers
                 $strHorasPrograma = strClean($_POST['txtHorasPrograma']);
                 $intStatus = intval(strClean($_POST['listStatus']));
 
+
                 $request_programa = "";
                 if ($intIdePrograma == 0) {
                     $option = 1;
+                    $strPassword =  empty($_POST['txtIdeProgramas']) ? hash("SHA256",passGenerator()) : hash("SHA256",$_POST['txtIdeProgramas']);
                     if ($_SESSION['permisosMod']['w']) {
                         $request_programa = $this->model->insertPrograma(
                             $strCodigoPrograma,
@@ -54,6 +56,7 @@ class Programas extends Controllers
                     }
                 } else {
                     $option = 2;
+                    $strPassword =  empty($_POST['txtIdeProgramas']) ? hash("SHA256",passGenerator()) : hash("SHA256",$_POST['txtIdeProgramas']);
                     if ($_SESSION['permisosMod']['u']) {
                         $request_programa = $this->model->updatePrograma(
                             $intIdePrograma,
@@ -86,19 +89,32 @@ class Programas extends Controllers
     {
         if ($_SESSION['permisosMod']['r']) {
             $arrData = $this->model->selectProgramas();
-            $data = array();
-            foreach ($arrData as $item) {
-                $item['status'] = ($item['status'] == 1) ? '<span class="badge text-bg-success">Activo</span>' : '<span class="badge text-bg-danger">Inactivo</span>';
+            for ($i = 0; $i < count($arrData); $i++) {
+                $btnView = '';
+                $btnEdit = '';
+                $btnDelete = '';
 
-                $btnView = ($_SESSION['permisosMod']['r']) ? '<button class="btn btn-info btn-sm" onClick="fntViewInfo(' . $item['ideprograma'] . ')" title="Ver Programa"><i class="far fa-eye"></i></button>' : '';
-                $btnEdit = ($_SESSION['permisosMod']['u']) ? '<button class="btn btn-warning btn-sm" onClick="fntEditInfo(this,' . $item['ideprograma'] . ')" title="Editar Programa"><i class="fas fa-pencil-alt"></i></button>' : '';
-                $btnDelete = ($_SESSION['permisosMod']['d']) ? '<button class="btn btn-danger btn-sm btnDelRol" onClick="fntDelInfo(' . $item['ideprograma'] . ')" title="Eliminar Programa"><i class="bi bi-trash3"></i></button>' : '';
+                if($arrData[$i]['status'] == 1)
+                {
+                    $arrData[$i]['status'] = '<span class="badge text-bg-success">Activo</span>';
+                }else{
+                    $arrData[$i]['status'] = '<span class="badge text-bg-danger">Inactivo</span>';
+                }
 
-                $item['options'] = '<div class="text-center">' . $btnView . ' ' . $btnEdit . ' ' . $btnDelete . '</div>';
+                if ($_SESSION['permisosMod']['r']) {
+                    $btnView = '<button class="btn btn-info btn-sm" onClick="fntViewInfo(' . $arrData[$i]['ideprograma'] . ')" title="Ver Usuario"><i class="far fa-eye"></i></button>';
+                }
+                if ($_SESSION['permisosMod']['u']) {
+                    $btnEdit = '<button class="btn btn-warning  btn-sm" onClick="fntEditInfo(this,' . $arrData[$i]['ideprograma'] . ')" title="Editar Usuario"><i class="fas fa-pencil-alt"></i></button>';
+                }
+                if ($_SESSION['permisosMod']['d']) {
+                    $btnDelete = '<button class="btn btn-danger btn-sm btnDelRol" onClick="fntDelInfo(' . $arrData[$i]['ideprograma'] . ')" title="Eliminar Usuario"><i class="bi bi-trash3"></i></button>';
+       
+                }
 
-                $data[] = $item;
+                $arrData[$i]['options'] = '<div class="text-center">' . $btnView . ' ' . $btnEdit . ' ' . $btnDelete . '</div>';
             }
-            echo json_encode(array("data" => $data), JSON_UNESCAPED_UNICODE);
+            echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
         }
         die();
     }
