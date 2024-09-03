@@ -15192,12 +15192,12 @@ color: #fff;
       left: 10px;
       top: 71px;
       transform: translateY(-50%);
-      width: 20px;
-      height: 20px;
+      width: 17px;
+      height: 17px;
       background-size: contain;
       background-repeat: no-repeat;
       color: #ccc;
-      opacity: .5;
+      opacity: .4;
   }
   .input-icon.identificacion::before {
       background-image: url('../images/id-card.png');
@@ -15219,12 +15219,12 @@ color: #fff;
       left: 10px;
       top: 47px;
       transform: translateY(-50%);
-      width: 20px;
-      height: 20px;
+      width: 19px;
+      height: 19px;
       background-size: contain;
       background-repeat: no-repeat;
       color: #ccc;
-      opacity: .5;
+      opacity: .4;
   }
   .input-icons.password::before {
       background-image: url('../images/lock.png');
