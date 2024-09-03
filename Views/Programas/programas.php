@@ -8,7 +8,7 @@ headerAdmin($data);
             <h1><i class="bi bi-calendar-week-fill"></i> <?=$data['page_title']?>
                 <?php if ($_SESSION['permisosMod']['w']) {?>
                 <button class="btn btn-warning espaciado" type="button" data-bs-toggle="modal" onclick="openModal();">
-                    <i class="bi bi-plus"></i> Nuevo Programa</button>
+                    <i class="bi bi-calendar-plus-fill"></i> Nuevo Programa</button>
                 <?php }?>
             </h1>
         </div>
