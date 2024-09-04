@@ -130,7 +130,7 @@ function fntDelRol(idrol){
     swal({
         title: "Eliminar Rol",
         text: "¿Realmente quiere eliminar el Rol?",
-        type: "warning",
+        imageUrl: "Assets/images/alerta.png" ,
         showCancelButton: true,
         confirmButtonText: "Si, eliminar!",
         cancelButtonText: "No, cancelar!",

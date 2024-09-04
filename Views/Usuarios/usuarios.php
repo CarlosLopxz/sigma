@@ -13,7 +13,7 @@ headerAdmin($data);
             </h1>
         </div>
         <ul class="app-breadcrumb breadcrumb">
-            <li class="breadcrumb-item"><i class="bi bi-house"></i></li>
+            <li class="breadcrumb-item"><i class="bi bi-house-fill"></i></li>
             <li class="breadcrumb-item"><a href="<?=base_url();?>/usuarios"><?=$data['page_title']?></a></li>
         </ul>
     </div>
