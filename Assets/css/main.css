@@ -14256,21 +14256,20 @@ color: #fff;
   }
 }
 
-
 @keyframes shake {
   0%, 100% {
-      transform: translateX(0);
+    transform: translateX(0);
   }
-  20%, 60% {
-      transform: translateX(-10px);
+  25%, 75% {
+    transform: translateX(-5px);
   }
-  40%, 80% {
-      transform: translateX(10px);
+  50% {
+    transform: translateX(5px);
   }
 }
 
 .is-invalid.animate-error {
-  animation: shake 0.4s ease-in-out;
+  animation: shake 0.6s ease-in-out;
 }
 
 
