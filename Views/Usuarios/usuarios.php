@@ -22,18 +22,18 @@ headerAdmin($data);
             <div class="tile">
                 <div class="tile-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered" id="tableUsuarios">
+                        <table class=" table table-hover table-bordered" id="tableUsuarios">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Identificación</th>
-                                    <th>Nombres</th>
-                                    <th>Apellidos</th>
-                                    <th>Telefono</th>
-                                    <th>Correo</th>
-                                    <th>Rol</th>
-                                    <th>Estado</th>
-                                    <th>Acciones</th>
+                                    <th class="table-warning">ID</th>
+                                    <th class="table-warning"  >Identificación</th>
+                                    <th class="table-warning"  >Nombres</th>
+                                    <th class="table-warning"  >Apellidos</th>
+                                    <th class="table-warning"  >Telefono</th>
+                                    <th class="table-warning"  >Correo</th>
+                                    <th class="table-warning"  >Rol</th>
+                                    <th class="table-warning"  >Estado</th>
+                                    <th class="table-warning"  >Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -28,11 +28,11 @@ getModal('modalRoles', $data);
                         <table class="table table-hover table-bordered" id="tableRoles">
                             <thead>
                                 <tr>
-                                    <th>Ítem</th>
-                                    <th>Nombre</th>
-                                    <th>Descripción</th>
-                                    <th>Estado</th>
-                                    <th>Acciones</th>
+                                    <th class="table-warning">Ítem</th>
+                                    <th class="table-warning">Nombre</th>
+                                    <th class="table-warning">Descripción</th>
+                                    <th class="table-warning">Estado</th>
+                                    <th class="table-warning" >Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
