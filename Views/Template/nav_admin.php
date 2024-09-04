@@ -45,7 +45,7 @@
             </li>
 
             <li><a class="app-menu__item " href="<?=base_url();?>/competencias">
-                    <i class="app-menu__icon bi bi-card-checklist"></i>
+                    <i class="app-menu__icon bi bi-award-fill"></i>
                     <span class="app-menu__label">Competencias</span></a></li>
             <?php }?>
 

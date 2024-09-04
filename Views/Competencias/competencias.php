@@ -5,10 +5,10 @@ headerAdmin($data);
 <main class="app-content">
     <div class="app-title">
         <div>
-            <h1><i class="bi bi-card-checklist"></i> <?=$data['page_title']?> </h1>
+            <h1><i class="bi bi-award-fill"></i> <?=$data['page_title']?> </h1>
         </div>
         <?php if ($_SESSION['permisosMod']['w']) {?>
-        <button class="btn btn-warning" type="button" data-bs-toggle="modal" onclick="openModal();">
+        <button  id="btnprogram" class="btn btn-warning" type="button" data-bs-toggle="modal" onclick="openModal();">
             <i class="bi bi-plus-lg"></i>
             Nueva Competencia</button>
         <?php }?>
@@ -26,11 +26,11 @@ headerAdmin($data);
                         <table class="table table-hover table-bordered" id="tableCompetencias">
                             <thead class="table-success">
                                 <tr>
-                                    <th class="text-center">Código </th>
-                                    <th class="text-center">Nombre</th>
-                                    <th class="text-center">Horas</th>
-                                    <th class="text-center">Código Programa</th>
-                                    <th class="text-center">Acciones</th>
+                                    <th class="table-warning"">Código </th>
+                                    <th class="table-warning"">Nombre</th>
+                                    <th class="table-warning"">Horas</th>
+                                    <th class="table-warning"">Código Programa</th>
+                                    <th class="table-warning"">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider text-center">

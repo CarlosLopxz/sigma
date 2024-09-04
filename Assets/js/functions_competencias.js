@@ -28,22 +28,22 @@ document.addEventListener('DOMContentLoaded', function(){
                 "extend": "copyHtml5",
                 "text": "<i class='far fa-copy'></i> Copiar",
                 "titleAttr":"Copiar",
-                "className": "btn btn-warning mt-3"
+                "className": "btn btn-warning mt-3 margen-btn"
             },{
                 "extend": "excelHtml5",
                 "text": "<i class='fas fa-file-excel'></i> Excel",
                 "titleAttr":"Exportar a Excel",
-                "className": "btn btn-success mt-3"
+                "className": "btn btn-success mt-3 margen-btn"
             },{
                 "extend": "pdfHtml5",
                 "text": "<i class='fas fa-file-pdf'></i> PDF",
                 "titleAttr":"Exportar a PDF",
-                "className": "btn btn-danger mt-3"
+                "className": "btn btn-danger mt-3 margen-btn"
             },{
                 "extend": "csvHtml5",
                 "text": "<i class='fas fa-file-csv'></i> CSV",
                 "titleAttr":"Exportar a CSV",
-                "className": "btn btn-info mt-3"
+                "className": "btn btn-info mt-3 margen-btn"
             }
         ],
         "responsive":"true",
