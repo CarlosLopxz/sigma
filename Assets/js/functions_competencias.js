@@ -241,9 +241,9 @@ function fntDelInfo(idecompetencia){
     swal({
         title: "Eliminar Competencia",
         text: "¿Esta seguro que desea eliminar la competencia?",
-        imageUrl: "Assets/images/iconos/eliminar.png" ,
+        imageUrl: "Assets/images/alerta.png" ,
         showCancelButton: true,
-        confirmButtonColor: "#DD6B55",
+        confirmButtonColor: "#FF0000",
         confirmButtonText: "Eliminar",
         cancelButtonText: "Cancelar",
         closeOnConfirm: false,

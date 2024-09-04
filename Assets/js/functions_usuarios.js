@@ -214,7 +214,7 @@ function fntDelInfo(ideusuario){
     swal({
         title: "Eliminar Usuario",
         text: "¿Realmente quiere eliminar al Usuario?",
-        type: "warning",
+        imageUrl: "Assets/images/alerta.png" ,
         showCancelButton: true,
         confirmButtonText: "Si, eliminar!",
         cancelButtonText: "No, cancelar!",

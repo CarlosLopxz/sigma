@@ -34,7 +34,7 @@
             </div>
 
             <form class="login-form needs-validation" name="formLogin" id="formLogin" novalidate>
-                <h3 class="login-head"><i class="bi bi-person-circle me-2"></i>Iniciar Sesión</h3>
+                <h3 class="login-head tipo"><i class="bi bi-person-fill me-2"></i>INICIAR SESION</h3>
 
                 <div class="mb-6 input-icon identificacion">
                     <br>
@@ -53,11 +53,12 @@
 
                 <div id="alertLogin" class="text-center"></div>
                 <div class="mb-3 btn-container d-grid block-login">
-                    <button type="submit" id="btn-login" class="btn btn-primary btn-block">
-                        <i class="bi bi-box-arrow-in-right me-2 fs-5"></i> Iniciar Sesión
+                    <button type="submit" id="btn-login" class="btn btn-primary5 btn-block">
+                        Iniciar Sesión
                     </button>
                 </div>
             </form>
+            
 
         </div>
     </section>
@@ -87,6 +88,7 @@
     <!-- JavaScript-->
     <script src="<?=media();?>/js/plugins/pace.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-sweetalert@1.0.1/dist/sweetalert.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <script src="<?=media();?>/js/<?=$data['page_functions_js'];?>"></script>
 
 </body>
