@@ -4,7 +4,7 @@
         <div class="app-sidebar__user"><img class="app-sidebar__user-avatar"
                 src="<?= media();?>/images/<?=$_SESSION['userData']['imgperfil'];?>" alt="Imagen de perfil">
             <div>
-                <p class="app-sidebar__user-name"><?= $_SESSION['userData']['identificacion']; ?></p>
+                <p class="app-sidebar__user-name"><?= $_SESSION['userData']['nombres']; ?></p>
                 <p class="app-sidebar__user-designation"><?= $_SESSION['userData']['nombrerol']; ?></p>
             </div>
         </div>

@@ -18,7 +18,6 @@
 
     <title><?=$data['page_tag'];?></title>
     </head>
-
 <body>
     <section class="material-half-bg">
         <div class="cover"></div>
@@ -34,35 +33,34 @@
                 </div>
             </div>
 
-            <form class="login-form" name="formLogin" id="formLogin" action="../../views/Dashboard/dashboard.php">
+            <form class="login-form needs-validation" name="formLogin" id="formLogin" novalidate>
                 <h3 class="login-head"><i class="bi bi-person-circle me-2"></i>Iniciar Sesión</h3>
 
-                <!-- Campo de Identificación con icono -->
-                 <div class='login-page'>
-                     <div class="mb-3 input-icon identificacion">
-                         <br>
-                         <label class="form-label">Usuario</label>
-                         <input id="txtIdentificacion" name="txtIdentificacion" class="form-control" type="number"
-                         placeholder="Número de Identificación" autofocus>
-                        </div>
-                        
-                        <!-- Campo de Contraseña con icono -->
-                        <div class="mb-3 input-icons password">
-                            <label class="form-label">Contraseña</label>
-                            <input id="txtPassword" name="txtPassword" class="form-control" type="password"
-                            placeholder="Ingrese Contraseña">
-                        </div>
-                        <div id="alertLogin" class="text-center"></div>
-                        <div class="mb-3 btn-container d-grid  block-login">
-                            <button type="submit" id="btn-login" class="btn btn-primary btn-block"><i
-                            class="bi bi-box-arrow-in-right me-2 fs-5"></i> Iniciar Sesión</button>
-                        </div>
-                    </div>
+                <div class="mb-6 input-icon identificacion">
+                    <br>
+                    <label class="form-label">Usuario</label>
+                    <input id="txtIdentificacion" name="txtIdentificacion" class="form-control" type="number"
+                        placeholder="Número de Identificación" required autofocus>
+                    <div class="invalid-feedback">El inicio de sesión o la contraseña no son válidos.</div>
+                </div>
+
+                <div class="mb-3 input-icons password">
+                    <label class="form-label">Contraseña</label>
+                    <input id="txtPassword" name="txtPassword" class="form-control" type="password"
+                        placeholder="Ingrese Contraseña" required>
+                    <div class="invalid-feedback">El inicio de sesión o la contraseña no son válidos.</div>
+                </div>
+
+                <div id="alertLogin" class="text-center"></div>
+                <div class="mb-3 btn-container d-grid block-login">
+                    <button type="submit" id="btn-login" class="btn btn-primary btn-block">
+                        <i class="bi bi-box-arrow-in-right me-2 fs-5"></i> Iniciar Sesión
+                    </button>
+                </div>
             </form>
 
         </div>
     </section>
-
     <!-- ORIGINAL -->
     <script>
         const base_url = "<?=base_url();?>";

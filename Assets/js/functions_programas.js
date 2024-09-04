@@ -85,10 +85,10 @@ document.addEventListener('DOMContentLoaded', function(){
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
             let ajaxUrl = base_url + '/Programas/setPrograma';
             let formData = new FormData(formPrograma);
-            request.open("POST", ajaxUrl, true);
+            request.open("POST",ajaxUrl,true);
             request.send(formData);
             request.onreadystatechange = function() {
-                if (request.readyState == 4 && request.status == 200) {
+                if (request.readyState == 4 && request.status == 200){
                     let objData = JSON.parse(request.responseText);
                     if (objData.status)
                     {
@@ -100,7 +100,9 @@ document.addEventListener('DOMContentLoaded', function(){
                             '<span class="badge text-bg-danger">Inactivo</span>';
                             tableProgramas.api().ajax.reload();
                             rowTable.cells[1].textContent =  strIdePrograma;
-                            rowTable.cells[2].innerHTML = htmlStatus;
+                            //rowTable.cells[2].textContent =  strRolUsuario;
+                           rowTable.cells[2].textContent = document.querySelector("#txtRolUsuario").selectedOptions[0].text;
+                            rowTable.cells[3].innerHTML = htmlStatus;
                             rowTable = "";
                         }
                             
@@ -121,6 +123,22 @@ document.addEventListener('DOMContentLoaded', function(){
 window.addEventListener('load', function() {
     fntRolesUsuario();
 }, false);
+
+function fntRolesUsuario(){
+    if(document.querySelector('#txtRolUsuario')){
+        let ajaxUrl = base_url+'/Roles/getSelectRoles';
+        let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        request.open("GET",ajaxUrl,true);
+        request.send();
+        request.onreadystatechange = function(){
+            if(request.readyState == 4 && request.status == 200){
+                document.querySelector('#txtRolUsuario').innerHTML = request.responseText;
+                // $('.txtRolUsuario').selectpicker('render');
+                $('.txtRolUsuario').selectpicker('refresh');
+            }
+        }
+    }
+    }
 
 
 function fntViewInfo(ideprograma){
