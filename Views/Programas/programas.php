@@ -25,13 +25,13 @@ headerAdmin($data);
                         <table class="table table-hover table-bordered" id="tableProgramas">
                             <thead>
                                 <tr>
-                                    <th class="table-warning" >ID</th>
-                                    <th class="table-warning" >Código</th>
-                                    <th class="table-warning" >Nivel</th>
-                                    <th class="table-warning" >Nombre</th>
-                                    <th class="table-warning" >Horas</th>
-                                    <th class="table-warning" >Estado</th>
-                                    <th class="table-warning" >Acciones</th>
+                                    <th class="table-warning">ID</th>
+                                    <th class="table-warning">Código</th>
+                                    <th class="table-warning">Nivel</th>
+                                    <th class="table-warning">Nombre</th>
+                                    <th class="table-warning">Horas</th>
+                                    <th class="table-warning">Estado</th>
+                                    <th class="table-warning">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>

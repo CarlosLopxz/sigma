@@ -26,14 +26,14 @@ headerAdmin($data);
                             <thead>
                                 <tr>
                                     <th class="table-warning">ID</th>
-                                    <th class="table-warning"  >Identificación</th>
-                                    <th class="table-warning"  >Nombres</th>
-                                    <th class="table-warning"  >Apellidos</th>
-                                    <th class="table-warning"  >Telefono</th>
-                                    <th class="table-warning"  >Correo</th>
-                                    <th class="table-warning"  >Rol</th>
-                                    <th class="table-warning"  >Estado</th>
-                                    <th class="table-warning"  >Acciones</th>
+                                    <th class="table-warning">Identificación</th>
+                                    <th class="table-warning">Nombres</th>
+                                    <th class="table-warning">Apellidos</th>
+                                    <th class="table-warning">Telefono</th>
+                                    <th class="table-warning">Correo</th>
+                                    <th class="table-warning">Rol</th>
+                                    <th class="table-warning">Estado</th>
+                                    <th class="table-warning">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
