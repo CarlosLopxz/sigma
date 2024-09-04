@@ -4,7 +4,6 @@
         <div class="modal-content">
             <div class="modal-header headerRegister">
                 <h5 class="modal-title" id="titleModal">Permisos Roles <?=$data['rol']?></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
 
@@ -105,7 +104,7 @@ $no++;
                                 </div>
 
                                 <div class="text-center">
-                                    <button class="btn btn-success" type="submit"><i class="bi bi-send"></i>
+                                    <button class="btn btn-success" type="submit"><i class="bi bi-send-fill"></i>
                                         Guardar</button>
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i
                                             class="bi bi-x-lg"></i>Cancelar</button>

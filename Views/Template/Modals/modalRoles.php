@@ -37,7 +37,7 @@
                             <div class="modal-footer">
 
                                 <button id="btnActionForm" class="btn btn-success" type="submit"><i
-                                        class="bi bi-send"></i><span id="btnText">Guardar</span></button>
+                                        class="bi bi-send-fill"></i><span id="btnText">Guardar</span></button>
 
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i
                                         class="bi bi-x-lg"></i>Cancelar</button>

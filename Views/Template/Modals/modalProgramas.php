@@ -6,8 +6,6 @@
         <div class="modal-content">
             <div class="modal-header headerRegister">
                 <h5 class="modal-title" id="titleModal">Nuevo Programa</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                </button>
             </div>
             <div class="modal-body">
                 <div class="tile">
@@ -65,7 +63,7 @@
 
                             <div class="modal-footer">
                                 <button id="btnActionForm" class="btn btn-success" type="submit"><i
-                                        class="bi bi-send"></i><span id="btnText">Guardar</span></button>
+                                        class="bi bi-send-fill"></i><span id="btnText">Guardar</span></button>
 
                                 <button class="btn btn-danger" type="button" data-bs-dismiss="modal"><i
                                         class="bi bi-x-lg"></i>Cerrar</button>
