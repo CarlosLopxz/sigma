@@ -5,7 +5,7 @@ const BASE_URL = "http://localhost/sigma";
 date_default_timezone_set('America/Bogota');
 
 //Datos de conexión a Base de Datos
-const DB_HOST = "localhost:3307";
+const DB_HOST = "localhost:3306";
 const DB_NAME = "sigma";
 const DB_USER = "root";
 const DB_PASSWORD = "";

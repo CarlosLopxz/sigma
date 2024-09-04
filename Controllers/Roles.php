@@ -61,15 +61,22 @@ class Roles extends Controllers
                 }
                 if ($_SESSION['permisosMod']['d']) {
 
-                    if (($_SESSION['idUser'] == 1 and $_SESSION['userData']['idrol'] == 1) and
-                        ($_SESSION['userData']['idrol'] == 1 and $arrData[$i]['idrol'] != 1)
+                    if (($_SESSION['userData']['idrol'] == 1)
                     ) {
-                        $btnDelete = '<button class="btn btn-danger btn-sm btnDelRol" onClick="fntDelRol(' . $arrData[$i]['idrol'] . ')" title="Eliminar"><i class="bi bi-trash3"></i></button>
-					</div>';
+                        if ($arrData[$i]['idrol'] == 1) {
+                        $btnDelete = '<button class="btn btn-secondary btn-sm" disabled><i class="bi bi-trash3"></i></button>';
+                        } else {
+                        $btnDelete = '<button class="btn btn-danger btn-sm btnDelRol" onClick="fntDelRol(' . $arrData[$i]['idrol'] . ')" title="Eliminar"><i class="bi bi-trash3"></i></button>';
+                        }
+                    }else {
+                    $btnDelete = '<button class="btn btn-danger btn-sm btnDelRol" onClick="fntDelRol(' . $arrData[$i]['idrol'] . ')" title="Eliminar"><i class="bi bi-trash3"></i></button>';
                     }
                 } else {
-                    $btnDelete = '<button class="btn btn-secondary btn-sm" disabled ><i class="fas fa-key"></i></button>';
+                // Si el usuario no tiene permiso de eliminación
+                $btnDelete = '<button class="btn btn-secondary btn-sm" disabled ><i class="fas fa-key"></i></button>';
                 }
+                 
+                
                 $arrData[$i]['options'] = '<div class="text-center">' . $btnView . ' ' . $btnEdit . ' ' . $btnDelete . '</div>';
             }
             echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
