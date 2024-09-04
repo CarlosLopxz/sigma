@@ -11,7 +11,7 @@ class Programas extends Controllers
             header('Location: ' . base_url() . '/login');
             die();
         }
-        getPermisos(MDADMINISTRADOR);
+        getPermisos(RADMINISTRADOR);
     }
 
     public function Programas()

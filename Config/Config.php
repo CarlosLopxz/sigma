@@ -36,9 +36,10 @@ const KEY = 'joseramos';
 const METHODENCRIPT = "AES-128-ECB";
 
 //Módulos
-const MDADMINISTRADOR = 1;
-const MDPROGRAMAS = 2;
-const MDINICIO = 3;
+const MDASHBOARD = 1;
+const MUSUARIOS = 2;
+const MROLES= 3;
+const MPROGRAMAS= 4;
 
 //Páginas
 const PINICIO = 1;
@@ -46,5 +47,3 @@ const PINICIO = 1;
 //Roles
 const RADMINISTRADOR = 1;
 const RCOORDINADOR = 2;
-const RADMINISTRATIVO = 3;
-const RINSTRUCTOR = 4;

@@ -11,7 +11,7 @@ class Usuarios extends Controllers
             header('Location: ' . base_url() . '/login');
             die();
         }
-        getPermisos(MDADMINISTRADOR);
+        getPermisos(RADMINISTRADOR);
     }
 
     public function Usuarios()
