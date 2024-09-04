@@ -15,16 +15,16 @@
                         <form id="formUsuario"" name=" formUsuario"" enctype="multipart/form-data" method="POST">
                             <input type="hidden" id="ideUsuario"" name=" ideUsuario"" value="">
                             <div class="modal-body">
-                                <p class="text-primary">Los campos con asterisco (<span class="required">*</span>) son
+                                <p class="requerido">Los campos con asterisco (<span class="requerido">*</span>) son
                                     obligatorios.
                                 </p>
                                 <hr>
-                                <p class="text-primary">Datos del Usuario</p>
+                                <p class="requerido">Datos del Usuario</p>
                             </div>
 
                             <div class="modal-body">
                                 <label for="txtIdentificacionUsuario"">Identificación<span class="
-                                    required">*</span></label>
+                                    requerido">*</span></label>
                                 <input type="text" class="form-control valid validNumber" id="txtIdentificacionUsuario"
                                     name="txtIdentificacionUsuario" required="" maxlength="10"
                                     onkeypress="return controlTag(event);">
@@ -32,7 +32,7 @@
 
                             <div class="modal-body">
                                 <label for="txtNombresUsuario"">Nombres<span class="
-                                    required">*</span></label>
+                                    requerido">*</span></label>
                                 <input type="text" class="form-control valid validText" id="txtNombresUsuario"
                                     name="txtNombresUsuario" required="" maxlength="30"
                                     onkeypress="return controlTag(event);">
@@ -40,7 +40,7 @@
 
                             <div class="modal-body">
                                 <label for="txtApellidosUsuario"">Apellidos<span class="
-                                    required">*</span></label>
+                                    requerido">*</span></label>
                                 <input type="text" class="form-control valid validText" id="txtApellidosUsuario"
                                     name="txtApellidosUsuario" required="" maxlength="30"
                                     onkeypress="return controlTag(event);">
@@ -48,7 +48,7 @@
 
                             <div class="modal-body">
                                 <label for="txtTelefonoUsuario"">Telefono<span class="
-                                    required">*</span></label>
+                                    requerido">*</span></label>
                                 <input type="text" class="form-control valid validNumber" id="txtTelefonoUsuario"
                                     name="txtTelefonoUsuario" required="" maxlength="30"
                                     onkeypress="return controlTag(event);">
@@ -56,7 +56,7 @@
 
                             <div class="modal-body">
                                 <label for="txtCorreoUsuario"">Correo Electronico<span class="
-                                    required">*</span></label>
+                                    requerido">*</span></label>
                                 <input type="text" class="form-control valid validText" id="txtCorreoUsuario"
                                     name="txtCorreoUsuario" required="" maxlength="30"
                                     onkeypress="return controlTag(event);">
