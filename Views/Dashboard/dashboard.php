@@ -36,7 +36,7 @@
                 <div class="widget-small color-cards-competencias"><i class="icon bi bi-award-fill fs-1"></i>
                     <div class="info">
                         <h4 class="txtdashboard-cards" >Competencias</h4>
-                        <p><b><?=$data['usuarios']?></b></p>
+                        <p><b><?=$data['competencias']?></b></p>
                     </div>
                 </div>
             </a>
