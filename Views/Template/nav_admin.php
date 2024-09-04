@@ -51,7 +51,7 @@
 
             <li>
                 <a class="bg-danger app-menu__item" href="<?=base_url();?>/logout">
-                    <i class="app-menu__icon bi bi-escape"></i>
+                    <i class="app-menu__icon bi bi-box-arrow-left"></i>
                     <span class="app-menu__label">Salir</span>
                 </a>
             </li>

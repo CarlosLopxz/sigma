@@ -3484,21 +3484,34 @@ textarea.form-control-lg {
 }
 
 
+.btn-primary5{
+  background-color: #146c43 !important;
+  color:  #fff;
+}
+
+.btn-primary5:hover{
+  color: #fff !important;
+}
+
+.tipo{
+  font-family: sans-serif;
+}
+
 .btn-primary {
   --bs-btn-color: #FFF;
-  --bs-btn-bg: #58c857;
-  --bs-btn-border-color: #58c857;
+  --bs-btn-bg: #ff0000;
+  --bs-btn-border-color: #ff0000;
   --bs-btn-hover-color: #FFF;
-  --bs-btn-hover-bg: #1a926a;
-  --bs-btn-hover-border-color:  #1a926a;
+  --bs-btn-hover-bg: #ff0000;
+  --bs-btn-hover-border-color:  #ff0000;
   --bs-btn-focus-shadow-rgb: 38, 128, 116;
   --bs-btn-active-color: #FFF;
-  --bs-btn-active-bg: #58c857;
-  --bs-btn-active-border-color: #58c857;
+  --bs-btn-active-bg: #ff0000;
+  --bs-btn-active-border-color: #ff0000;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #FFF;
-  --bs-btn-disabled-bg: #00695C;
-  --bs-btn-disabled-border-color: #58c857;
+  --bs-btn-disabled-bg: #ff0000;
+  --bs-btn-disabled-border-color: #ff0000;
 }
 .btn-primary1{
   background-color: rgba(255, 0, 0, 0.613);
@@ -14372,6 +14385,10 @@ color: #fff;
   margin-bottom: 0;
   padding-left: 0;
 }
+
+.breadcrumb-item a{
+  text-decoration: none;
+}
 .tile .tile-title-w-btn .btn-group {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
@@ -15218,6 +15235,7 @@ color: #fff;
 
   .input-icon input {
       padding-left: 40px; 
+      z-index: 1000;
       }
 
   .input-icon::before {
@@ -15232,6 +15250,7 @@ color: #fff;
       background-repeat: no-repeat;
       color: #ccc;
       opacity: .4;
+      z-index: 1000;
   }
   .input-icon.identificacion::before {
       background-image: url('../images/id-card.png');
@@ -15264,6 +15283,7 @@ color: #fff;
       background-size: contain;
       background-repeat: no-repeat;
       color: #ccc;
+      z-index: 1000;
       opacity: .4;
   }
   .input-icons.password::before {

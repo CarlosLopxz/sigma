@@ -10,7 +10,7 @@
             <p class="info-sigma">Sistema de Información para la Gestión de Módulos Académicos - SIGMA</p>
         </div >
         <ul class="app-breadcrumb breadcrumb">
-            <li class="breadcrumb-item"><i class="bi bi-house-door fs-6"></i></li>
+            <li class="breadcrumb-item"><i class="bi bi-house-fill fs-6"></i></li>
             <li class="breadcrumb-item"><a href="#">Inicio</a></li>
         </ul>
     </div>
