@@ -44,7 +44,7 @@ class Roles extends Controllers
                 }
 
                 if ($_SESSION['permisosMod']['r']) {
-                    $btnEdit = '<button class="btn btn-primary5 btn-sm btnEditRol" onClick="fntEditRol(' . $arrData[$i]['idrol'] . ')" title="Editar"><i class="bi bi-pencil"></i></button>';
+                    $btnEdit = '<button class="btn btn-primary5 btn-sm btnEditRol" onClick="fntEditRol(' . $arrData[$i]['idrol'] . ')" title="Editar"><i class="fas fa-pencil-alt"></i></button>';
                 }
 
                 if ($_SESSION['permisosMod']['u']) {
@@ -53,7 +53,7 @@ class Roles extends Controllers
                     //     ($_SESSION['userData']['idrol'] == 1 and $arrData[$i]['idrol'] == 1)
                     // ) {
                     $btnView = '<button class="btn btn-info btn-sm btnPermisosRol" onClick="fntPermisos(' . $arrData[$i]['idrol'] . ')" title="Permisos"><i class="bi bi-toggles"></i></button>';
-                    $btnEdit = '<button class="btn btn-warning btn-sm btnEditRol" onClick="fntEditRol(' . $arrData[$i]['idrol'] . ')" title="Editar"><i class="bi bi-pencil"></i></button>';
+                    $btnEdit = '<button class="btn btn-warning btn-sm btnEditRol" onClick="fntEditRol(' . $arrData[$i]['idrol'] . ')" title="Editar"><i class="fas fa-pencil-alt"></i></button>';
                     // }
                 } else {
                     $btnView = '<button class="btn btn-secondary btn-sm" disabled ><i class="fas fa-key"></i></button>';

@@ -61,15 +61,15 @@ document.addEventListener('DOMContentLoaded', function(){
         let formPrograma = document.querySelector("#formPrograma");
         formPrograma.onsubmit = function(e) {
             e.preventDefault();
-            let intIdePrograma = document.querySelector('#idePrograma').value;
-            let intCodigoPrograma = document.querySelector('#txtCodigoPrograma').value;
+            var intIdePrograma = document.querySelector('#idePrograma').value;
+            let strCodigoPrograma = document.querySelector('#txtCodigoPrograma').value;
             let strNivelPrograma = document.querySelector('#txtNivelPrograma').value;
             let strNombrePrograma = document.querySelector('#txtNombrePrograma').value;
             let strHorasPrograma = document.querySelector('#txtHorasPrograma').value;
             let intStatus = document.querySelector('#listStatus').value;
 
           
-            if (intCodigoPrograma == '' || strNivelPrograma == '' || strNombrePrograma == '' || strHorasPrograma == '') 
+            if (strCodigoPrograma == '' || strNivelPrograma == '' || strNombrePrograma == '' || strHorasPrograma == '') 
             {
                 swal("Atención", "Todos los campos son obligatorios.", "error");
                 return false;
@@ -99,9 +99,9 @@ document.addEventListener('DOMContentLoaded', function(){
                             '<span class="badge text-bg-success">Activo</span>' : 
                             '<span class="badge text-bg-danger">Inactivo</span>';
                             tableProgramas.api().ajax.reload();
-                            rowTable.cells[1].textContent =  strIdePrograma;
+                            rowTable.cells[1].textContent =  strCodigoPrograma;
                             //rowTable.cells[2].textContent =  strRolUsuario;
-                           rowTable.cells[2].textContent = document.querySelector("#txtRolUsuario").selectedOptions[0].text;
+                           //rowTable.cells[2].textContent = document.querySelector("#txtRolUsuario").selectedOptions[0].text;
                             rowTable.cells[3].innerHTML = htmlStatus;
                             rowTable = "";
                         }
@@ -120,30 +120,30 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 }, false);
 
-window.addEventListener('load', function() {
-    fntRolesUsuario();
-}, false);
+// window.addEventListener('load', function() {
+//     fntRolesPrograma();
+// }, false);
 
-function fntRolesUsuario(){
-    if(document.querySelector('#txtRolUsuario')){
-        let ajaxUrl = base_url+'/Roles/getSelectRoles';
-        let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        request.open("GET",ajaxUrl,true);
-        request.send();
-        request.onreadystatechange = function(){
-            if(request.readyState == 4 && request.status == 200){
-                document.querySelector('#txtRolUsuario').innerHTML = request.responseText;
-                // $('.txtRolUsuario').selectpicker('render');
-                $('.txtRolUsuario').selectpicker('refresh');
-            }
-        }
-    }
-    }
+// function fntRolesUsuario(){
+//     if(document.querySelector('#txtRolUsuario')){
+//         let ajaxUrl = base_url+'/Roles/getSelectRoles';
+//         let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+//         request.open("GET",ajaxUrl,true);
+//         request.send();
+//         request.onreadystatechange = function(){
+//             if(request.readyState == 4 && request.status == 200){
+//                 document.querySelector('#txtRolUsuario').innerHTML = request.responseText;
+//                 // $('.txtRolUsuario').selectpicker('render');
+//                 $('.txtRolUsuario').selectpicker('refresh');
+//             }
+//         }
+//     }
+//     }
 
 
 function fntViewInfo(ideprograma){
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    let ajaxUrl = base_url+'/Programa/getPrograma/'+ideprograma;
+    let ajaxUrl = base_url+'/Programas/getPrograma/'+ideprograma;
     request.open("GET",ajaxUrl,true);
     request.send();
     request.onreadystatechange = function(){
