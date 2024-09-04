@@ -62,7 +62,7 @@ class Roles extends Controllers
                 if ($_SESSION['permisosMod']['d']) {
 
                     if (($_SESSION['idUser'] == 1 and $_SESSION['userData']['idrol'] == 1) and
-                        ($_SESSION['userData']['idrol'] == 1 and $arrData[$i]['idrol'] == 1)
+                        ($_SESSION['userData']['idrol'] == 1 and $arrData[$i]['idrol'] != 1)
                     ) {
                         $btnDelete = '<button class="btn btn-danger btn-sm btnDelRol" onClick="fntDelRol(' . $arrData[$i]['idrol'] . ')" title="Eliminar"><i class="bi bi-trash3"></i></button>
 					</div>';
