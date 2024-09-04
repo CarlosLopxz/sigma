@@ -1,4 +1,4 @@
-    
+
   <div class="copyright">
     &copy; 2024 <a href="">Sigmasoft.</a>Todos los Derechos Reservados
   </div>

@@ -15285,19 +15285,53 @@ color: #fff;
 
 /* Posiciona el texto de derechos reservados en la parte inferior y centro de la pantalla */
 .copyright {
-  position: fixed;
-  bottom: 20px;
-  left: 50%; 
-  transform: translateX(-50%); 
-  font-size: 12px; 
-  padding: 10px 15px; 
-  opacity: .6;
-  z-index: 1000; 
-  font-family: Arial, sans-serif; 
+  color: grey;
   text-align: center;
-  pointer-events: none;
+  padding: 10px 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #e5e5e5;
 }
 .copyright a {
   pointer-events:auto;
   text-decoration: none;
 }
+
+
+
+@media  screen and (min-width: 800px) {
+  .copyright {
+    position: none;
+    color: grey;
+    text-align: center;
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+  }
+  .copyright a {
+    pointer-events:auto;
+    text-decoration: none;
+  }
+  
+ 
+}
+
+@media  screen and (max-height: 800px) {
+  .copyright {
+    position: none;
+    color: grey;
+    text-align: center;
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+
+  }
+  .copyright a {
+    pointer-events:auto;
+    text-decoration: none;
+  }
+  
+ 
+}
+
