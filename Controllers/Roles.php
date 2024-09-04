@@ -44,7 +44,7 @@ class Roles extends Controllers
                 }
 
                 if ($_SESSION['permisosMod']['r']) {
-                    $btnEdit = '<button class="btn btn-primary btn-sm btnEditRol" onClick="fntEditRol(' . $arrData[$i]['idrol'] . ')" title="Editar"><i class="bi bi-pencil"></i></button>';
+                    $btnEdit = '<button class="btn btn-primary5 btn-sm btnEditRol" onClick="fntEditRol(' . $arrData[$i]['idrol'] . ')" title="Editar"><i class="bi bi-pencil"></i></button>';
                 }
 
                 if ($_SESSION['permisosMod']['u']) {
