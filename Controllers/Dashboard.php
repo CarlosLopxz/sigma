@@ -21,6 +21,7 @@ class Dashboard extends Controllers
         $data['page_title'] = " Administrador - Sigma";
         $data['page_name'] = "Administrador";
         $data['page_functions_js'] = "functions_dashboard.js";
+        $data['competencias'] = $this->model->cantCompetencias();
         $data['usuarios'] = $this->model->cantUsuarios();
         $data['programas'] = $this->model->cantProgramas();
 
