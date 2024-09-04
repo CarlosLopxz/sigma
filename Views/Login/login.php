@@ -36,6 +36,7 @@
             <form class="login-form needs-validation" name="formLogin" id="formLogin" novalidate>
                 <h3 class="login-head tipo"><i class="bi bi-person-fill me-2"></i>INICIAR SESION</h3>
 
+
                 <div class="mb-6 input-icon identificacion">
                     <br>
                     <label class="form-label">Usuario</label>
