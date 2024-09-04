@@ -6,7 +6,6 @@
             <div class="modal-header headerRegister">
                 <h5 class="modal-title" id="titleModal">Nuevo Rol</h5>
 
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="tile">
@@ -14,7 +13,7 @@
                         <form id="formRol" name="formRol">
                             <input type="hidden" id="idRol" name="idRol" value="">
                             <div class="modal-body">
-                                <label class="control-label">Nombre</label>
+                                <label class="control-label">Nombre Del Rol</label>
                                 <input class="form-control" id="txtNombre" name="txtNombre" type="text"
                                     placeholder="Nombre del rol" required="">
                             </div>

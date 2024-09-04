@@ -202,7 +202,7 @@ function fntEditInfo(element, idecompetencia){
     rowTable = element.parentNode.parentNode.parentNode;
     document.querySelector('#titleModal').innerHTML ="Actualizar Competencia";
     document.querySelector('.modal-header').classList.replace("headerRegister", "headerUpdate");
-    document.querySelector('#btnActionForm').classList.replace("btn-primary", "btn-info");
+    document.querySelector('#btnActionForm').classList.replace("btn-primary5", "btn-info");
     document.querySelector('#btnText').innerHTML ="Actualizar";
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     let ajaxUrl = base_url+'/Competencias/getCompetencia/'+idecompetencia;
@@ -281,7 +281,7 @@ function openModal()
     rowTable = "";
     document.querySelector('#ideCompetencia').value ="";
     document.querySelector('.modal-header').classList.replace("headerUpdate", "headerRegister");
-    document.querySelector('#btnActionForm').classList.replace("btn-info", "btn-primary");
+    document.querySelector('#btnActionForm').classList.replace("btn-info", "btn-primary5");
     document.querySelector('#btnText').innerHTML ="Guardar";
     document.querySelector('#titleModal').innerHTML = "Nueva Competencia";
     document.querySelector("#formCompetencia").reset();

@@ -174,7 +174,7 @@ function fntEditInfo(element, ideprograma) {
     rowTable = element.parentNode.parentNode.parentNode;
     document.querySelector('#titleModal').innerHTML = "Actualizar Programa";
     document.querySelector('.modal-header').classList.replace("headerRegister", "headerUpdate");
-    document.querySelector('#btnActionForm').classList.replace("btn-primary", "btn-info");
+    document.querySelector('#btnActionForm').classList.replace("btn-primary5", "btn-info");
     document.querySelector('#btnText').innerHTML = "Actualizar";
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     let ajaxUrl = base_url+'/Programas/getPrograma/'+ideprograma;
@@ -245,7 +245,7 @@ function openModal()
     rowTable = "";
     document.querySelector('#idePrograma').value = "";
     document.querySelector('.modal-header').classList.replace("headerUpdate", "headerRegister");
-    document.querySelector('#btnActionForm').classList.replace("btn-info", "btn-primary");
+    document.querySelector('#btnActionForm').classList.replace("btn-info", "btn-primary5");
     document.querySelector('#btnText').innerHTML = "Guardar";
     document.querySelector('#titleModal').innerHTML = "Nuevo Programa";
     document.querySelector("#formPrograma").reset();
