@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
             if(strCodigoCompetencia == '' || strNombreCompetencia == '' || strNombrePrograma == '')
             {
+                swal("Atención", "Todos los campos son obligatorios." , "error");
                 return false;
             }
             let elementsValid = document.getElementsByClassName("valid");

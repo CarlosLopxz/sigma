@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function(){
         var intStatus = document.querySelector('#listStatus').value;        
         if(strNombre == '' || strDescripcion == '' || intStatus == '')
         {
+            swal("Atención", "Todos los campos son obligatorios." , "error");
             return false;
         }
         divLoading.style.display = "flex";

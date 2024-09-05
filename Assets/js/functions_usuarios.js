@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
             if(strIdentificacionUsuario == '' || strNombresUsuario == '' || strApellidosUsuario == '' || strTelefonoUsuario == '' || strCorreoUsuario == '' || strRolUsuario == '')
             {
+                swal("Atención", "Todos los campos son obligatorios." , "error");
                 return false;
             }
             let elementsValid = document.getElementsByClassName("valid");
