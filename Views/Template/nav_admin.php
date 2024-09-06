@@ -12,46 +12,48 @@
         <ul class="app-menu">
             <li>
                 <a class="app-menu__item" href="<?=base_url();?>/dashboard">
-                    <i class="app-menu__icon bi bi-house-fill"></i>
+                    <i class="app-menu__icon bi bi-house"></i>
                     <span class="app-menu__label">Inicio</span>
                 </a>
             </li>
 
-            
+            <?php if (!empty($_SESSION['permisos'][1]['r'])) {?>
             <li>
-                <a class="app-menu__item " href="<?=base_url();?>/roles">
+                <a class="treeview-item" href="<?=base_url();?>/roles">
                     <i class="app-menu__icon bi bi-toggles"></i>
-                    <span class="app-menu__label">Roles</span>
+                    Roles
                 </a>
             </li>
+            <?php }?>
 
-                
+            <?php if (!empty($_SESSION['permisos'][1]['r'])) {?>
+            <li><a class="app-menu__item " href="<?=base_url();?>/usuarios">
+                    <i class="app-menu__icon bi bi-people"></i>
+                    <span class="app-menu__label">Usuarios</span></a></li>
+            <?php }?>
+
+            <?php if (!empty($_SESSION['permisos'][2]['r'])) {?>
             <li>
-                <a class="app-menu__item " href="<?=base_url();?>/usuarios">
-                    <i class="app-menu__icon bi bi-people-fill"></i>
-                    <span class="app-menu__label">Usuarios</span>
-                </a>
+                <a class="treeview-item" href="<?=base_url();?>/programas">
+                    <i class="app-menu__icon bi bi-list-stars"></i>
+                    Programas</a>
             </li>
+            <?php }?>
 
-            <li>
-                <a class="app-menu__item " href="<?=base_url();?>/programas">
-                    <i class="app-menu__icon bi bi-calendar-week-fill"></i>
-                    <span class="app-menu__label">Programas</span>
-                </a>
-            </li>
-            
+            <li><a class="app-menu__item " href="<?=base_url();?>/competencias">
+                    <i class="app-menu__icon bi bi-card-checklist"></i>
+                    <span class="app-menu__label">Competencias</span></a></li>
 
-            <li>
-                <a class="app-menu__item " href="<?=base_url();?>/competencias">
-                    <i class="app-menu__icon bi bi-award-fill"></i>
-                    <span class="app-menu__label">Competencias</span>
-                </a>
-            </li>
-            
+            <li><a class="app-menu__item " href="<?=base_url();?>/fichas">
+                    <i class="app-menu__icon bi bi-bookmark-star"></i>
+                    <span class="app-menu__label">Fichas</span></a></li>
 
+            <li><a class="app-menu__item " href="<?=base_url();?>/asignaciones">
+                    <i class="app-menu__icon bi bi-check2-circle"></i>
+                    <span class="app-menu__label">Asignaciones</span></a></li>
             <li>
                 <a class="bg-danger app-menu__item" href="<?=base_url();?>/logout">
-                    <i class="app-menu__icon bi bi-box-arrow-left"></i>
+                    <i class="app-menu__icon bi bi-x-circle"></i>
                     <span class="app-menu__label">Salir</span>
                 </a>
             </li>

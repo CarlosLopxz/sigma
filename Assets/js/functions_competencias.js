@@ -28,22 +28,22 @@ document.addEventListener('DOMContentLoaded', function(){
                 "extend": "copyHtml5",
                 "text": "<i class='far fa-copy'></i> Copiar",
                 "titleAttr":"Copiar",
-                "className": "btn btn-warning mt-3 margen-btn"
+                "className": "btn btn-warning mt-3"
             },{
                 "extend": "excelHtml5",
                 "text": "<i class='fas fa-file-excel'></i> Excel",
                 "titleAttr":"Exportar a Excel",
-                "className": "btn btn-success mt-3 margen-btn"
+                "className": "btn btn-success mt-3"
             },{
                 "extend": "pdfHtml5",
                 "text": "<i class='fas fa-file-pdf'></i> PDF",
                 "titleAttr":"Exportar a PDF",
-                "className": "btn btn-danger mt-3 margen-btn"
+                "className": "btn btn-danger mt-3"
             },{
                 "extend": "csvHtml5",
                 "text": "<i class='fas fa-file-csv'></i> CSV",
                 "titleAttr":"Exportar a CSV",
-                "className": "btn btn-info mt-3 margen-btn"
+                "className": "btn btn-info mt-3"
             }
         ],
         "responsive":"true",
@@ -202,7 +202,7 @@ function fntEditInfo(element, idecompetencia){
     rowTable = element.parentNode.parentNode.parentNode;
     document.querySelector('#titleModal').innerHTML ="Actualizar Competencia";
     document.querySelector('.modal-header').classList.replace("headerRegister", "headerUpdate");
-    document.querySelector('#btnActionForm').classList.replace("btn-primary5", "btn-info");
+    document.querySelector('#btnActionForm').classList.replace("btn-primary", "btn-info");
     document.querySelector('#btnText').innerHTML ="Actualizar";
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     let ajaxUrl = base_url+'/Competencias/getCompetencia/'+idecompetencia;
@@ -241,9 +241,9 @@ function fntDelInfo(idecompetencia){
     swal({
         title: "Eliminar Competencia",
         text: "¿Esta seguro que desea eliminar la competencia?",
-        imageUrl: "Assets/images/alerta.png" ,
+        imageUrl: "Assets/images/iconos/eliminar.png" ,
         showCancelButton: true,
-        confirmButtonColor: "#FF0000",
+        confirmButtonColor: "#DD6B55",
         confirmButtonText: "Eliminar",
         cancelButtonText: "Cancelar",
         closeOnConfirm: false,
@@ -281,7 +281,7 @@ function openModal()
     rowTable = "";
     document.querySelector('#ideCompetencia').value ="";
     document.querySelector('.modal-header').classList.replace("headerUpdate", "headerRegister");
-    document.querySelector('#btnActionForm').classList.replace("btn-info", "btn-primary5");
+    document.querySelector('#btnActionForm').classList.replace("btn-info", "btn-primary");
     document.querySelector('#btnText').innerHTML ="Guardar";
     document.querySelector('#titleModal').innerHTML = "Nueva Competencia";
     document.querySelector("#formCompetencia").reset();

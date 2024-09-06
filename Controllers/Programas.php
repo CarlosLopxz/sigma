@@ -11,7 +11,7 @@ class Programas extends Controllers
             header('Location: ' . base_url() . '/login');
             die();
         }
-        getPermisos(RADMINISTRADOR);
+        getPermisos(MUSUARIOS);
     }
 
     public function Programas()
@@ -38,44 +38,40 @@ class Programas extends Controllers
                 $strNivelPrograma = strClean($_POST['txtNivelPrograma']);
                 $strNombrePrograma = strClean($_POST['txtNombrePrograma']);
                 $strHorasPrograma = strClean($_POST['txtHorasPrograma']);
-                $intStatus = intval(strClean($_POST['listStatus']));
 
-
-                $request_programa = "";
+                $intTipoId = 5;
+                $request_user = "";
                 if ($intIdePrograma == 0) {
                     $option = 1;
-                    $strPassword =  empty($_POST['txtCodigoPrograma']) ? hash("SHA256",passGenerator()) : hash("SHA256",$_POST['txtCodigoPrograma']);
                     if ($_SESSION['permisosMod']['w']) {
-                        $request_programa = $this->model->insertPrograma(
+                        $request_user = $this->model->insertPrograma(
                             $strCodigoPrograma,
                             $strNivelPrograma,
                             $strNombrePrograma,
-                            $strHorasPrograma,
-                            $intStatus
+                            $strHorasPrograma
+
                         );
                     }
                 } else {
                     $option = 2;
-                    $strPassword =  empty($_POST['txtCodigoPrograma']) ? hash("SHA256",passGenerator()) : hash("SHA256",$_POST['txtCodigoPrograma']);
                     if ($_SESSION['permisosMod']['u']) {
-                        $request_programa = $this->model->updatePrograma(
+                        $request_user = $this->model->updatePrograma(
                             $intIdePrograma,
                             $strCodigoPrograma,
                             $strNivelPrograma,
                             $strNombrePrograma,
-                            $strHorasPrograma,
-                            $intStatus
+                            $strHorasPrograma
                         );
                     }
                 }
-                if ($request_programa > 0) {
+                if ($request_user > 0) {
                     if ($option == 1) {
                         $arrResponse = array('status' => true, 'msg' => 'Programa guardado correctamente');
                     } else {
                         $arrResponse = array('status' => true, 'msg' => 'Programa actualizado correctamente');
                     }
-                } else if ($request_programa == 'exist') {
-                    $arrResponse = array('status' => false, 'msg' => '¡Atención! el código del Programa ya existe, ingrese otro');
+                } else if ($request_user == 'exist') {
+                    $arrResponse = array('status' => false, 'msg' => '¡Atención! el código del programa ya existe, ingrese otro');
                 } else {
                     $arrResponse = array("status" => false, "msg" => 'No es posible almacenar los datos.');
                 }
@@ -94,21 +90,20 @@ class Programas extends Controllers
                 $btnEdit = '';
                 $btnDelete = '';
 
-                if($arrData[$i]['status'] == 1)
-                {
-                    $arrData[$i]['status'] = '<span class="badge text-bg-success">Activo</span>';
-                }else{
-                    $arrData[$i]['status'] = '<span class="badge text-bg-danger">Inactivo</span>';
-                }
+                // if ($arrData[$i]['status'] == 1) {
+                //     $arrData[$i]['status'] = '<span class="badge bg-success">Activo</span>';
+                // } else {
+                //     $arrData[$i]['status'] = '<span class="badge bg-danger">Inactivo</span>';
+                // }
 
                 if ($_SESSION['permisosMod']['r']) {
-                    $btnView = '<button class="btn btn-info btn-sm" onClick="fntViewInfo(' . $arrData[$i]['ideprograma'] . ')" title="Ver Programa"><i class="far fa-eye"></i></button>';
+                    $btnView = '<button class="btn btn-info" onClick="fntViewInfo(' . $arrData[$i]['ideprograma'] . ')" title="Ver Programa"><i class="bi bi-eye"></i></button>';
                 }
                 if ($_SESSION['permisosMod']['u']) {
-                    $btnEdit = '<button class="btn btn-warning  btn-sm" onClick="fntEditInfo(this,' . $arrData[$i]['ideprograma'] . ')" title="Editar Programa"><i class="fas fa-pencil-alt"></i></button>';
+                    $btnEdit = '<button class="btn btn-warning" onClick="fntEditInfo(this,' . $arrData[$i]['ideprograma'] . ')" title="Editar Programa"><i class="bi bi-pencil"></i></button>';
                 }
                 if ($_SESSION['permisosMod']['d']) {
-                    $btnDelete = '<button class="btn btn-danger btn-sm btnDelRol" onClick="fntDelInfo(' . $arrData[$i]['ideprograma'] . ')" title="Eliminar Programa"><i class="bi bi-trash3"></i></button>';
+                    $btnDelete = '<button class="btn btn-danger btnDelRol" onClick="fntDelInfo(' . $arrData[$i]['ideprograma'] . ')" title="Eliminar Programa"><i class="bi bi-trash3"></i></button>';
        
                 }
 
@@ -145,12 +140,12 @@ class Programas extends Controllers
                 if ($requestDelete) {
                     $arrResponse = array('status' => true, 'msg' => 'Se ha eliminado el Programa');
                 } else {
-                    $arrResponse = array('status' => false, 'msg' => 'Error al eliminar el Programa.');
+                    $arrResponse = array('status' => false, 'msg' => 'Error al eliminar al Programa.');
                 }
                 echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
             }
         }
         die();
     }
-}
 
+}

@@ -1,5 +1,4 @@
 <?php
-
 class ProgramasModel extends Mysql
 {
     private $intIdePrograma;
@@ -7,146 +6,120 @@ class ProgramasModel extends Mysql
     private $strNivelPrograma;
     private $strNombrePrograma;
     private $strHorasPrograma;
-    private $strStatusPrograma;
+    private $strStatus;
+    
 
     public function __construct()
     {
         parent::__construct();
     }
 
-   
     public function insertPrograma(
-        string $codigoprograma,
-        string $nivelprograma,
+        string $codigo,
+        string $nivel,
         string $nombreprograma,
-        string $horasprograma,
-        string $status
+        string $horasprograma
     ) {
-        $this->strCodigoPrograma = $codigoprograma;
-        $this->strNivelPrograma = $nivelprograma;
+        $this->strCodigoPrograma = $codigo;
+        $this->strNivelPrograma = $nivel;
         $this->strNombrePrograma = $nombreprograma;
         $this->strHorasPrograma = $horasprograma;
-        $this->strStatusPrograma = $status;
 
         $return = 0;
-        $sql = "SELECT * FROM tbl_programas WHERE 
-                codigoprograma = '{$this->strCodigoPrograma}'";
+        $sql = "SELECT * FROM tbl_programas WHERE
+				codigoprograma = '{$this->strCodigoPrograma}'";
         $request = $this->select_all($sql);
 
         if (empty($request)) {
-            
-            $query_insert = "INSERT INTO tbl_programas(codigoprograma, nivelprograma, nombreprograma, horasprograma, status)
-            VALUES(?,?,?,?,?)";
+
+            $query_insert = "INSERT INTO tbl_programas(codigoprograma,nivelprograma,nombreprograma,horasprograma)
+            VALUES(?,?,?,?)";
 
             $arrData = array(
                 $this->strCodigoPrograma,
                 $this->strNivelPrograma,
                 $this->strNombrePrograma,
-                $this->strHorasPrograma,
-                $this->strStatusPrograma
-                // Estado activo por defecto
+                $this->strHorasPrograma
             );
 
             $request_insert = $this->insert($query_insert, $arrData);
             $return = $request_insert;
+
         } else {
             $return = "exist";
         }
         return $return;
     }
 
-    // // LISTADO DE LA TABLA
-    // public function selectProgramas()
-    // {
-    //     $whereAdmin = "";
-    //     if($_SESSION['idUser'] != 1 ){
-    //         $whereAdmin = " and p.ideprograma != 1 ";
-    //     }
-    //     $sql = "SELECT u.ideprograma,u.codigoprograma,u.nivelprograma,u.nombreprograma,u.horasprograma,u.status
-    //             FROM tbl_programas u 
-    //             WHERE u.status != 0 ".$whereAdmin;
-    //             $request = $this->select_all($sql);
-    //             return $request;
-    // }
-
-    // public function selectPrograma(int $ideprograma){
-    //     $this->intIdePrograma = $ideprograma;
-    //     $sql = "SELECT u.ideprograma,u.codigoprograma,u.nivelprograma,u.nombreprograma,u.horasprograma,u.status
-    //             FROM tbl_programas u
-    //             WHERE u.ideprograma = $this->intIdePrograma";
-    //     $request = $this->select($sql);
-    //     return $request;
-    // }
-
-    // Listar todos los programas
+    // LISTADO DE LA TABLA
     public function selectProgramas()
     {
-        $sql = "SELECT ideprograma, codigoprograma, nivelprograma, nombreprograma, horasprograma, status FROM tbl_programas";
+        $sql = "SELECT * FROM tbl_programas WHERE status != 0";
         $request = $this->select_all($sql);
         return $request;
     }
 
-    // Obtener un programa por ID
+    //VISTA INFORMACIÓN PROGRAMA
     public function selectPrograma(int $ideprograma)
     {
         $this->intIdePrograma = $ideprograma;
-        $sql = "SELECT ideprograma, codigoprograma, nivelprograma, nombreprograma, horasprograma, status FROM tbl_programas WHERE ideprograma = $this->intIdePrograma";
+        $sql = "SELECT *
+    			FROM tbl_programas
+    			WHERE ideprograma = $this->intIdePrograma";
         $request = $this->select($sql);
         return $request;
     }
 
-    // Actualizar un programa existente
+    //ACTUALIZAR PROGRAMA
     public function updatePrograma(
-        int $ideprograma,
-        string $codigoprograma,
-        string $nivelprograma,
+        int $idePrograma,
+        string $codigo,
+        string $nivel,
         string $nombreprograma,
-        string $horasprograma,
-        string $status
+        string $horasprograma
     ) {
-        $this->intIdePrograma = $ideprograma;
-        $this->strCodigoPrograma = $codigoprograma;
-        $this->strNivelPrograma = $nivelprograma;
+
+        $this->intIdePrograma = $idePrograma;
+        $this->strCodigoPrograma = $codigo;
+        $this->strNivelPrograma = $nivel;
         $this->strNombrePrograma = $nombreprograma;
         $this->strHorasPrograma = $horasprograma;
-        $this->strStatusPrograma = $status;
 
         $sql = "SELECT * FROM tbl_programas WHERE (codigoprograma = '{$this->strCodigoPrograma}' AND ideprograma != $this->intIdePrograma)
-        OR (nivelprograma = '{$this->strNivelPrograma}' AND ideprograma != $this->intIdePrograma)
-        OR (nombreprograma = '{$this->strNombrePrograma}' AND ideprograma != $this->intIdePrograma)
-        OR (horasprograma = '{$this->strHorasPrograma}' AND ideprograma != $this->intIdePrograma)";
-        $request = $this->select_all($sql);
+        OR (nombreprograma = '{$this->strNombrePrograma}' AND ideprograma != $this->intIdePrograma)";
+        $request != $this->select_all($sql);
 
         if (empty($request)) {
-
+            // TODO PENDIENTE LA VALIDACIÓN SI EL CODIGO ES IGUAL QUE EL CODIGO DE OTRO PROGRAMA
             if (($this->strCodigoPrograma != "" OR $this->strCodigoPrograma !=  $this->strCodigoPrograma)) {
 
-                $query_update = "UPDATE tbl_programas SET codigoprograma = ?, nivelprograma = ?, nombreprograma = ?, horasprograma = ?, status=?
-                        WHERE ideprograma = $this->intIdePrograma";
+                $sql = "UPDATE tbl_programas SET codigoprograma=?, nivelprograma=?, nombreprograma=?, horasprograma=?
+						WHERE ideprograma = $this->intIdePrograma ";
 
                 $arrData = array(
                     $this->strCodigoPrograma,
                     $this->strNivelPrograma,
                     $this->strNombrePrograma,
-                    $this->strHorasPrograma,
-                    $this->strStatus
+                    $this->strHorasPrograma
                 );
-            }
+            } 
             $request = $this->update($sql, $arrData);
-            
         } else {
             $request = "exist";
         }
         return $request;
     }
 
-    // Eliminar un programa (desactivar)
     public function deletePrograma(int $intIdePrograma)
     {
         $this->intIdePrograma = $intIdePrograma;
-        $sql = "UPDATE tbl_programas SET status = ? WHERE ideprograma = $this->intIdePrograma";
-        $arrData = array(0); // Estado 0 para inactivo
+        $sql = "UPDATE tbl_programas SET status = ? WHERE ideprograma = $this->intIdePrograma ";
+        $arrData = array(0);
         $request = $this->update($sql, $arrData);
         return $request;
     }
+
+
+    
+
 }

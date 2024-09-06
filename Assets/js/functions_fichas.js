@@ -1,23 +1,23 @@
-let tableProgramas; 
+let tableFichas; 
 let rowTable = "";
 let divLoading = document.querySelector("#divLoading");
 document.addEventListener('DOMContentLoaded', function(){
 
-    tableProgramas = $('#tableProgramas').dataTable( {
+    tableFichas = $('#tableFichas').dataTable( {
         "aProcessing":true,
         "aServerSide":true,
         "language": {
             "url": "./es.json"
         },
         "ajax":{
-            "url": " "+base_url+"/Programas/getProgramas",
+            "url": " "+base_url+"/Fichas/getFichas",
             "dataSrc":""
         },
         "columns":[
-            {"data":"codigoprograma"},
-            {"data":"nivelprograma"},
+            {"data":"fichaprograma"},
             {"data":"nombreprograma"},
-            {"data":"horasprograma"},
+            {"data":"ideinstructor"},
+            {"data":"status"},
             {"data":"options"}
 
         ],
@@ -53,17 +53,18 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-	if(document.querySelector("#formPrograma")){
-        let formPrograma = document.querySelector("#formPrograma");
-        formPrograma.onsubmit = function(e) {
+	if(document.querySelector("#formFicha")){
+        let formFicha = document.querySelector("#formFicha");
+        formFicha.onsubmit = function(e) {
             e.preventDefault();
-            var intIdePrograma = document.querySelector('#idePrograma').value;
+            var intIdeFicha = document.querySelector('#ideFicha').value;
             let strCodigoPrograma = document.querySelector('#txtCodigoPrograma').value;
-            let strNivelPrograma = document.querySelector('#txtNivelPrograma').value;
-            let strNombrePrograma = document.querySelector('#txtNombrePrograma').value;
-            let strHorasPrograma = document.querySelector('#txtHorasPrograma').value;
+            let strNombrePrograma= document.querySelector('#txtNombrePrograma').value;
+            let strFichaPrograma = document.querySelector('#txtFichaPrograma').value;
+            let strIdeInstructor = document.querySelector('#txtIdeInstructor').value;
+            let strNombreInstructor= document.querySelector('#txtNombreInstructor').value;
 
-            if(strCodigoPrograma == '' || strNombrePrograma == '')
+            if(strCodigoPrograma == '' || strNombrePrograma == '' || strFichaPrograma == '' || strIdeInstructor == '')
             {
                 swal("Atención", "Todos los campos son obligatorios." , "error");
                 return false;
@@ -71,14 +72,14 @@ document.addEventListener('DOMContentLoaded', function(){
             let elementsValid = document.getElementsByClassName("valid");
             for (let i = 0; i < elementsValid.length; i++) { 
                 if(elementsValid[i].classList.contains('is-invalid')) { 
-                    swal("Atención", "Por favor verifique los campos en rojo." , "error");
+                    swal("Atención", "Por favor verifique los campos no estén vacíos" , "error");
                     return false;
                 } 
             } 
             divLoading.style.display = "flex";
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            let ajaxUrl = base_url+'/Programas/setPrograma'; 
-            let formData = new FormData(formPrograma);
+            let ajaxUrl = base_url+'/Fichas/setFicha'; 
+            let formData = new FormData(formFicha);
             request.open("POST",ajaxUrl,true);
             request.send(formData);
             request.onreadystatechange = function(){
@@ -87,14 +88,14 @@ document.addEventListener('DOMContentLoaded', function(){
                     if(objData.status)
                     {
                         if(rowTable == ""){
-                            tableProgramas.api().ajax.reload();
+                            tableFichas.api().ajax.reload();
                         }else{
-                            tableProgramas.api().ajax.reload();
+                            tableFichas.api().ajax.reload();
                            rowTable = "";
                         }
-                        $('#modalFormPrograma').modal("hide");
-                        formPrograma.reset();
-                        swal("Programas", objData.msg ,"success");
+                        $('#modalFormFicha').modal("hide");
+                        formFicha.reset();
+                        swal("Ficha", objData.msg ,"success");
                     }else{
                         swal("Error", objData.msg , "error");
                     }
@@ -102,16 +103,18 @@ document.addEventListener('DOMContentLoaded', function(){
                 divLoading.style.display = "none";
                 return false;
             }
+          
         }
-       
+
     }
 
 }, false);
 
 
-function fntViewInfo(ideprograma){
+
+function fntViewInfo(ideficha){
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    let ajaxUrl = base_url+'/Programas/getPrograma/'+ideprograma;
+    let ajaxUrl = base_url+'/Fichas/getFicha/'+ideficha;
     request.open("GET",ajaxUrl,true);
     request.send();
     request.onreadystatechange = function(){
@@ -119,13 +122,14 @@ function fntViewInfo(ideprograma){
             let objData = JSON.parse(request.responseText);
             if(objData.status)
             {
-                document.querySelector("#celIdePrograma").innerHTML = objData.data.ideprograma;
-                document.querySelector("#celCodigoPrograma").innerHTML = objData.data.codigoprograma;
-                document.querySelector("#celNivelPrograma").innerHTML = objData.data.nivelprograma;
-                document.querySelector("#celNombrePrograma").innerHTML = objData.data.nombreprograma;
-                document.querySelector("#celHorasPrograma").innerHTML = objData.data.horasprograma;
                 
-                $('#modalViewPrograma').modal('show');
+                document.querySelector("#celIdeFicha").innerHTML = objData.data.ideficha;
+                document.querySelector("#celCodigoPrograma").innerHTML = objData.data.nombreprograma;
+                document.querySelector("#celNumeroFicha").innerHTML = objData.data.fichaprograma;
+                document.querySelector("#celIdeInstructor").innerHTML = objData.data.ideinstructor;
+                document.querySelector("#celEstadoFicha").innerHTML = objData.data.status;
+                
+                $('#modalViewFicha').modal('show');
             }else{
                 swal("Error", objData.msg , "error");
             }
@@ -133,14 +137,14 @@ function fntViewInfo(ideprograma){
     }
 }
 
-function fntEditInfo(element, ideprograma){
+function fntEditInfo(element, ideficha){
     rowTable = element.parentNode.parentNode.parentNode;
-    document.querySelector('#titleModal').innerHTML ="Actualizar Programa";
+    document.querySelector('#titleModal').innerHTML ="Actualizar Ficha";
     document.querySelector('.modal-header').classList.replace("headerRegister", "headerUpdate");
     document.querySelector('#btnActionForm').classList.replace("btn-primary", "btn-info");
     document.querySelector('#btnText').innerHTML ="Actualizar";
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    let ajaxUrl = base_url+'/Programas/getPrograma/'+ideprograma;
+    let ajaxUrl = base_url+'/Fichas/getFicha/'+ideficha;
     request.open("GET",ajaxUrl,true);
     request.send();
     request.onreadystatechange = function(){
@@ -149,22 +153,27 @@ function fntEditInfo(element, ideprograma){
             let objData = JSON.parse(request.responseText);
             if(objData.status)
             {
-                document.querySelector("#idePrograma").value = objData.data.ideprograma;
+                
+                document.querySelector("#ideFicha").value = objData.data.ideficha;
                 document.querySelector("#txtCodigoPrograma").value = objData.data.codigoprograma;
-                document.querySelector("#txtNivelPrograma").value = objData.data.nivelprograma;
                 document.querySelector("#txtNombrePrograma").value = objData.data.nombreprograma;
-                document.querySelector("#txtHorasPrograma").value = objData.data.horasprograma;
+                document.querySelector("#txtFichaPrograma").value = objData.data.fichaprograma;
+                document.querySelector("#txtIdeInstructor").value =objData.data.ideinstructor;
+                document.querySelector("#txtNombreInstructor").value =objData.data.nombres;
                 
             }
         }
-        $('#modalFormPrograma').modal('show');
+        $('#modalFormFicha').modal('show');
+        
     }
+    
 }
 
-function fntDelInfo(ideprograma){
+
+function fntDelInfo(ideficha){
     swal({
-        title: "Eliminar Programa",
-        text: "¿Esta seguro que desea eliminar el programa?",
+        title: "Eliminar Ficha",
+        text: "¿Esta seguro que desea eliminar la ficha?",
         imageUrl: "Assets/images/iconos/eliminar.png" ,
         showCancelButton: true,
         confirmButtonColor: "#DD6B55",
@@ -177,8 +186,8 @@ function fntDelInfo(ideprograma){
         if (isConfirm) 
         {
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            let ajaxUrl = base_url+'/Programas/delPrograma';
-            let strData = "idePrograma="+ideprograma;
+            let ajaxUrl = base_url+'/Fichas/delFicha';
+            let strData = "ideficha="+ideficha;
             request.open("POST",ajaxUrl,true);
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             request.send(strData);
@@ -188,7 +197,7 @@ function fntDelInfo(ideprograma){
                     if(objData.status)
                     {
                         swal("Eliminar!", objData.msg , "success");
-                        tableProgramas.api().ajax.reload();
+                        tableFichas.api().ajax.reload();
                     }else{
                         swal("Atención!", objData.msg , "error");
                     }
@@ -200,22 +209,53 @@ function fntDelInfo(ideprograma){
 
 }
 
-
 function openModal()
 {
     rowTable = "";
-    document.querySelector('#idePrograma').value ="";
+    document.querySelector('#ideFicha').value ="";
     document.querySelector('.modal-header').classList.replace("headerUpdate", "headerRegister");
     document.querySelector('#btnActionForm').classList.replace("btn-info", "btn-primary");
     document.querySelector('#btnText').innerHTML ="Guardar";
-    document.querySelector('#titleModal').innerHTML = "Nuevo Programa";
-    document.querySelector("#formPrograma").reset();
-    $('#modalFormPrograma').modal('show');
-
-
-
+    document.querySelector('#titleModal').innerHTML = "Nueva Ficha";
+    document.querySelector("#formFicha").reset();
+    $('#modalFormFicha').modal('show');
 }
 
 
 
+function fntViewInfoCodigoPrograma(codprograma){
+    let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    let ajaxUrl = base_url+'/Fichas/getPrograma/'+codprograma;
+    request.open("GET",ajaxUrl,true);
+    request.send();
+    request.onreadystatechange = function(){
+        if(request.readyState == 4 && request.status == 200){
+            let objData = JSON.parse(request.responseText);
+            if(objData.status)
+            {
+                document.getElementById('txtNombrePrograma').value = objData.data.nombreprograma;
+            }else{
+                document.getElementById("txtNombrePrograma").value = '';
+            }
+        }
+    }
+}
+
+function fntViewInfoIdeInstructor(identificacion){
+    let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    let ajaxUrl = base_url+'/Fichas/getInstructor/'+identificacion;
+    request.open("GET",ajaxUrl,true);
+    request.send();
+    request.onreadystatechange = function(){
+        if(request.readyState == 4 && request.status == 200){
+            let objData = JSON.parse(request.responseText);
+            if(objData.status)
+            {
+                document.getElementById('txtNombreInstructor').value = objData.data.nombres;
+            }else{
+                document.getElementById("txtNombreInstructor").value = '';
+            }
+        }
+    }
+}
 
