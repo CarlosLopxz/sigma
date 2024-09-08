@@ -6,7 +6,7 @@ headerAdmin($data);
 <main class="app-content">
     <div class="app-title">
         <div>
-            <h1><i class="bi bi-list-stars"></i> <?=$data['page_title']?></h1>
+            <h1><i class="bi bi-calendar-week-fill"></i> <?=$data['page_title']?></h1>
         </div>
         <?php if ($_SESSION['permisosMod']['w']) {?>
         <button class="btn btn-warning" type="button" data-bs-toggle="modal" onclick="openModal();">

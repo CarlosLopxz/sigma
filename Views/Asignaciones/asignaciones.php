@@ -5,14 +5,15 @@ headerAdmin($data);
 <main class="app-content">
     <div class="app-title">
         <div>
-            <h1> <i class="bi bi-check2-circle"></i> <?=$data['page_title']?></h1>
-        </div>
-
-        <?php if ($_SESSION['permisosMod']['w']) {?>
+            <h1><i class="bi bi-clipboard2-fill"></i> <?=$data['page_title']?>
+            <?php if ($_SESSION['permisosMod']['w']) {?>
         <button class="btn btn-warning" type="button" data-bs-toggle="modal" onclick="openModal();">
             <i class="bi bi-plus-lg"></i>
             Nueva Asignación</button>
-        <?php }?>
+        <?php }?></h1>
+        </div>
+
+       
 
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="bi bi-house"></i></li>
