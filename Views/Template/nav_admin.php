@@ -17,14 +17,7 @@
                 </a>
             </li>
 
-            <?php if (!empty($_SESSION['permisos'][1]['r'])) {?>
-            <li>
-                <a class="treeview-item" href="<?=base_url();?>/roles">
-                    <i class="app-menu__icon bi bi-toggles"></i>
-                    Roles
-                </a>
-            </li>
-            <?php }?>
+       
 
             <?php if (!empty($_SESSION['permisos'][1]['r'])) {?>
             <li><a class="app-menu__item " href="<?=base_url();?>/usuarios">
@@ -32,6 +25,19 @@
                     <span class="app-menu__label">Usuarios</span></a></li>
             <?php }?>
 
+            <?php if (!empty($_SESSION['permisos'][1]['r'])) {?>
+            <li><a class="app-menu__item " href="<?=base_url();?>/roles">
+                    <i class="app-menu__icon bi bi-people"></i>
+                    <span class="app-menu__label">Roles</span></a></li>
+            <?php }?>
+            
+            <?php if (!empty($_SESSION['permisos'][1]['r'])) {?>
+            <li><a class="app-menu__item " href="<?=base_url();?>/programas">
+                    <i class="app-menu__icon bi bi-people"></i>
+                    <span class="app-menu__label">Programas</span></a></li>
+            <?php }?>
+
+            
             <?php if (!empty($_SESSION['permisos'][2]['r'])) {?>
             <li>
                 <a class="treeview-item" href="<?=base_url();?>/programas">
@@ -39,7 +45,6 @@
                     Programas</a>
             </li>
             <?php }?>
-
             <li><a class="app-menu__item " href="<?=base_url();?>/competencias">
                     <i class="app-menu__icon bi bi-card-checklist"></i>
                     <span class="app-menu__label">Competencias</span></a></li>
