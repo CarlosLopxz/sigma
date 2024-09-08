@@ -103,11 +103,11 @@ class Fichas extends Controllers
 
 
                 if ($_SESSION['permisosMod']['r']) {
-                    $btnView = '<button class="btn btn-info" onClick="fntViewInfo(' . $arrData[$i]['ideficha'] . ')" title="Ver Ficha"><i class="bi bi-eye"></i></button>';
+                    $btnView = '<button class="btn btn-info" onClick="fntViewInfo(' . $arrData[$i]['ideficha'] . ')" title="Ver Ficha"><i class="far fa-eye"></i></button>';
                    
                 }
                 if ($_SESSION['permisosMod']['u']) {
-                    $btnEdit = '<button class="btn btn-warning" onClick="fntEditInfo(this,' . $arrData[$i]['ideficha'] . ')" title="Editar Ficha"><i class="bi bi-pencil"></i></button>';
+                    $btnEdit = '<button class="btn btn-warning" onClick="fntEditInfo(this,' . $arrData[$i]['ideficha'] . ')" title="Editar Ficha"><i class="fas fa-pencil-alt"></i></button>';
                 }
                 if ($_SESSION['permisosMod']['d']) {
                     $btnDelete = '<button class="btn btn-danger btnDelRol" onClick="fntDelInfo(' . $arrData[$i]['ideficha'] . ')" title="Eliminar Ficha"><i class="bi bi-trash3"></i></button>';
