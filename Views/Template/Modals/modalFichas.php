@@ -14,16 +14,16 @@
                         <form id="formFicha" name="formFicha" enctype="multipart/form-data" method="POST">
                             <input type="hidden" id="ideFicha" name="ideFicha" value="">
                             <div class="modal-body">
-                                <p class="text-primary">Los campos con asterisco (<span class="required">*</span>) son
+                                <p class="requerido">Los campos con asterisco (<span class="requerido">*</span>) son
                                     obligatorios.
                                 </p>
                                 <hr>
-                                <p class="text-primary">Datos de la Ficha</p>
+                                <p class="requerido">Datos de la Ficha</p>
                             </div>
 
                             <div class="modal-body">
                                 <label for="txtCodigoPrograma">Codigo del programa<span
-                                        class="required">*</span></label>
+                                        class="requerido">*</span></label>
                                 <input type="text" class="form-control validNumber" id="txtCodigoPrograma"
                                     onchange="fntViewInfoCodigoPrograma(this.value);" name="txtCodigoPrograma"
                                     required="" maxlength="10" onkeypress="return controlTag(event);">
@@ -31,21 +31,21 @@
 
                             <div class="modal-body">
                                 <label for="txtNombrePrograma">Nombre del PROGRAMA<span
-                                        class="required">*</span></label>
+                                        class="requerido">*</span></label>
                                 <input type="text" class="form-control" id="txtNombrePrograma" name="txtNombrePrograma"
                                     required="" disabled>
                             </div>
 
 
                             <div class="modal-body">
-                                <label for="txtFichaPrograma">Número de Ficha<span class="required">*</span></label>
+                                <label for="txtFichaPrograma">Número de Ficha<span class="requerido">*</span></label>
                                 <input type="text" class="form-control validNumber" id="txtFichaPrograma"
                                     name="txtFichaPrograma" required="">
                             </div>
 
                             <div class="modal-body">
                                 <label for="txtIdeInstructor">Identificación del Instructor<span
-                                        class="required">*</span></label>
+                                        class="requerido">*</span></label>
                                 <input type="text" class="form-control validNumber" id="txtIdeInstructor"
                                     onchange="fntViewInfoIdeInstructor(this.value);" name="txtIdeInstructor" required=""
                                     maxlength="10" onkeypress="return controlTag(event);">
@@ -53,7 +53,7 @@
 
                             <div class="modal-body">
                                 <label for="txtNombreInstructor">Nombre del INSTRUCTOR <span
-                                        class="required">*</span></label>
+                                        class="requerido">*</span></label>
                                 <input type="text" class="form-control" id="txtNombreInstructor"
                                     name="txtNombreInstructor" required="" disabled>
                             </div>
@@ -90,8 +90,6 @@
         <div class="modal-content ">
             <div class="modal-header header-primary">
                 <h5 class="modal-title" id="titleModal">ASIGNAR</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                </button>
             </div>
 
             <div class="modal-body">

@@ -13,16 +13,16 @@
                         <form id="formCompetencia" name="formCompetencia" enctype="multipart/form-data" method="POST">
                             <input type="hidden" id="ideCompetencia" name="ideCompetencia" value="">
                             <div class="modal-body">
-                                <p class="text-primary">Los campos con asterisco (<span class="required">*</span>) son
+                                <p class="requerido">Los campos con asterisco (<span class="requerido">*</span>) son
                                     obligatorios.
                                 </p>
                                 <hr>
-                                <p class="text-primary">Datos de la Competencia</p>
+                                <p class="requerido">Datos de la Competencia</p>
                             </div>
 
                             <div class="modal-body">
                                 <label for="txtCodigoCompetencia">Código de la Competencia<span
-                                        class="required">*</span></label>
+                                        class="requerido">*</span></label>
                                 <input type="text" class="form-control valid validNumber" id="txtCodigoCompetencia"
                                     name="txtCodigoCompetencia" required="" maxlength="10"
                                     onkeypress="return controlTag(event);">
@@ -31,14 +31,14 @@
 
                             <div class="modal-body">
                                 <label for="txtNombreCompetencia">Nombre de la Competencia <span
-                                        class="required">*</span></label>
+                                        class="requerido">*</span></label>
                                 <input type="text" class="form-control validText" id="txtNombreCompetencia"
                                     name="txtNombreCompetencia" required="">
                             </div>
 
                             <div class="modal-body">
                                 <label for="txtHorasCompetencia">Horas de la COMPETENCIA <span
-                                        class="required">*</span></label>
+                                        class="requerido">*</span></label>
                                 <input type="text" class="form-control validNumber" id="txtHorasCompetencia"
                                     name="txtHorasCompetencia" required="" maxlength="10"
                                     onkeypress="return controlTag(event);">
@@ -46,7 +46,7 @@
 
                             <div class="modal-body">
                                 <label for="txtCodigoPrograma">Código del PROGRAMA <span
-                                        class="required">*</span></label>
+                                        class="requerido">*</span></label>
                                 <input type="text" class="form-control validNumber" id="txtCodigoPrograma"
                                     onchange="fntViewInfoCodigoPrograma(this.value);" name="txtCodigoPrograma"
                                     required="" maxlength="10" onkeypress="return controlTag(event);">
@@ -90,8 +90,6 @@
         <div class="modal-content ">
             <div class="modal-header header-primary">
                 <h5 class="modal-title" id="titleModal">Datos de la Competencia</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                </button>
             </div>
 
             <div class="modal-body">

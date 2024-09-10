@@ -13,25 +13,25 @@
                         <form id="formAsignacion" name="formAsignacion" enctype="multipart/form-data" method="POST">
                             <input type="hidden" id="ideDetalleFicha" name="ideDetalleFicha" value="">
                             <div class="modal-body">
-                                <p class="text-primary">Los campos con asterisco (<span class="required">*</span>) son
+                                <p class="requerido">Los campos con asterisco (<span class="requerido">*</span>) son
                                     obligatorios.
                                 </p>
                                 <hr>
-                                <p class="text-primary">Datos de la Asignación</p>
+                                <p class="requerido">Datos de la Asignación</p>
                             </div>
 
 
 
 
                             <div class="modal-body">
-                                <label for="txtNumeroFicha">Número de Ficha<span class="required">*</span></label>
+                                <label for="txtNumeroFicha">Número de Ficha<span class="requerido">*</span></label>
                                 <input type="text" class="form-control validNumber" id="txtNumeroFicha"
                                     onchange="fntViewInfoIdeFicha(this.value);" name="txtNumeroFicha" required=""
                                     maxlength="10" onkeypress="return controlTag(event);">
                             </div>
 
                             <div class="modal-body">
-                                <label for="txtNombreFicha">Nombre de la FICHA <span class="required">*</span></label>
+                                <label for="txtNombreFicha">Nombre de la FICHA <span class="requerido">*</span></label>
                                 <input type="text" class="form-control" id="txtNombreFicha" name="txtNombreFicha"
                                     required="" disabled>
                             </div>
@@ -40,7 +40,7 @@
 
                             <div class="modal-body">
                                 <label for="txtCodigoCompetencia">Codigo de la COMPETENCIA<span
-                                        class="required">*</span></label>
+                                        class="requerido">*</span></label>
                                 <input type="text" class="form-control validNumber" id="txtCodigoCompetencia"
                                     onchange="fntViewInfoCodigoCompetencia(this.value);" name="txtCodigoCompetencia"
                                     required="" maxlength="10" onkeypress="return controlTag(event);">
@@ -48,28 +48,28 @@
 
                             <div class="modal-body">
                                 <label for="txtNombreCompetencia">Nombre de la COMPETENCIA<span
-                                        class="required">*</span></label>
+                                        class="requerido">*</span></label>
                                 <input type="text" class="form-control" id="txtNombreCompetencia"
                                     name="txtNombreCompetencia" required="" disabled>
                             </div>
 
                             <div class="modal-body">
                                 <label for="txtHorasTotalCompetencia">HORAS TOTAL de la COMPETENCIA<span
-                                        class="required">*</span></label>
+                                        class="requerido">*</span></label>
                                 <input type="text" class="form-control" id="txtHorasTotalCompetencia"
                                     name="txtHorasTotalCompetencia" required="" disabled>
                             </div>
 
                             <div class="modal-body">
                                 <label for="txtHorasSumaAsignacionCompetencia">HORAS total ASIGNADAS de la
-                                    COMPETENCIA<span class="required">*</span></label>
+                                    COMPETENCIA<span class="requerido">*</span></label>
                                 <input type="text" class="form-control" id="txtHorasSumaAsignacionCompetencia"
                                     name="txtHorasSumaAsignacionCompetencia" required="" disabled>
                             </div>
 
                             <div class="modal-body">
                                 <label for="txtHorasPendienteCompetencia">HORAS PENDIENTE de la COMPETENCIA<span
-                                        class="required">*</span></label>
+                                        class="requerido">*</span></label>
                                 <input type="text" class="form-control" id="txtHorasPendienteCompetencia"
                                     name="txtHorasPendienteCompetencia" required="" disabled>
                                 <!-- Mensaje de salida -->
@@ -78,7 +78,7 @@
 
                             <div class="modal-body">
                                 <label for="txtIdeInstructor">Identificación del Instructor<span
-                                        class="required">*</span></label>
+                                        class="requerido">*</span></label>
                                 <input type="text" class="form-control validNumber" id="txtIdeInstructor"
                                     onchange="fntViewInfoIdeInstructor(this.value);" name="txtIdeInstructor" required=""
                                     maxlength="10" onkeypress="return controlTag(event);">
@@ -86,14 +86,14 @@
 
                             <div class="modal-body">
                                 <label for="txtNombreInstructor">Nombre del INSTRUCTOR <span
-                                        class="required">*</span></label>
+                                        class="requerido">*</span></label>
                                 <input type="text" class="form-control" id="txtNombreInstructor"
                                     name="txtNombreInstructor" required="" disabled>
                             </div>
 
                             <div class="modal-body">
                                 <label for="txtNumeroHoras">Cantidad de horas ASIGNAR<span
-                                        class="required">*</span></label>
+                                        class="requerido">*</span></label>
                                 <input type="text" class="form-control validNumber" id="txtNumeroHoras"
                                     onchange="ftnSumarCantidadHoras(this.value);" name="txtNumeroHoras" required="">
                                 <p id="mensajeError" style="color: red;"></p>
@@ -150,8 +150,6 @@
         <div class="modal-content ">
             <div class="modal-header header-primary">
                 <h5 class="modal-title" id="titleModal">ASIGNAR</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                </button>
             </div>
 
             <div class="modal-body">

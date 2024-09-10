@@ -141,6 +141,7 @@
   --bs-content-main:#E5E5E5;
   --bs-copyright:#7e7e7e;
   --bs-hover:#198754;
+  --letras--bs:#fff !important;
 }
 
 [data-bs-theme=dark] {
@@ -203,6 +204,7 @@
   --bs-form-valid-border-color: #75b798;
   --bs-form-invalid-color: #ea868f;
   --bs-form-invalid-border-color: #ea868f;
+  --letras--bs:#000 !important;
 }
 
 *,
@@ -216,6 +218,10 @@
   :root {
     scroll-behavior: smooth;
   }
+}
+
+.sweet-alert{
+color: var(--letras--bs);
 }
 
 .cursor-evento{

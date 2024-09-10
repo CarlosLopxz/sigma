@@ -14,16 +14,16 @@
                             <!-- <form id="formPrograma" name="formPrograma" enctype="multipart/form-data" method="POST"> -->
                             <input type="hidden" id="idePrograma" name="idePrograma" value="">
                             <div class="modal-body">
-                                <p class="text-primary">Los campos con asterisco (<span class="required">*</span>) son
+                                <p class="requerido">Los campos con asterisco (<span class="requerido">*</span>) son
                                     obligatorios.
                                 </p>
                                 <hr>
-                                <p class="text-primary">Datos Programa</p>
+                                <p class="requerido">Datos Programa</p>
                             </div>
 
                             <div class="modal-body">
                                 <label for="txtCodigoPrograma">Código del Programa<span
-                                        class="required">*</span></label>
+                                        class="requerido">*</span></label>
                                 <input type="text" class="form-control valid validNumber" id="txtCodigoPrograma"
                                     name="txtCodigoPrograma" required="" maxlength="10"
                                     onkeypress="return controlTag(event);">
@@ -40,14 +40,14 @@
 
                             <div class="modal-body">
                                 <label for="txtNombrePrograma">Nombre del Programa <span
-                                        class="required">*</span></label>
+                                        class="requerido">*</span></label>
                                 <input type="text" class="form-control" id="txtNombrePrograma" name="txtNombrePrograma"
                                     required="">
                             </div>
 
                             <div class="modal-body">
                                 <label for="txtHorasPrograma">Horas del Programa Etapa Lectiva<span
-                                        class="required">*</span></label>
+                                        class="requerido">*</span></label>
                                 <input type="text" class="form-control valid validNumber" id="txtHorasPrograma"
                                     name="txtHorasPrograma" required="" maxlength="10"
                                     onkeypress="return controlTag(event);">
