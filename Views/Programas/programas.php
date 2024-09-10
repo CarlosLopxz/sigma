@@ -6,14 +6,16 @@ headerAdmin($data);
 <main class="app-content">
     <div class="app-title">
         <div>
-            <h1><i class="bi bi-list-stars"></i> <?=$data['page_title']?></h1>
-        </div>
-        <?php if ($_SESSION['permisosMod']['w']) {?>
-        <button class="btn btn-warning" type="button" data-bs-toggle="modal" onclick="openModal();">
+            <h1><i class="bi bi-calendar-week-fill"></i> <?=$data['page_title']?>
+            <?php if ($_SESSION['permisosMod']['w']) {?>
+        <button class="btn btn-warning espaciado" type="button" data-bs-toggle="modal" onclick="openModal();">
             <i class="bi bi-plus-lg"></i>
             Nuevo Programa</button>
         <?php }?>
 
+        </h1>
+        </div>
+      
 
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="bi bi-house"></i></li>
@@ -28,11 +30,11 @@ headerAdmin($data);
                         <table class="table table-hover table-bordered" id="tableProgramas">
                             <thead class="table-success">
                                 <tr>
-                                    <th class="text-center">Código</th>
-                                    <th class="text-center">Nivel</th>
-                                    <th class="text-center">Programa</th>
-                                    <th class="text-center">Horas</th>
-                                    <th class="text-center">Acciones</th>
+                                    <th class="table-warning">Código</th>
+                                    <th class="table-warning">Nivel</th>
+                                    <th class="table-warning">Programa</th>
+                                    <th class="table-warning">Horas</th>
+                                    <th class="table-warning">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider text-center">

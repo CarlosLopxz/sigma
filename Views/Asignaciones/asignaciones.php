@@ -7,7 +7,7 @@ headerAdmin($data);
         <div>
             <h1><i class="bi bi-clipboard2-fill"></i> <?=$data['page_title']?>
             <?php if ($_SESSION['permisosMod']['w']) {?>
-        <button class="btn btn-warning" type="button" data-bs-toggle="modal" onclick="openModal();">
+        <button class="btn btn-warning espaciado" type="button" data-bs-toggle="modal" onclick="openModal();">
             <i class="bi bi-plus-lg"></i>
             Nueva Asignación</button>
         <?php }?></h1>
@@ -28,12 +28,12 @@ headerAdmin($data);
                         <table class="table table-hover table-bordered" id="tableAsignaciones">
                             <thead class="table-success">
                                 <tr>
-                                    <th class="text-center">Ficha</th>
-                                    <th class="text-center">Instructor</th>
-                                    <th class="text-center">Competencia</th>
-                                    <th class="text-center">Horas</th>
-                                    <th class="text-center">Mes</th>
-                                    <th class="text-center">Acciones</th>
+                                    <th class="table-warning">Ficha</th>
+                                    <th class="table-warning">Instructor</th>
+                                    <th class="table-warning">Competencia</th>
+                                    <th class="table-warning">Horas</th>
+                                    <th class="table-warning">Mes</th>
+                                    <th class="table-warning">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider text-center">

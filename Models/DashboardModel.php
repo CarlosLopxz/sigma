@@ -6,6 +6,13 @@ class DashboardModel extends Mysql
         parent::__construct();
     }
 
+    public function cantRoles()
+    {
+        $sql = "SELECT COUNT(*) as total FROM rol WHERE status != 0 ";
+        $request = $this->select($sql);
+        $total = $request['total'];
+        return $total;
+    }
     public function cantCompetencias()
     {
         $sql = "SELECT COUNT(*) as total FROM tbl_competencias WHERE status != 0 ";

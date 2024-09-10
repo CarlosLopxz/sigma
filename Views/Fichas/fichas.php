@@ -7,7 +7,7 @@ headerAdmin($data);
         <div>
             <h1><i class="bi bi-bookmark-fill"></i> <?=$data['page_title']?>
             <?php if ($_SESSION['permisosMod']['w']) {?>
-        <button class="btn btn-warning" type="button" data-bs-toggle="modal" onclick="openModal();">
+        <button class="btn btn-warning espaciado" type="button" data-bs-toggle="modal" onclick="openModal();">
             <i class="bi bi-plus-lg"></i>
             Nueva Ficha</button>
         <?php }?></h1>
@@ -27,11 +27,11 @@ headerAdmin($data);
                         <table class="table table-hover table-bordered" id="tableFichas">
                             <thead class="table-success">
                                 <tr>
-                                    <th class="text-center">Ficha</th>
-                                    <th class="text-center">Nombre Programa</th>
-                                    <th class="text-center">Instructor Líder</th>
-                                    <th class="text-center">Estado</th>
-                                    <th class="text-center">Acciones</th>
+                                    <th class="table-warning">Ficha</th>
+                                    <th class="table-warning">Nombre Programa</th>
+                                    <th class="table-warning">Instructor Líder</th>
+                                    <th class="table-warning">Estado</th>
+                                    <th class="table-warning">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider text-center">
