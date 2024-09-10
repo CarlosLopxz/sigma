@@ -2,7 +2,7 @@ var tableRoles;
 var divLoading = document.querySelector("#divLoading");
 document.addEventListener('DOMContentLoaded', function(){
 
-	tableRoles = $('#tableRoles').dataTable( {
+	tableRoles = $('#tableRoles').DataTable( {
 		"aProcessing":true,
 		"aServerSide":true,
         "language": {
@@ -152,11 +152,12 @@ function fntDelRol(idrol){
                     if(objData.status)
                     {
                         swal("Eliminar!", objData.msg , "success");
-                        tableRoles.api().ajax.reload(function(){
-                            fntEditRol();
-                            fntDelRol();
-                            fntPermisos();
-                        });
+                        // tableRoles.ajax.reload(function(){
+                        //     fntEditRol();
+                        //     fntDelRol();
+                        //     fntPermisos();
+                        // });
+                        tableRoles.ajax.reload()
                     }else{
                         swal("Atención!", objData.msg , "error");
                     }
