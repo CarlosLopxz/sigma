@@ -6,8 +6,6 @@
         <div class="modal-content">
             <div class="modal-header headerRegister">
                 <h5 class="modal-title" id="titleModal">Nueva Asignación</h5>
-                <button type="button" id="cerrarModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                </button>
             </div>
             <div class="modal-body">
                 <div class="tile">

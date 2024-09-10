@@ -1,6 +1,6 @@
 
   <div class="copyright">
-    &copy; 2024 <a href="">Sigmasoft.</a>Todos los Derechos Reservados
+    &copy; 2024 <a href="#">Sigmasoft.</a>Todos los Derechos Reservados
   </div>
   
   <!-- Essential javascripts for application to work-->

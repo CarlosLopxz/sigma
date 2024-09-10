@@ -37,29 +37,27 @@
     </div>
 
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo logo-dashboard" href="<?=base_url();?>/dashboard"><img src="<?=media();?>/images/logoblanco.png" alt="" width="190"></a>
-        <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
-            aria-label="Hide Sidebar"></a>
+    <header class="app-header"><a class="app-header__logo logo-dashboard" href="<?=base_url();?>/dashboard"><img  src="<?=media();?>/images/logofullblanco.png" alt="" width="190"></a>
+        <!-- Sidebar toggle button-->
+         <a class="app-sidebar__toggle" href="#" data-toggle="sidebar"aria-label="Hide Sidebar"></a>
+
         <!-- Navbar Menu-->
         <ul class="app-nav">
-
+            <!-- Btn theme dark -->
+        <li class="dropdown">
+          <a class="app-nav__item theme-toggle-button" href="#" id="toggle-theme" aria-label="Cambiar Modo">
+            <i class="bi bi-moon fs-4"></i>
+          </a>
             <!-- Menu Uusario -->
-            <li class="dropdown"><a class="app-nav__item" href="#" data-bs-toggle="dropdown"
-                    aria-label="Open Profile Menu"><i class="bi bi-moon fs-4"></i></a>
-            <li class="dropdown"><a class="app-nav__item" href="#" data-bs-toggle="dropdown"
-                    aria-label="Open Profile Menu"><i class="bi bi-person fs-4"></i></a>
+            <li class="dropdown"><a class="app-nav__item" href="#" data-bs-toggle="dropdown"aria-label="Open Profile Menu"><i class="bi bi-person fs-4"></i></a>
                 <ul class="dropdown-menu settings-menu dropdown-menu-right">
-                    <li><a class="dropdown-item" href="<?=base_url();?>/dashboard"><i class="bi bi-gear me-2 fs-5"></i>
-                            Configuración</a></li>
-                    <li><a class="dropdown-item" href="<?=base_url();?>/dashboard"><i
-                                class="bi bi-person me-2 fs-5"></i> Perfil</a>
-                    </li>
-                    <li><a class="dropdown-item" href="<?=base_url();?>/logout"><i
-                                class="bi bi-box-arrow-right me-2 fs-5"></i>
-                            Salir</a></li>
+                    <li><a class="dropdown-item" href="<?=base_url();?>/dashboard"><i class="bi bi-gear me-2 fs-5"></i>Configuración</a></li>
+                    <li><a class="dropdown-item" href="<?=base_url();?>/dashboard"><i class="bi bi-person me-2 fs-5"></i> Perfil</a></li>
+                    <li><a class="dropdown-item" href="<?=base_url();?>/logout"><i class="bi bi-box-arrow-right me-2 fs-5"></i>Salir</a></li>
                 </ul>
             </li>
         </ul>
     </header>
+    <script src="<?=media();?>/js/functions_darkmode.js"></script>
 
     <?php require_once "nav_admin.php";?>
