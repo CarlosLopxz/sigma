@@ -165,7 +165,7 @@ function fntDelInfo(ideprograma){
     swal({
         title: "Eliminar Programa",
         text: "¿Esta seguro que desea eliminar el programa?",
-        imageUrl: "Assets/images/iconos/eliminar.png" ,
+        imageUrl: "Assets/images/alerta.png" ,
         showCancelButton: true,
         confirmButtonColor: "#DD6B55",
         confirmButtonText: "Eliminar",

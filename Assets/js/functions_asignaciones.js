@@ -205,7 +205,7 @@ function fntDelInfo(ideficha){
     swal({
         title: "Eliminar la Asignación",
         text: "¿Esta seguro que desea eliminar la asignación?",
-        imageUrl: "Assets/images/iconos/eliminar.png" ,
+        imageUrl: "Assets/images/alerta.png" ,
         showCancelButton: true,
         confirmButtonColor: "#DD6B55",
         confirmButtonText: "Eliminar",

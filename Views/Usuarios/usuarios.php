@@ -8,7 +8,7 @@ headerAdmin($data);
             <h1><i class="bi bi-people-fill"></i> <?=$data['page_title']?>
                 <?php if ($_SESSION['permisosMod']['w']) {?>
                 <button class="btn btn-warning  espaciado" type="button" data-bs-toggle="modal" onclick="openModal();">
-                    <i class="bi bi-person-plus"></i>Nuevo Usuario</button>
+                    <i class="bi bi-person-plus-fill"></i>Nuevo Usuario</button>
                 <?php }?>
             </h1>
         </div>

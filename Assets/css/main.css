@@ -5463,7 +5463,7 @@ textarea.form-control-lg {
   background-color: var(--bs-pagination-disabled-bg);
   border-color: var(--bs-pagination-disabled-border-color);
 }
-
+ 
 .page-item:not(:first-child) .page-link {
   margin-left: calc(var(--bs-border-width) * -1);
 }
@@ -15317,16 +15317,19 @@ color: #fff;
 
 /* Posiciona el texto de derechos reservados en la parte inferior y centro de la pantalla */
 .copyright {
+  z-index: 1000;
   color: grey;
   text-align: center;
   padding: 10px 0;
   bottom: 0;
   width: 100%;
   background-color: #e5e5e5;
+  z-index: 1000;
 }
 .copyright a {
   pointer-events:auto;
   text-decoration: none;
+  z-index: 1000;
 }
 
 
@@ -15340,10 +15343,12 @@ color: #fff;
     bottom: 0;
     width: 100%;
     position: fixed;
+    z-index: 1000;
   }
   .copyright a {
     pointer-events:auto;
     text-decoration: none;
+    z-index: 1000;
   }
   
  
@@ -15357,11 +15362,13 @@ color: #fff;
     padding: 10px 0;
     bottom: 0;
     width: 100%;
+    z-index: 1000;
 
   }
   .copyright a {
     pointer-events:auto;
     text-decoration: none;
+    z-index: 1000;
   }
   
  

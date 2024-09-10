@@ -8,14 +8,14 @@ headerAdmin($data);
             <h1><i class="bi bi-bookmark-fill"></i> <?=$data['page_title']?>
             <?php if ($_SESSION['permisosMod']['w']) {?>
         <button class="btn btn-warning espaciado" type="button" data-bs-toggle="modal" onclick="openModal();">
-            <i class="bi bi-plus-lg"></i>
+            <i class="bi bi-bookmark-plus-fill"></i>
             Nueva Ficha</button>
         <?php }?></h1>
         </div>
       
 
         <ul class="app-breadcrumb breadcrumb">
-            <li class="breadcrumb-item"><i class="bi bi-house"></i></li>
+            <li class="breadcrumb-item"><i class="bi bi-house-fill"></i></li>
             <li class="breadcrumb-item"><a href="<?=base_url();?>/fichas"><?=$data['page_title']?></a></li>
         </ul>
     </div>

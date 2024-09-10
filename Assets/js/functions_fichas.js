@@ -174,7 +174,7 @@ function fntDelInfo(ideficha){
     swal({
         title: "Eliminar Ficha",
         text: "¿Esta seguro que desea eliminar la ficha?",
-        imageUrl: "Assets/images/iconos/eliminar.png" ,
+        imageUrl: "Assets/images/alerta.png" ,
         showCancelButton: true,
         confirmButtonColor: "#DD6B55",
         confirmButtonText: "Eliminar",
