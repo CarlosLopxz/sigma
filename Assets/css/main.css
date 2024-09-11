@@ -223,6 +223,43 @@
 .sweet-alert{
 color: var(--letras--bs);
 }
+/* Estilo del contenedor y del botón circular */
+.theme-selector-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+#theme-selector {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1b1d2ca4;
+  opacity: 0.7; /* Ajusta el color del botón */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#theme-selector:hover {
+  background-color: #1b1d2c;
+  transform: scale(1.1); /* Escala el botón en hover para efecto de elevación */
+}
+
+/* Ocultar el contenedor en dispositivos móviles */
+@media (max-width: 767.98px) {
+  .theme-selector-container {
+    display: none;
+  }
+}
+
+
+
 
 .cursor-evento{
     user-select: none;          
@@ -13957,9 +13994,9 @@ color: #fff;
   overflow: auto;
   z-index: 10;
   background-color:var(--bs-nav-from);
-  -webkit-box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
-  -webkit-transition: left 0.3s ease, width 0.3s ease;
+  -webkit-box-shadow: 10px 0px 63px -8px rgba(0,0,0,0.55);
+  -moz-box-shadow: 10px 0px 63px -8px rgba(0,0,0,0.55);
+  box-shadow: 10px 0px 63px -8px rgba(0,0,0,0.55);
   transition: left 0.3s ease, width 0.3s ease;
 }
 .app-sidebar::-webkit-scrollbar {

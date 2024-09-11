@@ -43,11 +43,7 @@
 
         <!-- Navbar Menu-->
         <ul class="app-nav">
-            <!-- Btn theme dark -->
-        <li class="dropdown">
-          <a class="app-nav__item theme-toggle-button" href="#" id="toggle-theme" aria-label="Cambiar Modo">
-            <i class="bi bi-moon fs-4"></i>
-          </a>
+           
             <!-- Menu Uusario -->
             <li class="dropdown"><a class="app-nav__item" href="#" data-bs-toggle="dropdown"aria-label="Open Profile Menu"><i class="bi bi-person fs-4"></i></a>
                 <ul class="dropdown-menu settings-menu dropdown-menu-right">
