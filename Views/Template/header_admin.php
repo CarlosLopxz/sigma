@@ -43,6 +43,9 @@
 
         <!-- Navbar Menu-->
         <ul class="app-nav">
+        <li class="dropdown">
+          <a class="app-nav__item theme-toggle-button" href="#" id="toggle-theme" aria-label="Cambiar Modo">
+            <i class="bi bi-moon fs-4"></i></a>
            
             <!-- Menu Uusario -->
             <li class="dropdown"><a class="app-nav__item" href="#" data-bs-toggle="dropdown"aria-label="Open Profile Menu"><i class="bi bi-person fs-4"></i></a>
@@ -54,6 +57,5 @@
             </li>
         </ul>
     </header>
-    <script src="<?=media();?>/js/functions_darkmode.js"></script>
 
     <?php require_once "nav_admin.php";?>

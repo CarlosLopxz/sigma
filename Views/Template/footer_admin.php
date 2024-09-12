@@ -1,12 +1,26 @@
-<div class="theme-selector-container">
-    <button id="theme-selector" class="btn btn-primary">
-      <i class="bi-cloud-sun-fill"></i>
-    </button>
-  </div>
+
 
   <div class="copyright">
     &copy; 2024 <a href="#">Sigmasoft.</a>Todos los Derechos Reservados
   </div>
+
+  <script src="<?=media();?>/js/functions_darkmode.js"></script>
+
+  <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/66e2410450c10f7a00a82bc2/1i7hsruq9';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+
+
+<!--End of Tawk.to Script-->
   <!-- Essential javascripts for application to work-->
   <script src="js/jquery-3.7.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
