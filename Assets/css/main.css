@@ -14984,10 +14984,10 @@ color: #fff;
 }
 .login-content .login-box {
   position: relative;
-  min-width: 350px;
-  min-height: 365px;
+  min-width: 400px;
+  min-height: 430px;
   background-color: #fff;
-  border-radius: 10%;
+  
 
   -webkit-box-shadow: 0px 29px 147.5px 102.5px rgba(0, 0, 0, 0.05), 0px 29px 95px 0px rgba(0, 0, 0, 0.16);
           box-shadow: 0px 29px 147.5px 102.5px rgba(0, 0, 0, 0.05), 0px 29px 95px 0px rgba(0, 0, 0, 0.16);
@@ -14995,6 +14995,15 @@ color: #fff;
           perspective: 800px;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+  border-radius: 10%;
+}
+.logo-img{
+  width: 200px;
+  height: 50px;
+  margin-top:-15px;
+  margin-left: 60px;
+  margin-bottom: 20px;
+
 }
 .login-content .login-box .login-head {
   margin-top: 0;

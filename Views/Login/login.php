@@ -22,17 +22,15 @@
     <section class="material-half-bg">
     </section>
     <section class="login-content">
-        <div class="logo">
-            <img src="<?=media();?>/images/logonegro.png" alt="" class="cursor-evento">
-        </div>
         <div class="login-box">
             <div id="divLoading">
                 <div class="spinner-border visually-hidden" role="status">
                     <span class="visually-hidden">Cargando...</span>
                 </div>
             </div>
-
+            
             <form class="login-form needs-validation" name="formLogin" id="formLogin" novalidate>
+                <img src="<?=media();?>/images/logonegro.png" alt="" class="cursor-evento logo-img">
                 <h3 class="login-head tipo"><i class="bi bi-person-fill me-2"></i>INICIAR SESION</h3>
 
 
