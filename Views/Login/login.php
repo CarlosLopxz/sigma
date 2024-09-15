@@ -17,7 +17,76 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
     <title><?=$data['page_tag'];?></title>
-    </head>
+    <style>
+        /* CSS para el campo de entrada redondeado */
+        .form-control.rounded-input {
+            border-radius: 50px; /* Ajusta el valor según tus necesidades */
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: transparent;
+            position: relative;
+        }
+        
+        .form-control.rounded-input:focus {
+            border-color: #007bff; /* Cambia el color del borde al hacer foco */
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Agrega una sombra al hacer foco */
+            outline: none;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        .input-container label {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            font-size: 16px;
+            color: #aaa;
+            transition: 0.2s ease all;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .input-container .form-control:focus + label,
+        .input-container .form-control:not(:placeholder-shown) + label {
+            top: -10px;
+            left: 10px;
+            font-size: 12px;
+            color: #007bff;
+        }
+        .login-head{
+            margin-bottom:10px;
+        }
+
+        /* Ocultar las flechas en campos de entrada de tipo number para diferentes navegadores */
+        
+        /* Para navegadores Webkit (Chrome, Safari) */
+        .form-control[type="number"]::-webkit-inner-spin-button,
+        .form-control[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Para Firefox */
+        .form-control[type="number"] {
+            -moz-appearance: textfield; /* Cambia la apariencia para eliminar las flechas en Firefox */
+        }
+        .input-container{
+            margin-bottom:40px;
+        }
+        .hr{
+            margin-top:30px;
+        }
+    </style>
+</head>
+
 <body>
     <section class="material-half-bg">
     </section>
@@ -33,20 +102,22 @@
                 <img src="<?=media();?>/images/logonegro.png" alt="" class="cursor-evento logo-img">
                 <h3 class="login-head tipo"><i class="bi bi-person-fill me-2"></i>INICIAR SESION</h3>
 
-
-                <div class="mb-6 input-icon identificacion">
-                    <br>
-                    <label class="form-label">Usuario</label>
-                    <input id="txtIdentificacion" name="txtIdentificacion" class="form-control" type="number"
-                        placeholder="Número de Identificación" required autofocus>
-                    <div class="invalid-feedback">El inicio de sesión o la contraseña no son válidos.</div>
+                <div class="form-group hr">
+                    <div class="input-container">
+                        <input id="txtIdentificacion" name="txtIdentificacion" class="form-control rounded-input" type="number"
+                            placeholder=" " required>
+                        <label for="txtIdentificacion">Número de Identificación</label>
+                        <div class="invalid-feedback">El inicio de sesión o la contraseña no son válidos.</div>
+                    </div>
                 </div>
 
-                <div class="mb-3 input-icons password">
-                    <label class="form-label">Contraseña</label>
-                    <input id="txtPassword" name="txtPassword" class="form-control" type="password"
-                        placeholder="Ingrese Contraseña" required>
-                    <div class="invalid-feedback">El inicio de sesión o la contraseña no son válidos.</div>
+                <div class="form-group">
+                    <div class="input-container">
+                        <input id="txtPassword" name="txtPassword" class="form-control rounded-input" type="password"
+                            placeholder=" " required>
+                        <label for="txtPassword">Ingrese Contraseña</label>
+                        <div class="invalid-feedback">El inicio de sesión o la contraseña no son válidos.</div>
+                    </div>
                 </div>
 
                 <div id="alertLogin" class="text-center"></div>
@@ -56,24 +127,28 @@
                     </button>
                 </div>
             </form>
-            
-
         </div>
     </section>
     <!-- ORIGINAL -->
     <script>
         const base_url = "<?=base_url();?>";
+
+        // Desplazar la página hacia arriba al hacer clic en los campos de entrada
+        document.querySelectorAll('.rounded-input').forEach(input => {
+            input.addEventListener('focus', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // Hace el desplazamiento más suave
+                });
+            });
+        });
     </script>
 
     <!-- Essential javascripts for application to work-->
     <script src="<?=media();?>/js/jquery-3.7.0.min.js"></script>
-
     <script src="<?=media();?>/js/popper.min.js"></script>
-
     <script src="<?=media();?>/js/bootstrap.min.js"></script>
-
     <script src="<?=media();?>/js/fontawesome.js"></script>
-
     <script src="<?=media();?>/js/main.js"></script>
     <script type="text/javascript">
         // Login Page Flipbox control
@@ -81,12 +156,31 @@
             $('.login-box').toggleClass('flipped');
             return false;
         });
+
+        // Manejar la validación del formulario
+        (function () {
+            'use strict';
+
+            // Obtener los formularios que queremos validar
+            var forms = document.querySelectorAll('.needs-validation');
+
+            // Iterar sobre ellos y prevenir el envío si hay errores
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+        })();
     </script>
 
     <!-- JavaScript-->
     <script src="<?=media();?>/js/plugins/pace.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-sweetalert@1.0.1/dist/sweetalert.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <script src="<?=media();?>/js/<?=$data['page_functions_js'];?>"></script>
 
 </body>
