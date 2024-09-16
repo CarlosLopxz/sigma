@@ -29,8 +29,8 @@
         }
         
         .form-control.rounded-input:focus {
-            border-color: #007bff; /* Cambia el color del borde al hacer foco */
-            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Agrega una sombra al hacer foco */
+            border-color: #2e6b4e5e; /* Cambia el color del borde al hacer foco */
+            box-shadow: 0 0 0 0.2rem #2e6b4e5e; /* Agrega una sombra al hacer foco */
             outline: none;
         }
 
@@ -47,7 +47,7 @@
             position: absolute;
             top: 50%;
             left: 15px;
-            font-size: 16px;
+            font-size: 13px;
             color: #aaa;
             transition: 0.2s ease all;
             transform: translateY(-50%);
@@ -59,7 +59,7 @@
             top: -10px;
             left: 10px;
             font-size: 12px;
-            color: #007bff;
+            color: #2e6b4e;
         }
         .login-head{
             margin-bottom:10px;
@@ -104,9 +104,9 @@
 
                 <div class="form-group hr">
                     <div class="input-container">
-                        <input id="txtIdentificacion" name="txtIdentificacion" class="form-control rounded-input" type="number"
+                        <input id="txtIdentificacion" name="txtIdentificacion" class="form-control rounded-input " type="number"
                             placeholder=" " required>
-                        <label for="txtIdentificacion">Número de Identificación</label>
+                        <label for="txtIdentificacion">Usuario</label>
                         <div class="invalid-feedback">El inicio de sesión o la contraseña no son válidos.</div>
                     </div>
                 </div>
@@ -176,6 +176,21 @@
                     }, false);
                 });
         })();
+
+        function resetValidation() {
+    var form = document.getElementById('formLogin');
+    
+    // Elimina la clase 'was-validated'
+    form.classList.remove('was-validated');
+
+    // Elimina las clases 'is-valid' y 'is-invalid' de todos los inputs
+    form.querySelectorAll('.form-control').forEach(function (input) {
+        input.classList.remove('is-valid', 'is-invalid');
+    });
+}
+
+}
+
     </script>
 
     <!-- JavaScript-->
