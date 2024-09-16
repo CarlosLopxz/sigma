@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', function(){
             "dataSrc":""
         },
         "columns":[
-            {"data":"fichaprograma"},
+            {"data":"numeroficha"},
             {"data":"nombreprograma"},
-            {"data":"ideinstructor"},
+            {"data":"nombres"},
             {"data":"status"},
             {"data":"options"}
 
@@ -58,13 +58,13 @@ document.addEventListener('DOMContentLoaded', function(){
         formFicha.onsubmit = function(e) {
             e.preventDefault();
             var intIdeFicha = document.querySelector('#ideFicha').value;
-            let strCodigoPrograma = document.querySelector('#txtCodigoPrograma').value;
-            let strNombrePrograma= document.querySelector('#txtNombrePrograma').value;
-            let strFichaPrograma = document.querySelector('#txtFichaPrograma').value;
+            let intNumeroFicha = document.querySelector('#txtFichaPrograma').value;
+            let intUsuarioIde= document.querySelector('#txtIdeUsuario').value;
             let strIdeInstructor = document.querySelector('#txtIdeInstructor').value;
-            let strNombreInstructor= document.querySelector('#txtNombreInstructor').value;
+            let strCodigoPrograma = document.querySelector('#txtCodigoPrograma').value;
+            let intProgramaIde= document.querySelector('#txtIdPrograma').value;
 
-            if(strCodigoPrograma == '' || strNombrePrograma == '' || strFichaPrograma == '' || strIdeInstructor == '')
+            if(strCodigoPrograma == '' || intProgramaIde == '' || intNumeroFicha == '' || strIdeInstructor == '')
             {
                 swal("Atención", "Todos los campos son obligatorios." , "error");
                 return false;
@@ -123,11 +123,11 @@ function fntViewInfo(ideficha){
             if(objData.status)
             {
                 
-                document.querySelector("#celIdeFicha").innerHTML = objData.data.ideficha;
+                document.querySelector("#celIdeFicha").innerHTML = objData.data.numeroficha;
                 document.querySelector("#celCodigoPrograma").innerHTML = objData.data.nombreprograma;
-                document.querySelector("#celNumeroFicha").innerHTML = objData.data.fichaprograma;
-                document.querySelector("#celIdeInstructor").innerHTML = objData.data.ideinstructor;
-                document.querySelector("#celEstadoFicha").innerHTML = objData.data.status;
+                document.querySelector("#celNumeroFicha").innerHTML = objData.data.nombres;
+                document.querySelector("#celIdeInstructor").innerHTML = objData.data.horasprograma;
+                document.querySelector("#celEstadoFicha").innerHTML = objData.data.nivelprograma;
                 
                 $('#modalViewFicha').modal('show');
             }else{
@@ -156,11 +156,11 @@ function fntEditInfo(element, ideficha){
                 
                 document.querySelector("#ideFicha").value = objData.data.ideficha;
                 document.querySelector("#txtCodigoPrograma").value = objData.data.codigoprograma;
-                document.querySelector("#txtNombrePrograma").value = objData.data.nombreprograma;
-                document.querySelector("#txtFichaPrograma").value = objData.data.fichaprograma;
-                document.querySelector("#txtIdeInstructor").value =objData.data.ideinstructor;
-                document.querySelector("#txtNombreInstructor").value =objData.data.nombres;
-                
+                document.querySelector("#txtIdPrograma").value = objData.data.ideprograma;
+                document.querySelector("#txtFichaPrograma").value = objData.data.numeroficha;
+                document.querySelector("#txtIdeInstructor").value =objData.data.identificacion;
+                document.querySelector("#txtIdeUsuario").value =objData.data.ideusuario;
+
             }
         }
         $('#modalFormFicha').modal('show');
@@ -233,9 +233,9 @@ function fntViewInfoCodigoPrograma(codprograma){
             let objData = JSON.parse(request.responseText);
             if(objData.status)
             {
-                document.getElementById('txtNombrePrograma').value = objData.data.nombreprograma;
+                document.getElementById('txtIdPrograma').value = objData.data.ideprograma;
             }else{
-                document.getElementById("txtNombrePrograma").value = '';
+                document.getElementById("txtIdPrograma").value = '';
             }
         }
     }
@@ -251,9 +251,9 @@ function fntViewInfoIdeInstructor(identificacion){
             let objData = JSON.parse(request.responseText);
             if(objData.status)
             {
-                document.getElementById('txtNombreInstructor').value = objData.data.nombres;
+                document.getElementById('txtIdeUsuario').value = objData.data.ideusuario;
             }else{
-                document.getElementById("txtNombreInstructor").value = '';
+                document.getElementById("txtIdeUsuario").value = '';
             }
         }
     }

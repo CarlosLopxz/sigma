@@ -1,5 +1,6 @@
 <?php
 headerAdmin($data);
+
 ?>
 <div id="contentAjax"></div>
 <main class="app-content">
@@ -7,10 +8,10 @@ headerAdmin($data);
         <div>
             <h1><i class="bi bi-bookmark-fill"></i> <?=$data['page_title']?>
             <?php if ($_SESSION['permisosMod']['w']) {?>
-        <button class="btn btn-warning espaciado" type="button" data-bs-toggle="modal" onclick="openModal();">
+            <button class="btn btn-warning espaciado" type="button" data-bs-toggle="modal" onclick="openModal();">
             <i class="bi bi-bookmark-plus-fill"></i>
             Nueva Ficha</button>
-        <?php }?></h1>
+            <?php }?></h1>
         </div>
       
 

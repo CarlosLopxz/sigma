@@ -30,10 +30,9 @@
                             </div>
 
                             <div class="modal-body">
-                                <label for="txtNombrePrograma">Nombre del PROGRAMA<span
-                                        class="requerido">*</span></label>
-                                <input type="text" class="form-control" id="txtNombrePrograma" name="txtNombrePrograma"
-                                    required="" disabled>
+                                <label for="txtIdPrograma">ID PROGRAMA<span class="required">*</span></label>
+                                <input type="text" class="form-control" id="txtIdPrograma" name="txtIdPrograma"
+                                    required="">
                             </div>
 
 
@@ -52,10 +51,9 @@
                             </div>
 
                             <div class="modal-body">
-                                <label for="txtNombreInstructor">Nombre del INSTRUCTOR <span
-                                        class="requerido">*</span></label>
-                                <input type="text" class="form-control" id="txtNombreInstructor"
-                                    name="txtNombreInstructor" required="" disabled>
+                                <label for="txtIdeUsuario">IDE USUARIO <span class="required">*</span></label>
+                                <input type="text" class="form-control" id="txtIdeUsuario" name="txtIdeUsuario"
+                                    required="">
                             </div>
 
                             <!-- <div class="modal-body">
@@ -97,29 +95,29 @@
                     <div class="tile-body">
 
 
-                        <table class="table table-bordered">
+                    <table class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <td>ID:</td>
+                                    <td>Número de Ficha:</td>
                                     <td id="celIdeFicha">233104</td>
                                 </tr>
                                 <tr>
-                                    <td>Codigo:</td>
+                                    <td>Programa:</td>
                                     <td id="celCodigoPrograma">233104</td>
                                 </tr>
 
                                 <tr>
-                                    <td>Numero de Ficha:</td>
+                                    <td>Instructor Líder:</td>
                                     <td id="celNumeroFicha">Programación de Software</td>
                                 </tr>
 
                                 <tr>
-                                    <td>Instructor:</td>
+                                    <td>Horas del Programa:</td>
                                     <td id="celIdeInstructor">Horas Competencia</td>
                                 </tr>
 
                                 <tr>
-                                    <td>Programa:</td>
+                                    <td>Nivel del Programa:</td>
                                     <td id="celEstadoFicha">2875079</td>
                                 </tr>
                             </tbody>

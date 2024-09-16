@@ -60,10 +60,9 @@
                                     onkeypress="return controlTag(event);">
                             </div>
 
-                            <div class="modal-body">
-                                <label for="txtRolUsuario">Rol</label>
-                                <select class="form-select selectpicker show-tick" id="txtRolUsuario"
-                                    name="txtRolUsuario" data-live-search="true" data-style="btn-success" required>
+                            <div class="modal-body mb-1">
+                                <label for="txtRolUsuario">Selecciona el Rol</label>
+                                <select class="form-control selectpicker" id="txtRolUsuario" name="txtRolUsuario">
                                 </select>
                             </div>
 

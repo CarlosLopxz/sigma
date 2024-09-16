@@ -136,7 +136,8 @@ if(document.querySelector('#txtRolUsuario')){
         if(request.readyState == 4 && request.status == 200){
             document.querySelector('#txtRolUsuario').innerHTML = request.responseText;
             // $('.txtRolUsuario').selectpicker('render');
-            $('.txtRolUsuario').selectpicker('refresh');
+            $('#txtRolUsuario').picker({search : true});
+            $('#txtRolUsuario').selectpicker('refresh');
         }
     }
 }

@@ -37,10 +37,10 @@ class Fichas extends Controllers
             } else {
                 $intIdeFicha = intval($_POST['ideFicha']);
                 $strCodigoPrograma = strClean($_POST['txtCodigoPrograma']);
-                $strNombrePrograma = strClean($_POST['txtNombrePrograma']);
-                $strFichaPrograma = strClean($_POST['txtFichaPrograma']);
+                $intNumeroFicha = strClean($_POST['txtFichaPrograma']);
                 $strIdeInstructor = strClean($_POST['txtIdeInstructor']);
-                $strNombreInstructor = strClean($_POST['txtNombreInstructor']);
+                $intUsuarioIde = strClean($_POST['txtIdeUsuario']);
+                $intProgramaIde = strClean($_POST['txtIdPrograma']);
 
                 $intTipoId = 5;
                 $request_user = "";
@@ -48,9 +48,9 @@ class Fichas extends Controllers
                     $option = 1;
                     if ($_SESSION['permisosMod']['w']) {
                         $request_user = $this->model->insertFicha(
-                            $strCodigoPrograma,
-                            $strFichaPrograma,
-                            $strIdeInstructor
+                            $intNumeroFicha,
+                            $intUsuarioIde,
+                            $intProgramaIde
 
                         );
                     }
@@ -59,9 +59,9 @@ class Fichas extends Controllers
                     if ($_SESSION['permisosMod']['u']) {
                         $request_user = $this->model->updateFicha(
                             $intIdeFicha,
-                            $strCodigoPrograma,
-                            $strFichaPrograma,
-                            $strIdeInstructor
+                            $intNumeroFicha,
+                            $intUsuarioIde,
+                            $intProgramaIde
                         );
                     }
                 }
