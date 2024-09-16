@@ -79,10 +79,13 @@
             -moz-appearance: textfield; /* Cambia la apariencia para eliminar las flechas en Firefox */
         }
         .input-container{
-            margin-bottom:40px;
+            margin-bottom:45px;
         }
         .hr{
             margin-top:30px;
+        }
+        .tyt{
+            margin-left:10px;
         }
     </style>
 </head>
@@ -107,7 +110,7 @@
                         <input id="txtIdentificacion" name="txtIdentificacion" class="form-control rounded-input " type="number"
                             placeholder=" " required>
                         <label for="txtIdentificacion">Usuario</label>
-                        <div class="invalid-feedback">El inicio de sesión o la contraseña no son válidos.</div>
+                        <div class="invalid-feedback tyt">El inicio de sesión o la contraseña no son válidos.</div>
                     </div>
                 </div>
 
@@ -116,7 +119,7 @@
                         <input id="txtPassword" name="txtPassword" class="form-control rounded-input" type="password"
                             placeholder=" " required>
                         <label for="txtPassword">Ingrese Contraseña</label>
-                        <div class="invalid-feedback">El inicio de sesión o la contraseña no son válidos.</div>
+                        <div class="invalid-feedback tyt">El inicio de sesión o la contraseña no son válidos.</div>
                     </div>
                 </div>
 
