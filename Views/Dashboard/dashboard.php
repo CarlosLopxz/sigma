@@ -21,7 +21,7 @@
             <a href="<?=base_url()?>/roles" class="linkw">
                 <div class="widget-small icon color-cards-instructores"><i class="icon bi bi-toggles fs-1"></i>
                     <div class="info">
-                        <h4 class="txtdashboard-cards">Roles</h4>
+             <h4 class="txtdashboard-cards">Roles</h4>
                         <p><b><?=$data['roles']?></b></p>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
      <div class="row">
        <div class="col-md-6">
          <div class="tile">
-           <h3 class="tile-title">Horas Completadas - Semanales</h3>
+           <h3 class="tile-title"></h3>
            <div class="ratio ratio-16x9">
              <div id="salesChart"></div>
            </div>
@@ -84,7 +84,7 @@
        </div>
        <div class="col-md-6">
          <div class="tile">
-           <h3 class="tile-title">Gestion de Horas - Mensuales </h3>
+           <h3 class="tile-title"></h3>
            <div class="ratio ratio-16x9">
              <div id="supportRequestChart"></div>
            </div>

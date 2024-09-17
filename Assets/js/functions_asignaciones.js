@@ -212,6 +212,7 @@ function fntDelInfo(ideficha){
         cancelButtonText: "Cancelar",
         closeOnConfirm: false,
         closeOnCancel: true
+    
     }, function(isConfirm) {
         
         if (isConfirm) 
