@@ -30,22 +30,22 @@ document.addEventListener('DOMContentLoaded', function(){
                 "extend": "copyHtml5",
                 "text": "<i class='bi bi-files fs-3 mb-2'></i>",
                 "titleAttr":"Copiar",
-                "className": "btn btn-warning margen-btn"
+                "className": "btn btn-warning mt-3"
             },{
                 "extend": "excelHtml5",
                 "text": "<i class='bi bi-filetype-exe fs-3 mb-2'></i>",
                 "titleAttr":"Exportar a Excel",
-                "className": "btn btn-success margen-btn"
+                "className": "btn btn-success mt-3"
             },{
                 "extend": "pdfHtml5",
                 "text": "<i class='bi bi-filetype-pdf fs-3 mb-2'></i>",
                 "titleAttr":"Exportar a PDF",
-                "className": "btn btn-danger margen-btn"
+                "className": "btn btn-danger mt-3"
             },{
                 "extend": "csvHtml5",
                 "text": "<i class='bi bi-filetype-csv fs-3 mb-2'></i>",
                 "titleAttr":"Exportar a CSV",
-                "className": "btn btn-info margen-btn"
+                "className": "btn btn-info mt-3"
             }
         ],
         "resonsieve":"true",
@@ -217,7 +217,8 @@ function fntDelInfo(ideusuario){
         confirmButtonText: "Si, eliminar!",
         cancelButtonText: "No, cancelar!",
         closeOnConfirm: false,
-        closeOnCancel: true
+        closeOnCancel: true,
+        
     }, function(isConfirm) {
         
         if (isConfirm) 
