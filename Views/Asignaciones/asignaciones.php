@@ -25,14 +25,14 @@ headerAdmin($data);
                 <div class="tile-body">
                     <div class="table-responsive">
                         <table class="table table-hover table-bordered" id="tableAsignaciones">
-                            <thead class="table-success">
+                            <thead class="table-warning">
                                 <tr>
-                                    <th class="table-warning">Ficha</th>
-                                    <th class="table-warning">Instructor</th>
-                                    <th class="table-warning">Competencia</th>
-                                    <th class="table-warning">Horas</th>
-                                    <th class="table-warning">Mes</th>
-                                    <th class="table-warning">Acciones</th>
+                                <th class="text-center">Número de Ficha:</th>
+                                    <th class="text-center">Instructor:</th>
+                                    <th class="text-center">Competencia Asignada:</th>
+                                    <th class="text-center">Horas Asignadas:</th>
+                                    <th class="text-center">Mes de Asignación</th>
+                                    <th class="text-center">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider text-center">

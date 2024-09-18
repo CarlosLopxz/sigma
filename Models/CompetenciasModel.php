@@ -19,7 +19,7 @@ class CompetenciasModel extends Mysql
         {
             // ORIGINAL DE CONSULTA DE PROGRAMAS
             $sql = "SELECT * FROM tbl_programas
-            WHERE status != 0 ORDER BY nombreprograma ASC";
+            WHERE status != 0 ORDER BY numeroficha ASC";
 
 // $sql = "SELECT ,tp.ideprograma,tp.codigoprograma,tp.nivelprograma,tp.nombreprograma,tp.horasprograma,tp.status,tc.idecompetencia,tc.codigocompetencia,tc.nombrecompetencia,tc.horascompetencia,tc.programaide,tc.status
 
@@ -63,68 +63,85 @@ class CompetenciasModel extends Mysql
 
 
     public function insertCompetencia(
-        string $codigocompetencia,
+        int $codigocompetencia,
+        string $tipocompetencia,
         string $nombrecompetencia,
-        string $horascompetencia,
-        string $ideprograma
+        int $horascompetencia,
+        int $programaide
     ) {
-        $this->strCodigoCompetencia = $codigocompetencia;
+        $this->intCodigoCompetencia = $codigocompetencia;
+        $this->strTipoCompetencia = $tipocompetencia;
         $this->strNombreCompetencia = $nombrecompetencia;
-        $this->strHorasCompetencia = $horascompetencia;
-        $this->strCodigoPrograma = $ideprograma;
+        $this->intHorasCompetencia = $horascompetencia;
+        $this->intProgramaIde = $programaide;
 
         $return = 0;
-        // $sql = "SELECT * FROM tbl_competencias, tbl_programas WHERE
-		// 		codigocompetencia = '{$this->strCodigoCompetencia}' or programaide = '{$this->strCodigoPrograma}'";
-				// codigocompetencia = '{$this->strCodigoCompetencia}' OR codigoprograma != '{$this->strCodigoPrograma}'";
 
-// $sql = "SELECT tc.idecompetencia,tc.codigocompetencia,tc.nombrecompetencia,tc.programaide,tc.status,tp.ideprograma,tp.codigoprograma,tp.nivelprograma,tp.nombreprograma,tp.status
-// FROM tbl_competencias as tc
-// INNER JOIN tbl_programas as tp
-// ON tp.codigoprograma = tc.programaide
-// WHERE tc.codigocompetencia = $this->strCodigoCompetencia or tp.codigoprograma != $this->strCodigoCompetencia";
+        $sql = "SELECT tc.idecompetencia,tc.codigocompetencia,tc.tipocompetencia,tc.nombrecompetencia,tc.horascompetencia,tc.fichaide,tc.status,
 
-$sql1 = "SELECT * FROM tbl_competencias WHERE (codigocompetencia = '{$this->strCodigoCompetencia}') ";
+        tf.ideficha,tf.numeroficha,tf.usuarioide,tf.programaide,tf.status,
+       
+       tp.ideprograma,tp.codigoprograma,tp.nivelprograma,tp.nombreprograma,tp.horasprograma,tp.status
 
-$sql2 = "SELECT * FROM tbl_programas WHERE (codigoprograma = $this->strCodigoPrograma) ";
+       FROM tbl_competencias tc
+       INNER JOIN tbl_fichas tf 
+       ON tf.ideficha = tc.fichaide 
+       INNER JOIN tbl_programas  tp
+       ON tp.ideprograma = tf.ideficha
+        WHERE tc.codigocompetencia = $this->intCodigoCompetencia AND tp.status != 0";
 
-        $request1 = $this->select_all($sql1);
-        $request2 = $this->select_all($sql2);
+        $request = $this->select_all($sql);
 
-        if (empty($request1) && !empty($request2) ) {
-            $query_insert = "INSERT INTO tbl_competencias(codigocompetencia,nombrecompetencia,horascompetencia,programacodigo)
-            VALUES(?,?,?,?)";
+
+        if (empty($request)) {
+            $query_insert = "INSERT INTO tbl_competencias(codigocompetencia,tipocompetencia,nombrecompetencia,horascompetencia,fichaide)
+            VALUES(?,?,?,?,?)";
             $arrData = array(
-                $this->strCodigoCompetencia,
+                $this->intCodigoCompetencia,
+                $this->strTipoCompetencia,
                 $this->strNombreCompetencia,
-                $this->strHorasCompetencia,
-                $this->strCodigoPrograma
+                $this->intHorasCompetencia,
+                $this->intProgramaIde
             );
             $request_insert = $this->insert($query_insert, $arrData);
             $return = $request_insert;
-        } else {
-            $return = "exist";
-        }
-        return $return;
-    }
+            } else {
+                $return = "exist";
+            }
+            return $return;
+            }
 
-    // LISTADO DE LA TABLA
-    public function selectCompetencias()
-    {
-        // $sql = "SELECT * FROM tbl_competencias WHERE status != 0";
-        $sql = "SELECT * FROM tbl_programas as tp, tbl_competencias as tc
-        WHERE tp.codigoprograma = tc.programacodigo AND tc.status != 0";
-        $request = $this->select_all($sql);
-        return $request;
-    }
+            //TODO LISTADO DE LA TABLA
+            public function selectCompetencias()
+            {
+                $sql = "SELECT tc.idecompetencia,tc.codigocompetencia,tc.tipocompetencia,tc.nombrecompetencia,tc.horascompetencia,tc.fichaide,tc.status,
+
+                 tf.ideficha,tf.numeroficha,tf.usuarioide,tf.programaide,tf.status,
+                
+                tp.ideprograma,tp.codigoprograma,tp.nivelprograma,tp.nombreprograma,tp.horasprograma,tp.status,
+
+                tdtc.idetemporal,tdtc.avancehorascompetencia,tdtc.competenciaide,tdtc.fichaide,tdtc.status
+
+                FROM tbl_competencias tc
+                INNER JOIN tbl_fichas tf 
+                ON tf.ideficha = tc.fichaide 
+                INNER JOIN tbl_programas  tp
+                ON tp.ideprograma = tf.ideficha
+                INNER JOIN tbl_detalle_temp_competencias  tdtc
+                ON tdtc.competenciaide = tc.idecompetencia 
+                WHERE tc.status != 0";
+
+                $request = $this->select_all($sql);
+                return $request;
+            }
 
         //VISTA INFORMACIÓN PROGRAMA
         public function selectPrograma(int $codprograma)
         {
             $this->intCodPrograma = $codprograma;
             $sql = "SELECT *
-                    FROM tbl_programas
-                    WHERE codigoprograma = $this->intCodPrograma";
+                    FROM tbl_fichas
+                    WHERE numeroficha = $this->intCodPrograma";
             $request = $this->select($sql);
             return $request;
         }
@@ -136,12 +153,18 @@ $sql2 = "SELECT * FROM tbl_programas WHERE (codigoprograma = $this->strCodigoPro
     {
         $this->intIdeCompetencia = $idecompetencia;
 
-$sql = "SELECT tc.idecompetencia,tc.codigocompetencia,tc.nombrecompetencia,tc.horascompetencia,tc.programacodigo,tc.status,tp.ideprograma,tp.codigoprograma,tp.nivelprograma,tp.nombreprograma,tp.horasprograma,tp.status
+        $sql = "SELECT tc.idecompetencia,tc.codigocompetencia,tc.tipocompetencia,tc.nombrecompetencia,tc.horascompetencia,tc.fichaide,tc.status,
 
-FROM tbl_competencias tc
-INNER JOIN tbl_programas  tp
-ON tp.codigoprograma = tc.programacodigo
-WHERE tc.idecompetencia = $this->intIdeCompetencia ";
+        tf.ideficha,tf.numeroficha,tf.usuarioide,tf.programaide,tf.status,
+       
+       tp.ideprograma,tp.codigoprograma,tp.nivelprograma,tp.nombreprograma,tp.horasprograma,tp.status
+
+       FROM tbl_competencias tc
+       INNER JOIN tbl_fichas tf 
+       ON tf.ideficha = tc.fichaide 
+       INNER JOIN tbl_programas  tp
+       ON tp.ideprograma = tf.ideficha
+        WHERE tc.idecompetencia = $this->intIdeCompetencia ";
 
         $request = $this->select($sql);
         return $request;
@@ -151,33 +174,35 @@ WHERE tc.idecompetencia = $this->intIdeCompetencia ";
     //ACTUALIZAR Competencia
     public function updateCompetencia(
         int $ideCompetencia,
-        string $codigoCompetencia,
-        string $nombreCompetencia,
-        string $horasCompetencia,
-        string $codigoprograma
+        int $codigocompetencia,
+        string $tipocompetencia,
+        string $nombrecompetencia,
+        int $horascompetencia,
+        int $programaide
     ) {
 
         $this->intIdeCompetencia = $ideCompetencia;
-        $this->strCodigoCompetencia = $codigoCompetencia;
-        $this->strNombreCompetencia = $nombreCompetencia;
-        $this->strHorasCompetencia = $horasCompetencia;
-        $this->strCodigoPrograma = $codigoprograma;
+        $this->intCodigoCompetencia = $codigocompetencia;
+        $this->strTipoCompetencia = $tipocompetencia;
+        $this->strNombreCompetencia = $nombrecompetencia;
+        $this->intHorasCompetencia = $horascompetencia;
+        $this->intProgramaIde = $programaide;
 
-        $sql = "SELECT * FROM tbl_competencias WHERE (codigocompetencia = '{$this->strCodigoCompetencia}' AND idecompetencia != $this->intIdeCompetencia)";
+        $sql = "SELECT * FROM tbl_competencias WHERE (codigocompetencia = '{$this->intCodigoCompetencia}')";
         $request = $this->select_all($sql);
 
-        if (empty($request)) {
-            // TODO PENDIENTE LA VALIDACIÓN SI EL CODIGO ES IGUAL QUE EL CODIGO DE OTRO PROGRAMA DE FORMACIÓN
-            if (($this->strCodigoCompetencia != "" OR $this->strCodigoCompetencia !=  $this->strCodigoCompetencia)) {
+        if (!empty($request)) {
+            if (($this->intCodigoCompetencia != "")) {
 
-                $sql = "UPDATE tbl_competencias SET codigocompetencia=?, nombrecompetencia=?, horascompetencia=?, programacodigo=?
+                $sql = "UPDATE tbl_competencias SET codigocompetencia=?, tipocompetencia=?, nombrecompetencia=?, horascompetencia=?, fichaide=?
 						WHERE idecompetencia = $this->intIdeCompetencia";
 
                 $arrData = array(
-                    $this->strCodigoCompetencia,
+                    $this->intCodigoCompetencia,
+                    $this->strTipoCompetencia,
                     $this->strNombreCompetencia,
-                    $this->strHorasCompetencia,
-                    $this->strCodigoPrograma
+                    $this->intHorasCompetencia,
+                    $this->intProgramaIde
                 );
             } 
             $request = $this->update($sql, $arrData);
@@ -198,3 +223,129 @@ WHERE tc.idecompetencia = $this->intIdeCompetencia ";
 
 
 }
+
+
+        // $sql = "SELECT * FROM tbl_competencias, tbl_programas WHERE
+		// 		codigocompetencia = '{$this->strCodigoCompetencia}' or programaide = '{$this->strCodigoPrograma}'";
+				// codigocompetencia = '{$this->strCodigoCompetencia}' OR codigoprograma != '{$this->strCodigoPrograma}'";
+
+// $sql = "SELECT tc.idecompetencia,tc.codigocompetencia,tc.nombrecompetencia,tc.programaide,tc.status,tp.ideprograma,tp.codigoprograma,tp.nivelprograma,tp.nombreprograma,tp.status
+// FROM tbl_competencias as tc
+// INNER JOIN tbl_programas as tp
+// ON tp.codigoprograma = tc.programaide
+// WHERE tc.codigocompetencia = $this->strCodigoCompetencia or tp.codigoprograma != $this->strCodigoCompetencia";
+
+// $sql1 = "SELECT * FROM tbl_competencias WHERE (codigocompetencia = '{$this->strCodigoCompetencia}') ";
+
+// $sql2 = "SELECT * FROM tbl_programas WHERE (codigoprograma = $this->strCodigoPrograma) ";
+
+//         $request1 = $this->select_all($sql1);
+//         $request2 = $this->select_all($sql2);
+
+//         if (empty($request1) && !empty($request2) ) {
+//             $query_insert = "INSERT INTO tbl_competencias(codigocompetencia,nombrecompetencia,horascompetencia,programacodigo)
+//             VALUES(?,?,?,?)";
+//             $arrData = array(
+//                 $this->strCodigoCompetencia,
+//                 $this->strNombreCompetencia,
+//                 $this->strHorasCompetencia,
+//                 $this->strCodigoPrograma
+//             );
+//             $request_insert = $this->insert($query_insert, $arrData);
+//             $return = $request_insert;
+//         } else {
+//             $return = "exist";
+//         }
+//         return $return;
+//     }
+
+//     // LISTADO DE LA TABLA
+//     public function selectCompetencias()
+//     {
+//         // $sql = "SELECT * FROM tbl_competencias WHERE status != 0";
+//         $sql = "SELECT * FROM tbl_programas as tp, tbl_competencias as tc
+//         WHERE tp.codigoprograma = tc.programacodigo AND tc.status != 0";
+//         $request = $this->select_all($sql);
+//         return $request;
+//     }
+
+//         //VISTA INFORMACIÓN PROGRAMA
+//         public function selectPrograma(int $codprograma)
+//         {
+//             $this->intCodPrograma = $codprograma;
+//             $sql = "SELECT *
+//                     FROM tbl_programas
+//                     WHERE codigoprograma = $this->intCodPrograma";
+//             $request = $this->select($sql);
+//             return $request;
+//         }
+
+    
+
+//     //VISTA INFORMACIÓN COMPETENCIA
+//     public function selectCompetencia(int $idecompetencia)
+//     {
+//         $this->intIdeCompetencia = $idecompetencia;
+
+// $sql = "SELECT tc.idecompetencia,tc.codigocompetencia,tc.nombrecompetencia,tc.horascompetencia,tc.programacodigo,tc.status,tp.ideprograma,tp.codigoprograma,tp.nivelprograma,tp.nombreprograma,tp.horasprograma,tp.status
+
+// FROM tbl_competencias tc
+// INNER JOIN tbl_programas  tp
+// ON tp.codigoprograma = tc.programacodigo
+// WHERE tc.idecompetencia = $this->intIdeCompetencia ";
+
+//         $request = $this->select($sql);
+//         return $request;
+//     }
+
+
+//     //ACTUALIZAR Competencia
+//     public function updateCompetencia(
+//         int $ideCompetencia,
+//         string $codigoCompetencia,
+//         string $nombreCompetencia,
+//         string $horasCompetencia,
+//         string $codigoprograma
+//     ) {
+
+//         $this->intIdeCompetencia = $ideCompetencia;
+//         $this->strCodigoCompetencia = $codigoCompetencia;
+//         $this->strNombreCompetencia = $nombreCompetencia;
+//         $this->strHorasCompetencia = $horasCompetencia;
+//         $this->strCodigoPrograma = $codigoprograma;
+
+//         $sql = "SELECT * FROM tbl_competencias WHERE (codigocompetencia = '{$this->strCodigoCompetencia}' AND idecompetencia != $this->intIdeCompetencia)";
+//         $request = $this->select_all($sql);
+
+//         if (empty($request)) {
+//             // TODO PENDIENTE LA VALIDACIÓN SI EL CODIGO ES IGUAL QUE EL CODIGO DE OTRO PROGRAMA DE FORMACIÓN
+//             if (($this->strCodigoCompetencia != "" OR $this->strCodigoCompetencia !=  $this->strCodigoCompetencia)) {
+
+//                 $sql = "UPDATE tbl_competencias SET codigocompetencia=?, nombrecompetencia=?, horascompetencia=?, programacodigo=?
+// 						WHERE idecompetencia = $this->intIdeCompetencia";
+
+//                 $arrData = array(
+//                     $this->strCodigoCompetencia,
+//                     $this->strNombreCompetencia,
+//                     $this->strHorasCompetencia,
+//                     $this->strCodigoPrograma
+//                 );
+//             } 
+//             $request = $this->update($sql, $arrData);
+//         } else {
+//             $request = "exist";
+//         }
+//         return $request;
+//     }
+
+//     public function deleteCompetencia(int $intIdeCompetencia)
+//     {
+//         $this->intIdeCompetencia = $intIdeCompetencia;
+//         $sql = "UPDATE tbl_competencias SET status = ? WHERE idecompetencia = $this->intIdeCompetencia ";
+//         $arrData = array(0);
+//         $request = $this->update($sql, $arrData);
+//         return $request;
+//     }
+
+
+// }

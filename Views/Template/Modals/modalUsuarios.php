@@ -44,13 +44,6 @@
                                     onkeypress="return controlTag(event);">
                             </div>
 
-                            <div class="modal-body">
-                                <label for="txtTelefonoUsuario"">Telefono<span class="
-                                    requerido">*</span></label>
-                                <input type="text" class="form-control valid validNumber" id="txtTelefonoUsuario"
-                                    name="txtTelefonoUsuario" required="" maxlength="30"
-                                    onkeypress="return controlTag(event);">
-                            </div>
 
                             <div class="modal-body">
                                 <label for="txtCorreoUsuario"">Correo Electronico<span class="
@@ -123,10 +116,7 @@
                                     <td>Apellidos:</td>
                                     <td id="celApellidosUsuario">233104</td>
                                 </tr>
-                                <tr>
-                                    <td>Telefono:</td>
-                                    <td id="celTelefonoUsuario">233104</td>
-                                </tr>
+
                                 <tr>
                                     <td>Correo Electronico:</td>
                                     <td id="celCorreoUsuario">233104</td>

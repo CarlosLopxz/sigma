@@ -76,12 +76,11 @@ class Competencias extends Controllers
                 $arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
             } else {
                 $intIdeCompetencia = intval($_POST['ideCompetencia']);
-                $strCodigoCompetencia = strClean($_POST['txtCodigoCompetencia']);
+                $intCodigoCompetencia = strClean($_POST['txtCodigoCompetencia']);
+                $strTipoCompetencia = strClean($_POST['txtTipoCompetencia']);
                 $strNombreCompetencia = strClean($_POST['txtNombreCompetencia']);
-                $strHorasCompetencia = strClean($_POST['txtHorasCompetencia']);
-                $strCodigoPrograma = strClean($_POST['txtCodigoPrograma']);
-                // $strListadoProgramas = strClean($_POST['ListadoProgramas']);
-                // $strNombrePrograma = strClean($_POST['txtNombrePrograma']);
+                $intHorasCompetencia = strClean($_POST['txtHorasCompetencia']);
+                $intProgramaIde = strClean($_POST['txtIdePrograma']);
 
                 $intTipoId = 5;
                 $request_user = "";
@@ -89,10 +88,11 @@ class Competencias extends Controllers
                     $option = 1;
                     if ($_SESSION['permisosMod']['w']) {
                         $request_user = $this->model->insertCompetencia(
-                            $strCodigoCompetencia,
+                            $intCodigoCompetencia,
+                            $strTipoCompetencia,
                             $strNombreCompetencia,
-                            $strHorasCompetencia,
-                            $strCodigoPrograma
+                            $intHorasCompetencia,
+                            $intProgramaIde
 
                         );
                     }
@@ -101,10 +101,11 @@ class Competencias extends Controllers
                     if ($_SESSION['permisosMod']['u']) {
                         $request_user = $this->model->updateCompetencia(
                             $intIdeCompetencia,
-                            $strCodigoCompetencia,
+                            $intCodigoCompetencia,
+                            $strTipoCompetencia,
                             $strNombreCompetencia,
-                            $strHorasCompetencia,
-                            $strCodigoPrograma
+                            $intHorasCompetencia,
+                            $intProgramaIde
                         );
                     }
                 }
@@ -139,6 +140,31 @@ class Competencias extends Controllers
                 // } else {
                 //     $arrData[$i]['status'] = '<span class="badge bg-danger">Inactivo</span>';
                 // }
+
+                $avancehorascompetencia = ($arrData[$i]['avancehorascompetencia'] * 100) / 100;
+
+                // Si el porcentaje está entre 0 y 49
+                if ($avancehorascompetencia >= 0 && $avancehorascompetencia <= 30) {
+                    $arrData[$i]['avancehorascompetencia'] = '<div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" style="width: ' . $avancehorascompetencia . '%">' . $avancehorascompetencia . '%</div>
+                    </div>';
+                }
+                else if ($arrData[$i]['avancehorascompetencia'] >= '31' && $arrData[$i]['avancehorascompetencia'] <= '65') {
+                    $arrData[$i]['avancehorascompetencia'] = '<div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="1000">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" style="width: ' . $arrData[$i]['avancehorascompetencia'] . '%">' . $arrData[$i]['avancehorascompetencia'] . '%</div>
+                    </div>';
+                
+                } 
+                else if ($arrData[$i]['avancehorascompetencia'] >= '66' && $arrData[$i]['avancehorascompetencia'] <= '85') {
+                    $arrData[$i]['avancehorascompetencia'] = '<div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="1000">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-Default" style="width: ' . $arrData[$i]['avancehorascompetencia'] . '%">' . $arrData[$i]['avancehorascompetencia'] . '%</div>
+                    </div>';
+                
+                }else if ($arrData[$i]              ['avancehorascompetencia'] >= '86' && $arrData[$i]['avancehorascompetencia'] <= '100') {
+                    $arrData[$i]['avancehorascompetencia'] = '<div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="1000">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: ' . $arrData[$i]['avancehorascompetencia'] . '%">' . $arrData[$i]['avancehorascompetencia'] . '%</div>
+                    </div>';
+                }
 
                 if ($_SESSION['permisosMod']['r']) {
                     $btnView = '<button class="btn btn-info" onClick="fntViewInfo(' . $arrData[$i]['idecompetencia'] . ')" title="Ver Competencia"><i class="far fa-eye"></i></button>';

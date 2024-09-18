@@ -25,13 +25,14 @@ headerAdmin($data);
                 <div class="tile-body">
                     <div class="table-responsive">
                         <table class="table table-hover table-bordered" id="tableCompetencias">
-                            <thead class="table-success">
+                            <thead class="table-warning">
                                 <tr>
-                                    <th class="table-warning">Código </th>
-                                    <th class="table-warning">Nombre</th>
-                                    <th class="table-warning">Horas</th>
-                                    <th class="table-warning">Código Programa</th>
-                                    <th class="table-warning">Acciones</th>
+                                <th class="text-center">Código </th>
+                                    <th class="text-center">Nombre</th>
+                                    <th class="text-center">Horas</th>
+                                    <th class="text-center">Avance</th>
+                                    <th class="text-center">Ficha</th>
+                                    <th class="text-center">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider text-center">

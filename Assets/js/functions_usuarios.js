@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function(){
             {"data":"identificacion"},
             {"data":"nombres"},
             {"data":"apellidos"},
-            {"data":"telefono"},
             {"data":"correo"},
             {"data":"nombrerol"},
             {"data":"status"},
@@ -65,12 +64,11 @@ document.addEventListener('DOMContentLoaded', function(){
             let strIdentificacionUsuario = document.querySelector('#txtIdentificacionUsuario').value;
             let strNombresUsuario = document.querySelector('#txtNombresUsuario').value;
             let strApellidosUsuario = document.querySelector('#txtApellidosUsuario').value;
-            let strTelefonoUsuario = document.querySelector('#txtTelefonoUsuario').value;
             let strCorreoUsuario = document.querySelector('#txtCorreoUsuario').value;
             let strRolUsuario = document.querySelector('#txtRolUsuario').value;
             let intStatus = document.querySelector('#listStatus').value;
 
-            if(strIdentificacionUsuario == '' || strNombresUsuario == '' || strApellidosUsuario == '' || strTelefonoUsuario == '' || strCorreoUsuario == '' || strRolUsuario == '')
+            if(strIdentificacionUsuario == '' || strNombresUsuario == '' || strApellidosUsuario == '' || strCorreoUsuario == '' || strRolUsuario == '')
             {
                 swal("Atención", "Todos los campos son obligatorios." , "error");
                 return false;
@@ -95,13 +93,14 @@ document.addEventListener('DOMContentLoaded', function(){
                     {
                         if(rowTable == ""){
                             tableUsuarios.api().ajax.reload();
+                            
                         }else{
                             htmlStatus = intStatus == 1 ? 
                             '<span class="badge text-bg-success">Activo</span>' : 
                             '<span class="badge text-bg-danger">Inactivo</span>';
                             tableUsuarios.api().ajax.reload();
                            rowTable.cells[1].textContent =  strIdentificacionUsuario;
-                           //rowTable.cells[2].textContent =  strRolUsuario;
+                            //rowTable.cells[2].textContent =  strRolUsuario;
                            rowTable.cells[2].textContent = document.querySelector("#txtRolUsuario").selectedOptions[0].text;
                             rowTable.cells[3].innerHTML = htmlStatus;
                            rowTable = "";
@@ -135,9 +134,9 @@ if(document.querySelector('#txtRolUsuario')){
     request.onreadystatechange = function(){
         if(request.readyState == 4 && request.status == 200){
             document.querySelector('#txtRolUsuario').innerHTML = request.responseText;
-            // $('.txtRolUsuario').selectpicker('render');
+            //$('.txtRolUsuario').selectpicker('render');
             $('#txtRolUsuario').picker({search : true});
-            $('#txtRolUsuario').selectpicker('refresh');
+            //$('#txtRolUsuario').selectpicker('refresh');
         }
     }
 }
@@ -161,7 +160,6 @@ function fntViewInfo(ideusuario){
                 document.querySelector("#celIdentificacionUsuario").innerHTML = objData.data.identificacion;
                 document.querySelector("#celNombresUsuario").innerHTML = objData.data.nombres;
                 document.querySelector("#celApellidosUsuario").innerHTML = objData.data.apellidos;
-                document.querySelector("#celTelefonoUsuario").innerHTML = objData.data.telefono;
                 document.querySelector("#celCorreoUsuario").innerHTML = objData.data.correo;
                 document.querySelector("#celRolUsuario").innerHTML = objData.data.rolid;
                 document.querySelector("#celEstadoUsuario").innerHTML = estadoUsuario;
@@ -194,7 +192,6 @@ function fntEditInfo(element, ideusuario){
                 document.querySelector("#txtIdentificacionUsuario").value = objData.data.identificacion;
                 document.querySelector("#txtNombresUsuario").value = objData.data.nombres;
                 document.querySelector("#txtApellidosUsuario").value = objData.data.apellidos;
-                document.querySelector("#txtTelefonoUsuario").value = objData.data.telefono;
                 document.querySelector("#txtCorreoUsuario").value = objData.data.correo;
                 document.querySelector("#txtRolUsuario").value =objData.data.idrol;
 

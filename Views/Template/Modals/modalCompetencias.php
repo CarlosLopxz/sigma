@@ -28,6 +28,14 @@
                                     onkeypress="return controlTag(event);">
                             </div>
 
+                            <div class="modal-body">
+                                <label for="txtTipoCompetencia">Tipo de Competencia</label>
+                                <select class="form-select selectpicker" data-style="btn-success"
+                                    id="txtTipoCompetencia" name="txtTipoCompetencia" required>
+                                    <option value="Técnica">Técnica</option>
+                                    <option value="Transversal">Transversal</option>
+                                </select>
+                            </div>
 
                             <div class="modal-body">
                                 <label for="txtNombreCompetencia">Nombre de la Competencia <span
@@ -45,26 +53,16 @@
                             </div>
 
                             <div class="modal-body">
-                                <label for="txtCodigoPrograma">Código del PROGRAMA <span
-                                        class="requerido">*</span></label>
+                                <label for="txtCodigoPrograma">NUMERO DE FICHA <span class="required">*</span></label>
                                 <input type="text" class="form-control validNumber" id="txtCodigoPrograma"
                                     onchange="fntViewInfoCodigoPrograma(this.value);" name="txtCodigoPrograma"
                                     required="" maxlength="10" onkeypress="return controlTag(event);">
                             </div>
 
-                            <!-- <div class="modal-body">
-                                <label for="ListadoProgramas">Programas <span class="required">*</span></label>
-                                <select class="form-control" id="ListadoProgramas" name="ListadoProgramas"
-                                    onchange="fntViewInfoCodigoPrograma(this.value);">
-                                    <option value="" selected>Selecciona el programa</option>
-                                </select>
-                            </div> -->
-
                             <div class="modal-body">
-                                <label for="txtNombrePrograma">Nombre del PROGRAMA <span
-                                        class="required">*</span></label>
-                                <input type="text" class="form-control" id="txtNombrePrograma" name="txtNombrePrograma"
-                                    required="" disabled>
+                                <label for="txtIdePrograma">ID de LA FICHA <span class="required">*</span></label>
+                                <input type="text" class="form-control" id="txtIdePrograma" name="txtIdePrograma"
+                                    required="">
                             </div>
 
                             <BR></BR>
@@ -105,8 +103,13 @@
                                 </tr>
 
                                 <tr>
-                                    <td>Nombre Competencia:</td>
+                                    <td>Nombre de la Competencia:</td>
                                     <td id="celNombreCompetencia">Programación de Software</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Tipo:</td>
+                                    <td id="celTipoPrograma">2875079</td>
                                 </tr>
 
                                 <tr>

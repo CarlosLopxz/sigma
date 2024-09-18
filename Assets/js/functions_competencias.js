@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded', function(){
             "dataSrc":""
         },
         "columns":[
-            // {"data":"idecompetencia"},
             {"data":"codigocompetencia"},
             {"data":"nombrecompetencia"},
             {"data":"horascompetencia"},
-            {"data":"programacodigo"},
+            {"data":"avancehorascompetencia"},
+            {"data":"numeroficha"},
             {"data":"options"}
 
         ],
@@ -61,12 +61,11 @@ document.addEventListener('DOMContentLoaded', function(){
             e.preventDefault();
             var intIdeCompetencia = document.querySelector('#ideCompetencia').value;
             let strCodigoCompetencia = document.querySelector('#txtCodigoCompetencia').value;
+            let strTipoCompetencia = document.querySelector('#txtTipoCompetencia').value;
             let strNombreCompetencia = document.querySelector('#txtNombreCompetencia').value;
             let strHorasCompetencia = document.querySelector('#txtHorasCompetencia').value;
-            
-            // let strListadoProgramas = document.querySelector('#ListadoProgramas').value;
             let strCodigoPrograma = document.querySelector('#txtCodigoPrograma').value;
-            let strNombrePrograma= document.querySelector('#txtNombrePrograma').value;
+            let strNombrePrograma= document.querySelector('#txtIdePrograma').value;
 
             if(strCodigoCompetencia == '' || strNombreCompetencia == '' || strNombrePrograma == '')
             {
@@ -132,8 +131,8 @@ function fntViewInfo(idecompetencia){
                 // document.querySelector("#celIdeCompetencia").innerHTML = objData.data.idecompetencia;
                 document.querySelector("#celCodigoCompetencia").innerHTML = objData.data.codigocompetencia;
                 document.querySelector("#celNombreCompetencia").innerHTML = objData.data.nombrecompetencia;
+                document.querySelector("#celTipoPrograma").innerHTML = objData.data.tipocompetencia;
                 document.querySelector("#celHorasCompetencia").innerHTML = objData.data.horascompetencia;
-                document.querySelector("#celCodigoPrograma").innerHTML = objData.data.codigoprograma;
                 document.querySelector("#celNombrePrograma").innerHTML = objData.data.nombreprograma;
                 
                 $('#modalViewCompetencia').modal('show');
@@ -226,7 +225,7 @@ function fntEditInfo(element, idecompetencia){
                 // option.value = objData.data.codigoprograma;
                 // select.appendChild(option);
 
-                document.querySelector("#txtNombrePrograma").value =objData.data.nombreprograma;
+                document.querySelector("#txtIdePrograma").value =objData.data.ideprograma;
                 
             }
         }
@@ -303,11 +302,11 @@ function fntViewInfoCodigoPrograma(codprograma){
             let objData = JSON.parse(request.responseText);
             if(objData.status)
             {
-                document.getElementById('txtNombrePrograma').value = objData.data.nombreprograma;
+                document.getElementById('txtIdePrograma').value = objData.data.nombreprograma;
                 // document.getElementById('txtNombrePrograma').innerHTML = objData.data.nombreprograma;
    
             }else{
-                document.getElementById("txtNombrePrograma").value = '';
+                document.getElementById("txtIdePrograma").value = '';
             }
         }
     }

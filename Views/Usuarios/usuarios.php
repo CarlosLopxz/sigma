@@ -29,7 +29,6 @@ headerAdmin($data);
                                     <th class="table-warning">Identificación</th>
                                     <th class="table-warning">Nombres</th>
                                     <th class="table-warning">Apellidos</th>
-                                    <th class="table-warning">Telefono</th>
                                     <th class="table-warning">Correo</th>
                                     <th class="table-warning">Rol</th>
                                     <th class="table-warning">Estado</th>

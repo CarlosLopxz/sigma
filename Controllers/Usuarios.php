@@ -37,7 +37,6 @@ class Usuarios extends Controllers
                 $strIdentificacionUsuario = strClean($_POST['txtIdentificacionUsuario']);
                 $strNombresUsuario = strClean($_POST['txtNombresUsuario']);
                 $strApellidossUsuario = strClean($_POST['txtApellidosUsuario']);
-                $strTelefonoUsuario = strClean($_POST['txtTelefonoUsuario']);
                 $strCorreoUsuario = strClean($_POST['txtCorreoUsuario']);
                 $strRolUsuario = intval(strClean($_POST['txtRolUsuario']));
                 $intStatus = intval(strClean($_POST['listStatus']));
@@ -51,8 +50,7 @@ class Usuarios extends Controllers
                         $request_user = $this->model->insertUsuario(
                             $strIdentificacionUsuario,
                             $strNombresUsuario,
-                            $strApellidossUsuario,
-                            $strTelefonoUsuario, 
+                            $strApellidossUsuario, 
                             $strCorreoUsuario,
                             $strPassword,
                             $strRolUsuario,
@@ -68,8 +66,7 @@ class Usuarios extends Controllers
                             $intIdeUsuario,
                             $strIdentificacionUsuario,
                             $strNombresUsuario,
-                            $strApellidossUsuario,
-                            $strTelefonoUsuario, 
+                            $strApellidossUsuario, 
                             $strCorreoUsuario,
                             $strRolUsuario,
                             $intStatus
@@ -115,9 +112,15 @@ class Usuarios extends Controllers
                 if ($_SESSION['permisosMod']['u']) {
                     $btnEdit = '<button class="btn btn-warning  btn-sm" onClick="fntEditInfo(this,' . $arrData[$i]['ideusuario'] . ')" title="Editar Usuario"><i class="fas fa-pencil-alt"></i></button>';
                 }
-                if ($_SESSION['permisosMod']['d']) {
-                    $btnDelete = '<button class="btn btn-danger btn-sm btnDelRol" onClick="fntDelInfo(' . $arrData[$i]['ideusuario'] . ')" title="Eliminar Usuario"><i class="bi bi-trash3"></i></button>';
-       
+                if($_SESSION['permisosMod']['d']){
+                    if(($_SESSION['idUser'] == 1 and $_SESSION['userData']['idrol'] == 1) ||
+                        ($_SESSION['userData']['idrol'] == 1 and $arrData[$i]['idrol'] != 1) and
+                        ($_SESSION['userData']['ideusuario'] != $arrData[$i]['ideusuario'] )
+                         ){
+                            $btnDelete = '<button class="btn btn-danger btnDelRol" onClick="fntDelInfo(' . $arrData[$i]['ideusuario'] . ')" title="Eliminar Usuario"><i class="bi bi-trash3"></i></button>';
+                    }else{
+                        $btnDelete = '<button class="btn btn-secondary" disabled ><i class="bi bi-trash3"></i></button>';
+                    }
                 }
 
                 $arrData[$i]['options'] = '<div class="text-center">' . $btnView . ' ' . $btnEdit . ' ' . $btnDelete . '</div>';

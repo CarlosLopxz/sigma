@@ -21,25 +21,24 @@
                             </div>
 
 
-
-
                             <div class="modal-body">
                                 <label for="txtNumeroFicha">Número de Ficha<span class="requerido">*</span></label>
                                 <input type="text" class="form-control validNumber" id="txtNumeroFicha"
-                                    onchange="fntViewInfoIdeFicha(this.value);" name="txtNumeroFicha" required=""
+                                    name="txtNumeroFicha" 
+                                    onchange="fntViewInfoIdeFicha(this.value);" required=""
                                     maxlength="10" onkeypress="return controlTag(event);">
                             </div>
 
                             <div class="modal-body">
-                                <label for="txtNombreFicha">Nombre de la FICHA <span class="requerido">*</span></label>
-                                <input type="text" class="form-control" id="txtNombreFicha" name="txtNombreFicha"
+                                <label for="txtIdeFicha">Nombre de la FICHA <span class="requerido">*</span></label>
+                                <input type="text" class="form-control" id="txtIdeFicha" name="txtIdeFicha"
                                     required="" disabled>
                             </div>
 
 
 
                             <div class="modal-body">
-                                <label for="txtCodigoCompetencia">Codigo de la COMPETENCIA<span
+                                <label for="txtCodigoCompetencia">ID de la COMPETENCIA<span
                                         class="requerido">*</span></label>
                                 <input type="text" class="form-control validNumber" id="txtCodigoCompetencia"
                                     onchange="fntViewInfoCodigoCompetencia(this.value);" name="txtCodigoCompetencia"
@@ -47,10 +46,10 @@
                             </div>
 
                             <div class="modal-body">
-                                <label for="txtNombreCompetencia">Nombre de la COMPETENCIA<span
+                                <label for="txtIdeCompetencia">Nombre de la COMPETENCIA<span
                                         class="requerido">*</span></label>
-                                <input type="text" class="form-control" id="txtNombreCompetencia"
-                                    name="txtNombreCompetencia" required="" disabled>
+                                <input type="text" class="form-control" id="txtIdeCompetencia"
+                                    name="txtIdeCompetencia" required="" disabled>
                             </div>
 
                             <div class="modal-body">
@@ -76,23 +75,9 @@
                                 <p id="mensaje"></p>
                             </div>
 
-                            <div class="modal-body">
-                                <label for="txtIdeInstructor">Identificación del Instructor<span
-                                        class="requerido">*</span></label>
-                                <input type="text" class="form-control validNumber" id="txtIdeInstructor"
-                                    onchange="fntViewInfoIdeInstructor(this.value);" name="txtIdeInstructor" required=""
-                                    maxlength="10" onkeypress="return controlTag(event);">
-                            </div>
 
                             <div class="modal-body">
-                                <label for="txtNombreInstructor">Nombre del INSTRUCTOR <span
-                                        class="requerido">*</span></label>
-                                <input type="text" class="form-control" id="txtNombreInstructor"
-                                    name="txtNombreInstructor" required="" disabled>
-                            </div>
-
-                            <div class="modal-body">
-                                <label for="txtNumeroHoras">Cantidad de horas ASIGNAR<span
+                                <label for="txtNumeroHoras">Cantidad de horas a ASIGNAR<span
                                         class="requerido">*</span></label>
                                 <input type="text" class="form-control validNumber" id="txtNumeroHoras"
                                     onchange="ftnSumarCantidadHoras(this.value);" name="txtNumeroHoras" required="">
@@ -125,6 +110,21 @@
                                     name="txtNombreCompetencia" required="" disabled>
                             </div> -->
 
+                            <div class="modal-body">
+                                <label for="txtIdeInstructor">Identificación del Instructor<span
+                                        class="requerido">*</span></label>
+                                <input type="text" class="form-control validNumber" id="txtIdeInstructor"
+                                    onchange="fntViewInfoIdeInstructor(this.value);" name="txtIdeInstructor" required=""
+                                    maxlength="10" onkeypress="return controlTag(event);">
+                            </div>
+
+                            <div class="modal-body">
+                                <label for="txtIdeUsuario">Nombre del INSTRUCTOR <span
+                                        class="requerido">*</span></label>
+                                <input type="text" class="form-control" id="txtIdeUsuario"
+                                    name="txtIdeUsuario" required="" disabled>
+                            </div>
+
                             <BR></BR>
                             <div class="modal-footer">
                                 <button id="btnActionForm" class="btn btn-success" type="submit"><i
@@ -149,7 +149,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content ">
             <div class="modal-header header-primary">
-                <h5 class="modal-title" id="titleModal">ASIGNAR</h5>
+                <h5 class="modal-title" id="titleModal">atos de la Asignación de la competencia</h5>
             </div>
 
             <div class="modal-body">
@@ -160,7 +160,7 @@
                         <table class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <td>Ficha:</td>
+                                    <td>Número de Ficha:</td>
                                     <td id="celFicha">233104</td>
                                 </tr>
                                 <tr>
@@ -174,12 +174,12 @@
                                 </tr>
 
                                 <tr>
-                                    <td>Horas:</td>
+                                    <td>Horas Asignadas:</td>
                                     <td id="celHoras">Horas</td>
                                 </tr>
 
                                 <tr>
-                                    <td>Mes:</td>
+                                    <td>Mes de Asignación:</td>
                                     <td id="celMes">2875079</td>
                                 </tr>
                             </tbody>
