@@ -6,7 +6,7 @@
 
   <script src="<?=media();?>/js/functions_darkmode.js"></script>
 
-  <!--Start of Tawk.to Script-->
+  <!-- inicio de la conexion con chat box Tawk.to -->
 <script type="text/javascript">
   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
@@ -18,6 +18,8 @@
       s0.parentNode.insertBefore(s1,s0);
     })();
 </script>
+<!-- fin  de la conexion con chat box Tawk.to -->
+
 
 
 <!--End of Tawk.to Script-->

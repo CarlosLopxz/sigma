@@ -87,10 +87,12 @@
         .tyt{
             margin-left:10px;
         }
+       
+
     </style>
 </head>
 
-<body>
+<body class="body-login"> 
     <section class="material-half-bg">
     </section>
     <section class="login-content">
@@ -101,7 +103,7 @@
                 </div>
             </div>
             
-            <form class="login-form needs-validation" name="formLogin" id="formLogin" novalidate>
+            <form class="login-form" name="formLogin" id="formLogin">
                 <img src="<?=media();?>/images/logonegro.png" alt="" class="cursor-evento logo-img">
                 <h3 class="login-head tipo"><i class="bi bi-person-fill me-2"></i>INICIAR SESION</h3>
 
@@ -192,7 +194,7 @@
     });
 }
 
-}
+
 
     </script>
 
