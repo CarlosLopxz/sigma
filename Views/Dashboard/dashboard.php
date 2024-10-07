@@ -73,6 +73,8 @@
         </a>
     </div>
     <?php }?>
+    
+    <!-- vista de la grafica de reporte -->
     <div class="row">
         <div class="col-md-6">
             <div class="tile">

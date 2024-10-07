@@ -1,4 +1,9 @@
 
+<div class="whatsapp-bubble" title="WhatsApp">
+  <a href="https://wa.me/+573216816858" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/150px-WhatsApp.svg.png" alt="WhatsApp" />
+    </a>
+</div>
 
   <div class="copyright">
     &copy; 2024 <a href="#">Sigmasoft.</a>Todos los Derechos Reservados
@@ -6,19 +11,6 @@
 
   <script src="<?=media();?>/js/functions_darkmode.js"></script>
 
-  <!-- inicio de la conexion con chat box Tawk.to -->
-<script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-      s1.async=true;
-      s1.src='https://embed.tawk.to/66e2410450c10f7a00a82bc2/1i7hsruq9';
-      s1.charset='UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1,s0);
-    })();
-</script>
-<!-- fin  de la conexion con chat box Tawk.to -->
 
 
 

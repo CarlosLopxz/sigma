@@ -30,9 +30,9 @@
                             </div>
 
                             <div class="modal-body">
-                                <label for="txtIdeFicha">Nombre de la FICHA <span class="requerido">*</span></label>
-                                <input type="text" class="form-control" id="txtIdeFicha" name="txtIdeFicha"
-                                    required="" disabled>
+                                <!-- <label for="txtIdeFicha">Nombre de la FICHA <span class="requerido">*</span></label> -->
+                                <!-- <input type="text" class="form-control" id="txtIdeFicha" name="txtIdeFicha"
+                                    required="" disabled> -->
                             </div>
 
 

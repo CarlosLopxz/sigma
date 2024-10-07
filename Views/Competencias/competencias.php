@@ -9,7 +9,7 @@ headerAdmin($data);
             <?php if ($_SESSION['permisosMod']['w']) {?>
         <button class="btn btn-warning espaciado" type="button" data-bs-toggle="modal" onclick="openModal();">
             <i class="bi bi-award-fill"></i>
-            Nueva Competencia</button>
+            Nueva</button>
         <?php }?>
         </h1>
         </div>

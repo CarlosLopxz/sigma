@@ -28,22 +28,22 @@ document.addEventListener('DOMContentLoaded', function(){
         'buttons': [
             {
                 "extend": "copyHtml5",
-                "text": "<i class='bi bi-files fs-3 mb-2'></i>",
+                "text": "<i class='bi bi-files fs-5 mb-2'></i>",
                 "titleAttr":"Copiar",
                 "className": "btn btn-warning mt-3"
             },{
                 "extend": "excelHtml5",
-                "text": "<i class='bi bi-filetype-exe fs-3 mb-2'></i>",
+                "text": "<i class='bi bi-filetype-exe fs-5 mb-2'></i>",
                 "titleAttr":"Exportar a Excel",
                 "className": "btn btn-success mt-3"
             },{
                 "extend": "pdfHtml5",
-                "text": "<i class='bi bi-filetype-pdf fs-3 mb-2'></i>",
+                "text": "<i class='bi bi-filetype-pdf fs-5 mb-2'></i>",
                 "titleAttr":"Exportar a PDF",
                 "className": "btn btn-danger mt-3"
             },{
                 "extend": "csvHtml5",
-                "text": "<i class='bi bi-filetype-csv fs-3 mb-2'></i>",
+                "text": "<i class='bi bi-filetype-csv fs-5 mb-2'></i>",
                 "titleAttr":"Exportar a CSV",
                 "className": "btn btn-info mt-3"
             }
